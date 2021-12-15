@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "datastax.astra.secure-connect-bundle",
+      "type": "java.lang.String",
+      "description": "An absolute path to the Astra secure connect bundle to use."
+  }
+ ] 
+}

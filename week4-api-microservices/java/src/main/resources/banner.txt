@@ -1,0 +1,12 @@
+${AnsiColor.BLUE} ________                __      __ __           .__                   
+${AnsiColor.BLUE} \______ \   _______  __/  \    /  \  | __  _____|  |__   ____ ______  
+${AnsiColor.BLUE}  |    |  \_/ __ \  \/ /\   \/\/   /  |/ / /  ___/  |  \ /  _ \\____ \ 
+${AnsiColor.BLUE}  |    `   \  ___/\   /  \        /|    <  \___ \|   Y  (  <_> )  |_> >
+${AnsiColor.BLUE} /_______  /\___  >\_/    \__/\  / |__|_ \/____  >___|  /\____/|   __/ 
+${AnsiColor.BLUE}         \/     \/             \/       \/     \/     \/       |__|    
+
+${AnsiColor.CYAN} Implement a todoList with Spring Data Cassandra and Spring Boot
+
+${AnsiColor.BLACK} You are using BRANCH ZEND
+${AnsiColor.GREEN} The application will start at ${AnsiColor.RED}http://localhost:8080${AnsiColor.BLACK}
+ 
