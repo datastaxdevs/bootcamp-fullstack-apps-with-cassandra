@@ -1,0 +1,25 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "cassandra": {
+    "clientOptions": {
+      "cloud": {
+        "secureConnectBundle": "ASTRA_DB_SECURE_CONNECT_BUNDLE_PATH"
+      },
+      "credentials": {
+        "username": "ASTRA_DB_CLIENT_ID",
+        "password": "ASTRA_DB_CLIENT_SECRET"
+      },
+      "keyspace": "ASTRA_DB_KEYSPACE"
+    },
+    "ormOptions": {
+      "migration": "alter",
+      "createKeyspace": false
+    }
+  }
+}
