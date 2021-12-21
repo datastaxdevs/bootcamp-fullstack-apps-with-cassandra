@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
+from cassandra.auth import PlainTextAuthProvider
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+SECRET_KEY = config('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -75,8 +77,16 @@ WSGI_APPLICATION = 'todos.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django_cassandra_engine',
+        'NAME': config('ASTRA_DB_KEYSPACE'),
+        'OPTIONS': {
+            'connection': {
+                'auth_provider': PlainTextAuthProvider('token', config('ASTRA_DB_APPLICATION_TOKEN')),
+                'cloud': {
+                    'secure_connect_bundle': config('ASTRA_DB_BUNDLE_PATH')
+                }
+            }
+        }
     }
 }
 
