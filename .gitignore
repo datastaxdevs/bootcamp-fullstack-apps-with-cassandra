@@ -1,5 +1,6 @@
 .env
 venv
+bundle.zip
 
 ############################
 # JAVA
