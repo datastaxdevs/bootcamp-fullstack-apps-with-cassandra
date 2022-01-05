@@ -6,7 +6,7 @@ Welcome to the 'Intro to Cassandra for Developers' workshop! In this two-hour wo
 
 It doesn't matter if you join our workshop live or you prefer to do at your own pace, we have you covered. In this repository, you'll find everything you need for this workshop:
 
-- Materials used during presentations
+- [Materials used during presentations](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/raw/main/week1-intro-to-cassandra/slides/WEEK1%20-%20Introduction%20to%20Apache%20Cassandra.pdf)
 - Hands-on exercises
 - [Workshop video](https://www.youtube.com/watch?v=iwDKqUesqvE)
 - [Discord chat](https://dtsx.io/discord)
