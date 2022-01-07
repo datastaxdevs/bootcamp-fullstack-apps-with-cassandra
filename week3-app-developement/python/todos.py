@@ -19,6 +19,7 @@ auth_provider = PlainTextAuthProvider(
     "token", os.environ.get("ASTRA_DB_APPLICATION_TOKEN"))
 cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider)
 db_session = cluster.connect()
+db_session.default_timeout = 60
 connection.register_connection("db_session", session=db_session, default=True)
 
 
@@ -37,12 +38,12 @@ sync_table(Todos)
 app = Flask(__name__)
 
 
-@app.route("/", methods=["GET"])
+@app.route("/todos", methods=["GET"])
 def get_todos():
     return jsonify([dict(x) for x in Todos.all()])
 
 
-@app.route("/", methods=["DELETE"])
+@app.route("/todos", methods=["DELETE"])
 def delete_todos():
     db_session.execute(
         f"DROP TABLE {os.environ.get('ASTRA_DB_KEYSPACE')}.todos")
@@ -50,18 +51,17 @@ def delete_todos():
     return jsonify({"success": True})
 
 
-@app.route("/", methods=["POST"])
+@app.route("/todos", methods=["POST"])
 def create_todo():
     try:
-        request_json = request.get_json()
-        new_todo = Todos.create(title=request_json.get("title"), order=request_json.get(
-            "order"), completed=request_json.get("completed"))
+        request_json = request.get_json(force=True)
+        new_todo = Todos.create(**request_json)
         return jsonify(dict(new_todo))
     except ValidationError as e:
         return jsonify({"error": str(e)}), 400
 
 
-@app.route("/<todo_id>", methods=["GET"])
+@app.route("/todos/<todo_id>", methods=["GET"])
 def get_todo(todo_id):
     try:
         todo = Todos.get(id=todo_id)
@@ -70,7 +70,7 @@ def get_todo(todo_id):
         return jsonify({"error": "not found"}), 404
 
 
-@app.route("/<todo_id>", methods=["DELETE"])
+@app.route("/todos/<todo_id>", methods=["DELETE"])
 def delete_todo(todo_id):
     try:
         todo = Todos.get(id=todo_id)
@@ -80,10 +80,10 @@ def delete_todo(todo_id):
         return jsonify({"error": "not found"}), 404
 
 
-@app.route("/<todo_id>", methods=["PATCH"])
+@app.route("/todos/<todo_id>", methods=["PATCH"])
 def update_todo(todo_id):
     try:
-        request_json = request.get_json()
+        request_json = request.get_json(force=True)
         todo = Todos.get(id=todo_id)
         todo.update(**request_json)
         return jsonify(dict(todo))
