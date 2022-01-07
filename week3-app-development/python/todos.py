@@ -7,7 +7,7 @@ from cassandra.cqlengine import columns, ValidationError
 from cassandra.cqlengine.models import Model
 from cassandra.cqlengine.management import sync_table
 from cassandra.cqlengine import connection
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 
 load_dotenv()
 
@@ -35,7 +35,16 @@ sync_table(Todos)
 
 
 # setup flask
-app = Flask(__name__)
+app = Flask(__name__, static_folder="../ui/build")
+
+
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def serve(path):
+    if path != "" and os.path.exists(app.static_folder + "/" + path):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory(app.static_folder, "index.html")
 
 
 @app.route("/todos", methods=["GET"])

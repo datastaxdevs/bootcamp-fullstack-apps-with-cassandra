@@ -19,7 +19,7 @@ bundle.zip
 
 # building
 target
-build
+# build
 tmp
 dist
 
@@ -38,7 +38,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-build/
+# build/
 develop-eggs/
 dist/
 downloads/
