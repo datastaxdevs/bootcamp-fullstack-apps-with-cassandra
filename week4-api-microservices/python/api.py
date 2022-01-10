@@ -67,8 +67,8 @@ def delete_todo(todo_id):
 @app.route("/todos/<todo_id>", methods=["PATCH"])
 def update_todo(todo_id):
     try:
-        request_json = request.get_json(force=True)
         todo = Todos.get(id=todo_id)
+        request_json = request.get_json(force=True)
         todo.update(**request_json)
         return jsonify(dict(todo))
     except Model.DoesNotExist:
