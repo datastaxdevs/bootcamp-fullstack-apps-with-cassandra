@@ -54,7 +54,7 @@ To complete the workshop and get a verified badge, follow these simple steps:
 is to create a new keyspace, called `todos` in it, then skip to [Section 2](#2-a-first-data-model). If you stick to this name, it will be ready for using it in the application during the next weeks!
 
 <details><summary>Show me how!</summary>
-![create keyspace](images/create_keyspace_todos.gif?raw=true)
+  <img src="https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/raw/main/week2-data-modelling/images/create_keyspace_todos.gif?raw=true" />
 </details>
 
 If you are new to Astra DB, please read on.
