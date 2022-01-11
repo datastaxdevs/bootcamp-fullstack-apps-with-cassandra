@@ -44,7 +44,7 @@ To complete the workshop and get a verified badge, follow these simple steps:
 | **Slide deck** | [Slide deck for the workshop](slides/Presentation.pdf) |
 | **1. Create your Astra DB instance** | [Create your Astra DB instance](#1-create-your-astra-db-instance) |
 | **2. A first data model** | [A first data model](#2-a-first-data-model) |
-| **3. Another example** | [Execute CRUD operations](#3-another-example) |
+| **3. Another example** | [Another example](#3-another-example) |
 | **4. Data model assignment** | [Data model assignment](#4-data-model-assignment) |
 
 
@@ -54,7 +54,7 @@ To complete the workshop and get a verified badge, follow these simple steps:
 is to create a new keyspace, called `todos` in it, then skip to [Section 2](#2-a-first-data-model). If you stick to this name, it will be ready for using it in the application during the next weeks!
 
 <details><summary>Show me how!</summary>
-    ![create keyspace](images/create_keyspace_todos.gif)
+![create keyspace](images/create_keyspace_todos.gif?raw=true)
 </details>
 
 If you are new to Astra DB, please read on.
@@ -75,8 +75,6 @@ to 80 GB of storage and 20M read/write operations.
 > If this is not enough for you, congratulations! You are most likely running a mid- to large-sized business! In that case you should switch to a paid plan.
 
 (You can follow this [guide](https://docs.datastax.com/en/astra/docs/creating-your-astra-database.html) to set up your free-tier database with the $25 monthly credit.)
-
-To create the database, please note that _the `db_name` and `ks_name` in the above image are just placeholders_:
 
 - **For the database name** - use `workshops`. While Astra DB allows you to fill in these fields with values of your own choosing, please follow our recommendations to ensure the application runs properly.
 
