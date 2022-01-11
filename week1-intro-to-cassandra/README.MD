@@ -25,7 +25,7 @@ To complete the workshop and get a verified badge, follow these simple steps:
 > _**Skip** the "Environment Setup" exercise and go right to "Exercise 1 - Install and Start Apache Cassandra". Once there, start at Step 2 "tar -xf dse-> 6.0.0-bin.tar.gz"._
 > ```
 > docker run -d -t --name class-201 drchung5/ds201
-> docker exec -it class-201 bash
+> docker exec -u root -it class-201 bash
 > ```
 4. [Submit the Homework through this form](https://dtsx.io/homework-intro-to-cassandra) and attach the screenshots above.
 5. Give us a few days to review your submission and relax: your well-earned badge will soon land in your mailbox!
