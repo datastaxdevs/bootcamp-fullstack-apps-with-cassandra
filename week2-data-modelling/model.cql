@@ -1,9 +1,7 @@
-
-
-CREATE TABLE IF NOT EXISTS todos (
-    uid         uuid,
-    title       text,
-    completed   boolean,
-    offset      int,
-    PRIMARY KEY((uid))
+CREATE TABLE todoitems (
+    user_id         TEXT,
+    item_id         UUID,
+    title           TEXT,
+    completed       BOOLEAN,
+    PRIMARY KEY ((user_id), item_id)
 );
