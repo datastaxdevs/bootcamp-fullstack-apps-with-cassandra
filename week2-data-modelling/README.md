@@ -14,7 +14,7 @@ It doesn't matter if you join our workshop live or you prefer to do at your own 
 we suggest you start from that one!
 In this repository, you'll find everything you need for this workshop:
 
-- Materials used during presentations
+- [Materials used during presentation](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/raw/main/week2-data-modelling/slides/Presentation.pdf)
 - [Hands-on exercises](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/tree/main/week2-data-modelling#table-of-contents)
 - [Workshop video](https://youtu.be/2g1DPHMmI8s)
 - [Discord chat](https://dtsx.io/discord)
@@ -41,7 +41,7 @@ To complete the workshop and get a verified badge, follow these simple steps:
 
 | Title  | Description
 |---|---|
-| **Slide deck** | Slide deck for the workshop |
+| **Slide deck** | [Slide deck for the workshop](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/raw/main/week2-data-modelling/slides/Presentation.pdf) |
 | **1. Create your Astra DB instance** | [Create your Astra DB instance](#1-create-your-astra-db-instance) |
 | **2. A first data model** | [A first data model](#2-a-first-data-model) |
 | **3. Another example** | [Another example](#3-another-example) |
@@ -106,7 +106,7 @@ as follows:
 
 ![Killrvideo example table](images/killrvideo_users_by_city.png?raw=true)
 
-Please refer to the presentation material and the workshop video (see top of this README for links)
+Please refer to the [presentation material](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/raw/main/week2-data-modelling/slides/Presentation.pdf) and the [workshop video](https://youtu.be/2g1DPHMmI8s)
 for details; here we simply provide a few key comments to get you started:
 
 - all columns in the table are declared along with their data type;
@@ -118,8 +118,8 @@ for details; here we simply provide a few key comments to get you started:
 
 ## 3. Another example
 
-This example, illustrated by the presenters, is about a sensor network for an IoT application. Please refer to the presentation
-material and the workshop video (see top of this README for links) for details: here we only give
+This example, illustrated by the presenters, is about a sensor network for an IoT application. Please refer to the [presentation
+material](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/raw/main/week2-data-modelling/slides/Presentation.pdf) and the [workshop video](https://youtu.be/2g1DPHMmI8s) for details: here we only give
 diagrams of the process for your convenience (click to expand/show each).
 
 <details>
@@ -275,9 +275,9 @@ back to operational, then click the CQL Console tab again.
 <details>
     <summary>Show me a DB being resumed from hibernation</summary>
 
-<img src="images/resuming2.png" />
-
 <img src="images/resuming.png" />
+
+<img src="images/resuming2.png" />
 
 </details>
 
