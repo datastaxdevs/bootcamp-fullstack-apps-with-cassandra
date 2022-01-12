@@ -74,11 +74,11 @@ Following the [Manage Application Tokens docs](https://docs.datastax.com/en/astr
 
 **👁️ Walkthrough**
 
-![image](images/tutorials/astra-create-token.gif?raw=true)
+![image](images/astra-create-token.gif?raw=true)
 
 This is what the token page looks like. You can now download the values as a CSV. We will need those values but you can also keep this window open for use later.
 
-![image](images/tutorials/astra-token.png?raw=true)
+![image](images/astra-token.png?raw=true)
 
 Notice the clipboard icon at the end of each value.
 
@@ -87,7 +87,7 @@ Notice the clipboard icon at the end of each value.
 - `Client Secret:` We will use it as a _password_ to connect to Astra.
 
 - `appToken:` It can be used as an api token Key to interact with APIs.
-- 
+
 To know more about roles, tokens, etc. you can lok at [this video.](https://www.youtube.com/watch?v=TUTCLsBuUd4)
 
 **Note: Make sure you don't close the window accidentally or otherwise - if you close this window before you copy the values, the application token is lost forever. They won't be available later for security reasons. You'll have to create a new application token**
