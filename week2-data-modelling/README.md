@@ -103,16 +103,8 @@ to illustrate, among other topics, Cassandra data model.
 
 This table supports a query corresponding to _"get all users who live in a given city"_ and the corresponding CQL CREATE TABLE statement is
 as follows:
-```sql
-CREATE TABLE killrvideo.users_by_city ( 
-    city        TEXT, 
-    last_name   TEXT, 
-    first_name  TEXT, 
-    address     TEXT, 
-    email       TEXT, 
-    PRIMARY KEY ((city), last_name, first_name, email)
-);
-```
+
+![Killrvideo example table](images/killrvideo_users_by_city.png?raw=true)
 
 Please refer to the presentation material and the workshop video (see top of this README for links)
 for details; here we simply provide a few key comments to get you started:
