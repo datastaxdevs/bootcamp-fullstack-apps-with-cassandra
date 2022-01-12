@@ -14,7 +14,7 @@ It doesn't matter if you join our workshop live or you prefer to do at your own 
 we suggest you start from that one!
 In this repository, you'll find everything you need for this workshop:
 
-- [Materials used during presentations](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/raw/main/week2-data-modelling/slides/WEEK1%20-%20Introduction%20to%20Apache%20Cassandra.pdf)
+- Materials used during presentations
 - [Hands-on exercises](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra//tree/main/week2-data-modelling#table-of-contents)
 - [Workshop video](https://youtu.be/2g1DPHMmI8s)
 - [Discord chat](https://dtsx.io/discord)
@@ -41,7 +41,7 @@ To complete the workshop and get a verified badge, follow these simple steps:
 
 | Title  | Description
 |---|---|
-| **Slide deck** | [Slide deck for the workshop](slides/Presentation.pdf) |
+| **Slide deck** | Slide deck for the workshop |
 | **1. Create your Astra DB instance** | [Create your Astra DB instance](#1-create-your-astra-db-instance) |
 | **2. A first data model** | [A first data model](#2-a-first-data-model) |
 | **3. Another example** | [Another example](#3-another-example) |
@@ -98,11 +98,56 @@ the status will change to `Active` when the database is ready. This will only ta
 
 ## 2. A first data model
 
-todo (2. A first data model).
+This example is a table from a [video-sharing application](https://killrvideo.github.io/) built as a reference application
+to illustrate, among other topics, Cassandra data model.
+
+This table supports a query corresponding to _"get all users who live in a given city"_ and the CQL CREATE TABLE statement is
+as follows:
+```sql
+CREATE TABLE killrvideo.users_by_city ( 
+    city        TEXT, 
+    last_name   TEXT, 
+    first_name  TEXT, 
+    address     TEXT, 
+    email       TEXT, 
+    PRIMARY KEY ((city), last_name, first_name, email));
+```
+
+Please refer to the presentation material and the workshop video (see top of this README for links)
+for detail; here we simply provide a few key comments to get you started:
+
+- all columns in the table are declared along with their data type;
+- the primary key is comprised by four of these columns which, taken together, have a unique value for each distinct row in the table;
+- of the primary key fields, only `city` forms the partition key: hence, all users from the same city will be together in the same partition, ready to be retrieved at once with a single query;
+- `last_name`, `first_name` and `email`, the _clustering columns_, define the sort order within partitions - and we chose this one because it fit well with our application's needs;
+- we had to add `email` to make sure the various John Smiths in New York each get a different row in our table (uniqueness!);
+- (we do not assume there was a `USE killrvideo;` statement before this one, so we spell out the keyspace name explicitly when naming the table).
 
 ## 3. Another example
 
-todo (3. Another example).
+This example is about a sensor network for an IoT application. Please refer to the presentation
+material and the workshop video (see top of this README for links) for detail: here we only give
+diagrams of the process for your convenience (click to expand/show each).
+
+<details>
+    <summary>1. Entity-relationship diagram</summary>
+    <img src="images/sensors-1-er.png" />
+</details>
+
+<details>
+    <summary>2. Application workflow</summary>
+    <img src="images/sensors-2-aw.png" />
+</details>
+
+<details>
+    <summary>3. Logical data model</summary>
+    <img src="images/sensors-3-ld.png" />
+</details>
+
+<details>
+    <summary>4. Physical data model</summary>
+    <img src="images/sensors-4-pd.png" />
+</details>
 
 ## 4. A simple TODO App
 
@@ -275,9 +320,38 @@ SELECT toTimestamp(item_id), completed, title FROM todoitems WHERE user_id = 'jo
 TRUNCATE TABLE todoitems;
 ```
 
-See you next week!
-
 ## 5. Data model assignment
 
-todo (5. Data model assignment).
+_This is the data-modeling exercise assignment for next week. Please follow
+the methodology to design the tables for the "Shopping Cart",
+as described in the specifications below, and submit
+a screenshot, of either the CQL CREATE TABLE statements or the corresponding
+Chebotko diagrams, along with the rest of the assignment [here](#homework),
+to be awarded a nice verified badge!_
 
+**"Shopping Cart" data model specifications**
+
+For our hypothetical e-commerce app, we have users, items and shopping carts:
+
+- Users have a unique id, plus other attributes (name, email, ...).
+- Items have an id, a name, a description and a price.
+- Shopping carts have an id as well and can be either "saved" or "active"; they also have a name, a subtotal and other attributes.
+
+Users can have several shopping carts, while shopping carts belong to exactly one user. A user can have at most _one_ active cart at a time (the other being "saved").
+
+Shopping carts, in turn, can have several items in them - and an item can appear in as many carts as desired, and comes with a timestamp of insertion and a quantity (a non-negative integer).
+
+The subtotal for a cart in principle could be computed at application level by summing over the price of the items (and taking the quantity into account);
+however, here we suggest to create it as an attribute of the cart, with the intention of keeping it updated, at application level, whenever the cart contents change (you may find it convenient to employ a [static column](https://docs.datastax.com/en/cql-oss/3.3/cql/cql_using/refStaticCol.html) as an optimization).
+
+The application workflow that your model will have to support is comprised of the following data access patterns:
+
+![shopping cart data access patterns](images/shopping-cart-data-access-patterns.png)
+
+**Now go ahead and start data modelling: Good luck!**
+
+![Badge](images/data_model_methodology_badge.png)
+
+**... and see you at our next workshop!**
+
+> Sincerely yours, The DataStax Developers
