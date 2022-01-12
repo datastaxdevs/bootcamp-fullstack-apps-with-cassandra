@@ -6,7 +6,7 @@ Welcome to the 'Building Efficient Data Model with Cassandra' workshop! In this 
 of Data Modeling as is done when working with Apache Cassandra, the powerful distributed
 NoSQL database that has been covered in [the first week of this bootcamp](../week1-intro-to-cassandra).
 
-For the hands-on part of this workshop, we will use Astra DB, a Database-as-a-Service
+For the [hands-on part of this workshop](#4-a-simple-todo-app), we will use Astra DB, a Database-as-a-Service
 built on Cassandra and delivered by DataStax, to create the actual data model which
 will then be used in the next weeks as the data store for a Web application.
 
@@ -106,7 +106,173 @@ todo (3. Another example).
 
 ## 4. A simple TODO App
 
-todo (4. A simple TODO App).
+Now you can go ahead and actually create a table in Astra DB. You will be using the `todos` keyspace
+created earlier. This will be the table used by the TODO App that will be built in the next weeks
+of this bootcamp, so pay attention!
+
+> The TODO App is a rather simple application: its whole data model will fit into a single table,
+> and designing it properly will be a simple and quick task, as you will momentarily see.
+
+Our TODO App will allow the user to manage "todo items" (such as "Walk the dog") and mark them as done. That's it.
+Let's see the data modeling process at play in this miniature example.
+
+
+**✅ Step 4a. Conceptual Data Model and App Workflow**
+
+Let's start with the entity-relationships (well, ... more like "entities only" in this example).
+We want a single table to store, potentially, todo-items pertaining to different users.
+So, every todo item will sure need a "user id" attribute. It will also need its own
+unique identifier, to distinguish it from other todo items (and be able to retrieve
+and modify it individually).
+
+Further, every todo item will have two other attributes: a title ("Walk the dog")
+and a boolean flag to mark whether the item has been done already or not. And as
+far as the entities and their attributes go, that's about it. We then have:
+
+    todoitem => (user_id, item_id, title, completed)
+
+Now let's think of the application workflow. Again, this is rather simple: we let
+the user view their own todo items and create/delete/modify one of them at a time.
+
+We then identify only one workflow operation that our table will need to support:
+
+    WF1: user wants to see all of their todoitems
+
+which immediately can be expressed as a query:
+
+    Q1: get all todoitems pertaining to a given user (identified by user_id)
+
+In other words,
+
+    SELECT [something] FROM todoitems WHERE user_id = 'john';
+
+The other CRUD operations supported (create/delete/edit a todoitem) act on a single
+row and pose no challenge to the choice of the data model. _In particular, altering
+an existing item can involve changes to at most `title` and `completed`: no other
+fields will ever need to be deleted (observe that this is not in conflict with the
+later choice of primary key)._
+
+**✅ Step 4b. Logical Data Model**
+
+In order to arrive at a Chebotko diagram for the table, we proceed through a series
+of steps.
+
+First, the query must return `title` and `completed` for the app to work.
+
+Look at the WHERE clause in Q1: we sure need `user_id` in this table. Moreover, that
+has to be the partitioning for the table, since we want to get all todoitems
+for a user _at once_.
+
+Now, we need to guarantee uniqueness of the rows: let's not forget column `item_id` for that,
+which then must be part of the primary key (but not in the partition key).
+
+We anticipate that we will be using a TIMEUUID for the `item_id` column, which allows
+for a meaningful time-ordering: so we decide that we will want to get earlier todo items
+first when querying (clustering order `ASC`).
+
+Our logical Chebotko diagram looks then like this:
+
+| **`todoitems`** | |
+|---|---|
+| `user_id` | **K** |
+| `item_id` | **C↑** |
+| `title` | |
+| `completed` | |
+
+**✅ Step 4c. Physical Data Model**
+
+All is left now is to pin down the actual data types for the table
+and, if necessary, apply other optimizations.
+
+In this case there is not much
+to optimize (no relations, no collection types and so on), so we just have
+to decide the data types. We like to keep `user_id` human-readable (it will
+probably be hardcoded in our simplified TODO App anyway), so a simple `TEXT`
+will do; and as mentioned already we choose `TIMEUUID` for the item ID in order
+to exploit its time-ordering property. As for `title` and `completed`, there is
+a natural choice and we stick to it.
+
+We then have a final physical diagram, and with that the process is complete:
+
+| **`todoitems`** | | |
+|---|---|---|
+| `user_id`   | TEXT | **K** |
+| `item_id`   | TIMEUUID | **C↑** |
+| `title`     | TEXT | |
+| `completed` | BOOLEAN | |
+
+**✅ Step 4d. Table creation in Astra DB**
+
+Ok, it's time to go to the CQL Console of your `workshops` database in Astra DB
+and actually issue a `CREATE TABLE` statement.
+
+First you need to open the CQL Console: in the Summary screen for your database, select **_CQL Console_** from the top menu in the main window. This will take you to the CQL Console and automatically log you in.
+
+<details>
+    <summary>Show me! </summary>
+    <img src="images/astra-cql-console.gif" />
+</details>
+
+Once you are in the CQL Console, first `USE` the correct keyspace:
+
+```sql
+USE todos;
+```
+
+You can now enter the following table-creation statement, which exactly corresponds
+to the physical Chebotko diagram mentioned above:
+
+```sql
+CREATE TABLE todoitems (
+    user_id         TEXT,
+    item_id         TIMEUUID,
+    title           TEXT,
+    completed       BOOLEAN,
+    PRIMARY KEY ((user_id), item_id)
+) WITH CLUSTERING ORDER BY (item_id ASC);
+```
+
+To make sure that the creation succeeded, check the output of:
+
+```sql
+DESC TABLES;
+
+DESC TABLE todoitems;
+```
+
+<details>
+    <summary>Show me! </summary>
+    <img src="images/todoitems_table.png" />
+</details>
+
+Congratulations, your table is ready to be used! All is left is ... building the app!
+
+Here are some sample CRUD operations to "test" your shiny new table. These are substantially equivalent to the access
+pattern that will be employed by the app:
+
+```sql
+
+// insert sample todo-items
+INSERT INTO todoitems (user_id, item_id, completed, title) VALUES ( 'john', 11111111-5cff-11ec-be16-1fedb0dfd057, true, 'Walk the dog');
+INSERT INTO todoitems (user_id, item_id, completed, title) VALUES ( 'john', 22222222-5cff-11ec-be16-1fedb0dfd057, false, 'Have lunch tomorrow');
+INSERT INTO todoitems (user_id, item_id, completed, title) VALUES ( 'mary', 33333333-5cff-11ec-be16-1fedb0dfd057, true, 'Attend the workshop');
+
+// query all items for a given user
+SELECT * FROM todoitems WHERE user_id = 'john';
+
+// mark an item as "done" (full primary key must be specified)
+UPDATE todoitems SET completed = true WHERE user_id = 'john' AND item_id = 22222222-2222-2222-2222-222222222222;
+SELECT toTimestamp(item_id), completed, title FROM todoitems WHERE user_id = 'john';
+
+// remove an item (full primary key must be specified)
+DELETE FROM todoitems WHERE user_id='john' AND item_id=11111111-1111-1111-1111-111111111111;
+SELECT toTimestamp(item_id), completed, title FROM todoitems WHERE user_id = 'john';
+
+// WARNING: this removes *all* rows (we make the table clean and ready for actual usage)
+TRUNCATE TABLE todoitems;
+```
+
+See you next week!
 
 ## 5. Data model assignment
 
