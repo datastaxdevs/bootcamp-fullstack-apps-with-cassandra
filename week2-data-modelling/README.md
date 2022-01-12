@@ -144,13 +144,14 @@ which immediately can be expressed as a query:
 
 In other words,
 
-    SELECT [something] FROM todoitems WHERE user_id = 'john';
+```sql
+SELECT [something] FROM todoitems WHERE user_id = 'john';
+```
 
-The other CRUD operations supported (create/delete/edit a todoitem) act on a single
+The other CRUD operations supported (create/delete/edit a todo-item) act on a single
 row and pose no challenge to the choice of the data model. _In particular, altering
 an existing item can involve changes to at most `title` and `completed`: no other
-fields will ever need to be deleted (observe that this is not in conflict with the
-later choice of primary key)._
+fields will ever need to be modified on an existing row._
 
 **✅ Step 4b. Logical Data Model**
 
@@ -165,6 +166,8 @@ for a user _at once_.
 
 Now, we need to guarantee uniqueness of the rows: let's not forget column `item_id` for that,
 which then must be part of the primary key (but not in the partition key).
+_Observe that this choice of primary key does not contain fields that are subject
+to being edited in the app - that would be an incompatible situation._
 
 We anticipate that we will be using a TIMEUUID for the `item_id` column, which allows
 for a meaningful time-ordering: so we decide that we will want to get earlier todo items
