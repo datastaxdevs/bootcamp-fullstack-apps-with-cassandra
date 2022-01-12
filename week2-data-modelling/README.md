@@ -177,7 +177,7 @@ the user view their own todo items and create/delete/modify one of them at a tim
 
 We then identify only one data access pattern that our table will need to support:
 
-    WF1: user wants to see all of their todoitems
+    AP1: user wants to see all of their todoitems
 
 which immediately can be expressed as a query:
 
