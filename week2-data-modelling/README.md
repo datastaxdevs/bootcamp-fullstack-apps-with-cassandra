@@ -2,7 +2,7 @@
 
 ![datamodel](images/datamodel.png?raw=true)
 
-Welcome to the 'Building Efficient Data Model with Cassandra' workshop! In this two-hour workshop, the Developer Advocate team of DataStax presents the process and the main tenets
+Welcome to **Building Efficient Data Model with Cassandra**! In this two-hour workshop, the Developer Advocate team of DataStax presents the process and the main tenets
 of Data Modeling as is done when working with Apache Cassandra, the powerful distributed
 NoSQL database that has been covered in [the first week of this bootcamp](../week1-intro-to-cassandra).
 
@@ -15,7 +15,7 @@ we suggest you start from that one!
 In this repository, you'll find everything you need for this workshop:
 
 - Materials used during presentations
-- [Hands-on exercises](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra//tree/main/week2-data-modelling#table-of-contents)
+- [Hands-on exercises](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/tree/main/week2-data-modelling#table-of-contents)
 - [Workshop video](https://youtu.be/2g1DPHMmI8s)
 - [Discord chat](https://dtsx.io/discord)
 - [Questions and Answers](https://community.datastax.com/)
@@ -25,7 +25,7 @@ In this repository, you'll find everything you need for this workshop:
 To complete the workshop and get a verified badge, follow these simple steps:
 
 1. Watch the workshop live or recorded.
-2. Try to come up with your own data model (in the form of Chebotko diagrams or CQL `CREATE TABLE` statements) for the case described [below](#5-data-model-assignment) and get ready to submit it in the form of a screenshot.
+2. Try to come up with your own data model for the assignment [below](#5-data-model-assignment) and get ready to submit it in the form of a screenshot (of either Chebotko diagrams or CQL `CREATE TABLE` statements).
 3. Complete the DS201 (Cassandra Fundamentals) course sections 9 - 16 [HERE](https://academy.datastax.com). Look at the setup instructions from [Week 1](../week1-intro-to-cassandra) if needed.
 
 > _If you are feeling adventurous complete the DS201 exercises using the following Docker image. DO NOT attempt to use the virtual machines in the course._
@@ -34,7 +34,7 @@ To complete the workshop and get a verified badge, follow these simple steps:
 > docker run -d -t --name class-201 drchung5/ds201
 > docker exec -u root -it class-201 bash
 > ```
-4. [Submit the Homework through this form](https://dtsx.io/homework-cassandra-data-modelling) and attach the screenshots above.
+4. [Submit the Homework through this form](https://dtsx.io/homework-cassandra-data-modelling) and attach the screenshot above.
 5. Give us a few days to review your submission, and relax: your well-earned badge will soon land in your mailbox!
 
 ## Table of Contents
@@ -54,7 +54,7 @@ To complete the workshop and get a verified badge, follow these simple steps:
 **NOTE**: if you come from Week 1, you will have your Astra DB account already: in that case, all you have to do
 is creating a new keyspace, called `todos`, then skip to [Section 2](#2-a-first-data-model). If you stick to this keyspace name, it will be ready to be used when building the application in the next weeks!
 
-<details><summary>Show me how!</summary>
+<details><summary>Show me how to add a keyspace!</summary>
   <img src="https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/raw/main/week2-data-modelling/images/create_keyspace_todos.gif?raw=true" />
 </details>
 
@@ -98,10 +98,10 @@ the status will change to `Active` when the database is ready. This will only ta
 
 ## 2. A first data model
 
-This example is a table from a [video-sharing application](https://killrvideo.github.io/) built as a reference application
+This example, discussed in the presentation, is a table from a [video-sharing application](https://killrvideo.github.io/) built as a reference application
 to illustrate, among other topics, Cassandra data model.
 
-This table supports a query corresponding to _"get all users who live in a given city"_ and the CQL CREATE TABLE statement is
+This table supports a query corresponding to _"get all users who live in a given city"_ and the corresponding CQL CREATE TABLE statement is
 as follows:
 ```sql
 CREATE TABLE killrvideo.users_by_city ( 
@@ -110,23 +110,24 @@ CREATE TABLE killrvideo.users_by_city (
     first_name  TEXT, 
     address     TEXT, 
     email       TEXT, 
-    PRIMARY KEY ((city), last_name, first_name, email));
+    PRIMARY KEY ((city), last_name, first_name, email)
+);
 ```
 
 Please refer to the presentation material and the workshop video (see top of this README for links)
-for detail; here we simply provide a few key comments to get you started:
+for details; here we simply provide a few key comments to get you started:
 
 - all columns in the table are declared along with their data type;
-- the primary key is comprised by four of these columns which, taken together, have a unique value for each distinct row in the table;
+- the primary key is comprised of four of these columns which, taken together, have a unique value for each distinct row in the table;
 - of the primary key fields, only `city` forms the partition key: hence, all users from the same city will be together in the same partition, ready to be retrieved at once with a single query;
-- `last_name`, `first_name` and `email`, the _clustering columns_, define the sort order within partitions - and we chose this one because it fit well with our application's needs;
-- we had to add `email` to make sure the various John Smiths in New York each get a different row in our table (uniqueness!);
-- (we do not assume there was a `USE killrvideo;` statement before this one, so we spell out the keyspace name explicitly when naming the table).
+- `last_name`, `first_name` and `email`, the _clustering columns_, define the sort order within partitions - and we chose this one because it fit well with our application's needs; _(and they are listed from most- to least-significant)_;
+- we had to make sure `email` is in the primary key to make sure "the many John Smiths in New York each get a different row in our table" (uniqueness!);
+- _(we do not assume there was a `USE killrvideo;` statement before this one, so we spell out the keyspace name explicitly when naming the table)._
 
 ## 3. Another example
 
-This example is about a sensor network for an IoT application. Please refer to the presentation
-material and the workshop video (see top of this README for links) for detail: here we only give
+This example, illustrated by the presenters, is about a sensor network for an IoT application. Please refer to the presentation
+material and the workshop video (see top of this README for links) for details: here we only give
 diagrams of the process for your convenience (click to expand/show each).
 
 <details>
@@ -151,6 +152,8 @@ diagrams of the process for your convenience (click to expand/show each).
 
 ## 4. A simple TODO App
 
+**This is the hands-on part: get your Astra DB CQL Console ready!**
+
 Now you can go ahead and actually create a table in Astra DB. You will be using the `todos` keyspace
 created earlier. This will be the table used by the TODO App that will be built in the next weeks
 of this bootcamp, so pay attention!
@@ -161,16 +164,17 @@ of this bootcamp, so pay attention!
 Our TODO App will allow the user to manage "todo items" (such as "Walk the dog") and mark them as done. That's it.
 Let's see the data modeling process at play in this miniature example.
 
+![TODO App screenshot](images/todoapp.png?raw=true)
 
 **✅ Step 4a. Conceptual Data Model and App Workflow**
 
 Let's start with the entity-relationships (well, ... more like "entities only" in this example).
-We want a single table to store, potentially, todo-items pertaining to different users.
-So, every todo item will sure need a "user id" attribute. It will also need its own
-unique identifier, to distinguish it from other todo items (and be able to retrieve
+We want a single table to store todo-items, theoretically pertaining to different users.
+So, every todo-item will sure need a "user id" attribute. It will also need its own
+unique identifier, to distinguish it from other todo items (and for us to be able to retrieve
 and modify it individually).
 
-Further, every todo item will have two other attributes: a title ("Walk the dog")
+Further, every todo-item will have two other attributes: a title ("Walk the dog")
 and a boolean flag to mark whether the item has been done already or not. And as
 far as the entities and their attributes go, that's about it. We then have:
 
@@ -179,7 +183,7 @@ far as the entities and their attributes go, that's about it. We then have:
 Now let's think of the application workflow. Again, this is rather simple: we let
 the user view their own todo items and create/delete/modify one of them at a time.
 
-We then identify only one workflow operation that our table will need to support:
+We then identify only one data access pattern that our table will need to support:
 
     WF1: user wants to see all of their todoitems
 
@@ -194,7 +198,8 @@ SELECT [something] FROM todoitems WHERE user_id = 'john';
 ```
 
 The other CRUD operations supported (create/delete/edit a todo-item) act on a single
-row and pose no challenge to the choice of the data model. _In particular, altering
+row and pose no challenge to the choice of the data model.
+_In particular, altering
 an existing item can involve changes to at most `title` and `completed`: no other
 fields will ever need to be modified on an existing row._
 
@@ -203,7 +208,8 @@ fields will ever need to be modified on an existing row._
 In order to arrive at a Chebotko diagram for the table, we proceed through a series
 of steps.
 
-First, the query must return `title` and `completed` for the app to work.
+First, the query must return `title` and `completed` for the app to display
+items correctly.
 
 Look at the WHERE clause in Q1: we sure need `user_id` in this table. Moreover, that
 has to be the partitioning for the table, since we want to get all todoitems
@@ -220,7 +226,7 @@ first when querying (clustering order `ASC`).
 
 Our logical Chebotko diagram looks then like this:
 
-| **`todoitems`** | |
+| **todoitems** | |
 |---|---|
 | `user_id` | **K** |
 | `item_id` | **C↑** |
@@ -237,12 +243,20 @@ to optimize (no relations, no collection types and so on), so we just have
 to decide the data types. We like to keep `user_id` human-readable (it will
 probably be hardcoded in our simplified TODO App anyway), so a simple `TEXT`
 will do; and as mentioned already we choose `TIMEUUID` for the item ID in order
-to exploit its time-ordering property. As for `title` and `completed`, there is
+to exploit its time-ordering property.
+
+> Another, perhaps more valid choice for `user_id` would be the `UUID` type. Here we
+> stick to `TEXT` for the sake of human-readability - in this sample TODO App we
+> will probably just hardcode a value such as "john" here.
+> In a real-life app one could want to employ
+> the user email for this column... but what if the user wants to change their email?
+
+As for `title` and `completed`, there is
 a natural choice and we stick to it.
 
 We then have a final physical diagram, and with that the process is complete:
 
-| **`todoitems`** | | |
+| **todoitems** | | |
 |---|---|---|
 | `user_id`   | TEXT | **K** |
 | `item_id`   | TIMEUUID | **C↑** |
