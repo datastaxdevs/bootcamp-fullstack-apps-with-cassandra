@@ -37,7 +37,8 @@ To complete the workshop and get a verified badge, follow these simple steps:
 | **3. Launch Gitpod** | [Launch Gitpod](#3-launch-gitpod) |
 | **4. Know your Gitpod** | [Know your Gitpod](#4-know-your-gitpod) |
 | **5. Setup your Application** | [Setup your Application] (#5-setup-your-application)
-| **6. CRUD with Cassandra** | [CRUD with Cassandra](#6-crud-with-cassandra) |
+| **6-10. CRUD with Cassandra** | [CRUD with Cassandra](#6-crud-with-cassandra) |
+| **11. Homework/Assignment and Badges** | [Homework/Assignment and Badges](#11-homework-assignment-badges) |
 
 
 ## 1. Connect to your Astra DB instance
@@ -219,5 +220,19 @@ Exercises will be different for each language. Pick the language you feel the mo
 | **![PYTHON](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-python.png)** | [Exercises 6 to 10 with PYTHON](./python/README.MD) |
 
 [🏠Back to HOME workshop](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra)
+
+## 11. Homework/Assignment and Badges
+
+**Now go ahead and start app dev: Good luck!**
+
+![Badge](images/appdev_badge.png)
+
+**... and see you at our next workshop!**
+
+You might be eligible for a badge when you attend more workshops and complete the requirements.
+
+![Badge](images/bootcamp_badge.png)
+
+> Sincerely yours, The DataStax Developers
 
 THE END.
