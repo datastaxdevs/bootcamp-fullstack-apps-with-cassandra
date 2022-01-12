@@ -8,7 +8,7 @@ NoSQL database that has been covered in [the first week of this bootcamp](../wee
 
 For the [hands-on part of this workshop](#4-a-simple-todo-app), we will use Astra DB, a Database-as-a-Service
 built on Cassandra and delivered by DataStax, to create the actual data model which
-will then be used in the next weeks as the data store for a Web application.
+will then be used in the Weeks 3-4 as the data store for a Web application.
 
 It doesn't matter if you join our workshop live or you prefer to do at your own pace, we have you covered. But please if you did not attend [the previous week](../week1-intro-to-cassandra)
 we suggest you start from that one!
@@ -52,7 +52,7 @@ To complete the workshop and get a verified badge, follow these simple steps:
 ## 1. Create your Astra DB instance
 
 **NOTE**: if you come from Week 1, you will have your Astra DB account already: in that case, all you have to do
-is creating a new keyspace, called `todos`, then skip to [Section 2](#2-a-first-data-model). If you stick to this keyspace name, it will be ready to be used when building the application in the next weeks!
+is creating a new keyspace, called `todos`, then skip to [Section 2](#2-a-first-data-model). If you stick to this keyspace name, it will be ready to be used when building the application in Weeks 3-4!
 
 <details><summary>Show me how to add a keyspace!</summary>
   <img src="https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/raw/main/week2-data-modelling/images/create_keyspace_todos.gif?raw=true" />
@@ -147,7 +147,7 @@ diagrams of the process for your convenience (click to expand/show each).
 **This is the hands-on part: get your Astra DB CQL Console ready!**
 
 Now you can go ahead and actually create a table in Astra DB. You will be using the `todos` keyspace
-created earlier. This will be the table used by the TODO App that will be built in the next weeks
+created earlier. This will be the table used by the TODO App that will be built in Weeks 3-4
 of this bootcamp, so pay attention!
 
 > The TODO App is a rather simple application: its whole data model will fit into a single table,
@@ -342,7 +342,7 @@ TRUNCATE TABLE todoitems;
 
 ## 5. Data model assignment
 
-_This is the data-modeling exercise assignment for next week. Please follow
+_This is the data-modeling lab for Week 2. Please follow
 the methodology to design the tables for the "Shopping Cart",
 as described in the specifications below, and submit
 a screenshot, of either the CQL CREATE TABLE statements or the corresponding
