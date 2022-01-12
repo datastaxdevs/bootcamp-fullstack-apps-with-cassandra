@@ -14,9 +14,9 @@ It doesn't matter if you join our workshop live or you prefer to do at your own 
 we suggest you start from that one!
 In this repository, you'll find everything you need for this workshop:
 
-- [Materials used during presentations](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/raw/main/week2-data-modeling/slides/WEEK1%20-%20Introduction%20to%20Apache%20Cassandra.pdf)
-- [Hands-on exercises](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/tree/main/week2-data-modeling#table-of-contents)
-- [Workshop video](https://youtu.be/iwDKqUesqvE)
+- [Materials used during presentations](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/raw/main/week2-data-modelling/slides/WEEK1%20-%20Introduction%20to%20Apache%20Cassandra.pdf)
+- [Hands-on exercises](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra//tree/main/week2-data-modelling#table-of-contents)
+- [Workshop video](https://youtu.be/2g1DPHMmI8s)
 - [Discord chat](https://dtsx.io/discord)
 - [Questions and Answers](https://community.datastax.com/)
 
@@ -34,8 +34,8 @@ To complete the workshop and get a verified badge, follow these simple steps:
 > docker run -d -t --name class-201 drchung5/ds201
 > docker exec -u root -it class-201 bash
 > ```
-4. [Submit the Homework through this form](https://dtsx.io/homework-cassandra-data-modeling) and attach the screenshots above.
-5. Give us a few days to review your submission and relax: your well-earned badge will soon land in your mailbox!
+4. [Submit the Homework through this form](https://dtsx.io/homework-cassandra-data-modelling) and attach the screenshots above.
+5. Give us a few days to review your submission, and relax: your well-earned badge will soon land in your mailbox!
 
 ## Table of Contents
 
@@ -50,8 +50,8 @@ To complete the workshop and get a verified badge, follow these simple steps:
 
 ## 1. Create your Astra DB instance
 
-**NOTE**: if you come from Week 1, you will have your Astra DB account already: all you have to do
-is to create a new keyspace, called `todos` in it, then skip to [Section 2](#2-a-first-data-model). If you stick to this name, it will be ready for using it in the application during the next weeks!
+**NOTE**: if you come from Week 1, you will have your Astra DB account already: in that case, all you have to do
+is creating a new keyspace, called `todos`, then skip to [Section 2](#2-a-first-data-model). If you stick to this keyspace name, it will be ready to be used when building the application in the next weeks!
 
 <details><summary>Show me how!</summary>
   <img src="https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/raw/main/week2-data-modelling/images/create_keyspace_todos.gif?raw=true" />
