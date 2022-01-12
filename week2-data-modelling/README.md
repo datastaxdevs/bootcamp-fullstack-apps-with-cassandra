@@ -263,8 +263,22 @@ and actually issue a `CREATE TABLE` statement.
 First you need to open the CQL Console: in the Summary screen for your database, select **_CQL Console_** from the top menu in the main window. This will take you to the CQL Console and automatically log you in.
 
 <details>
-    <summary>Show me! </summary>
+    <summary>Show me how to get to the CQL Console</summary>
     <img src="images/astra-cql-console.gif" />
+</details>
+
+**NOTE**: If you created the database on Week 1, but did not use it recently,
+it may have been hibernated - your should see a message telling you so when trying
+to open the CQL Console. Don't worry and wait a couple of minutes while your DB comes
+back to operational, then click the CQL Console tab again.
+
+<details>
+    <summary>Show me a DB being resumed from hibernation</summary>
+
+<img src="images/resuming2.png" />
+
+<img src="images/resuming.png" />
+
 </details>
 
 Once you are in the CQL Console, first `USE` the correct keyspace:
@@ -296,7 +310,7 @@ DESC TABLE todoitems;
 
 <details>
     <summary>Show me! </summary>
-    <img src="images/todoitems_table.png" />
+    <img src="images/todoitems_table_created.png" />
 </details>
 
 Congratulations, your table is ready to be used! All is left is ... building the app!
@@ -315,11 +329,11 @@ INSERT INTO todoitems (user_id, item_id, completed, title) VALUES ( 'mary', 3333
 SELECT * FROM todoitems WHERE user_id = 'john';
 
 // mark an item as "done" (full primary key must be specified)
-UPDATE todoitems SET completed = true WHERE user_id = 'john' AND item_id = 22222222-2222-2222-2222-222222222222;
+UPDATE todoitems SET completed = true WHERE user_id = 'john' AND item_id = 22222222-5cff-11ec-be16-1fedb0dfd057;
 SELECT toTimestamp(item_id), completed, title FROM todoitems WHERE user_id = 'john';
 
 // remove an item (full primary key must be specified)
-DELETE FROM todoitems WHERE user_id='john' AND item_id=11111111-1111-1111-1111-111111111111;
+DELETE FROM todoitems WHERE user_id='john' AND item_id=11111111-5cff-11ec-be16-1fedb0dfd057;
 SELECT toTimestamp(item_id), completed, title FROM todoitems WHERE user_id = 'john';
 
 // WARNING: this removes *all* rows (we make the table clean and ready for actual usage)
