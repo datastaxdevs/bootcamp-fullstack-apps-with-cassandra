@@ -25,7 +25,7 @@ In this repository, you'll find everything you need for this workshop:
 To complete the workshop and get a verified badge, follow these simple steps:
 
 1. Watch the workshop live or recorded.
-2. Try to come up with your own data model (in the form of Chebotko diagrams or CQL `CREATE TABLE` statements) for the case described [below](#4-data-model-assignment) and get ready to submit it in the form of a screenshot.
+2. Try to come up with your own data model (in the form of Chebotko diagrams or CQL `CREATE TABLE` statements) for the case described [below](#5-data-model-assignment) and get ready to submit it in the form of a screenshot.
 3. Complete the DS201 (Cassandra Fundamentals) course sections 9 - 16 [HERE](https://academy.datastax.com). Look at the setup instructions from [Week 1](../week1-intro-to-cassandra) if needed.
 
 > _If you are feeling adventurous complete the DS201 exercises using the following Docker image. DO NOT attempt to use the virtual machines in the course._
@@ -45,7 +45,8 @@ To complete the workshop and get a verified badge, follow these simple steps:
 | **1. Create your Astra DB instance** | [Create your Astra DB instance](#1-create-your-astra-db-instance) |
 | **2. A first data model** | [A first data model](#2-a-first-data-model) |
 | **3. Another example** | [Another example](#3-another-example) |
-| **4. Data model assignment** | [Data model assignment](#4-data-model-assignment) |
+| **4. A simple TODO App** | [A simple TODO App](#4-a-simple-todo-app) |
+| **5. Data model assignment** | [Data model assignment](#5-data-model-assignment) |
 
 
 ## 1. Create your Astra DB instance
@@ -103,7 +104,11 @@ todo (2. A first data model).
 
 todo (3. Another example).
 
-## 4. Data model assignment
+## 4. A simple TODO App
 
-todo (4. Data model assignment).
+todo (4. A simple TODO App).
+
+## 5. Data model assignment
+
+todo (5. Data model assignment).
 
