@@ -149,26 +149,15 @@ Or allow ports to be opened by just exiting windows that are informational messa
 
 [🏠 Back to Table of Contents](#0-table-of-contents)
 
-## 5. Setup your application
+## 5. Setup for the application
 
-To run the application you need to provide the credentials and identifier to the application.
-
-Issue the following command from the Gitpod terminal window.
-
-```
-gp open src/main/resources/application.properties
-```
-
-![gitpod](images/tutorials/editapplicationproperties1.png?raw=true)
+To run the application(s) you need to provide the database credentials.
 
 
-✅ **Step 5a: Enter 2 values from the token**
+✅ **Step 5a: Note the two values from the downloaded token**
 
 
-Enter the values of `Client Id` and `Client Secret` from values noted earlier for `username` and `password` respectively. The two lines with a TBD in comments is shown below.
-
-![gitpod](images/tutorials/editapplicationproperties2.png?raw=true)
-
+Note down the values of `Client Id` and `Client Secret` from values noted earlier that we will subsequently use for `username` and `password` in the respective language in a later step.
 
 ✅ **Step 5b: Download the secure connect bundle**
 
@@ -178,7 +167,7 @@ This next step is probably the most involved step in the entire workshop. The go
 Start with the [Astra DB dashboard](https://astra.datastax.com) and for the database workshops,
 
 1. Click on `Connect` tab.
-2. Click on Connect using a driver `Java`.
+2. Click on Connect using any of the drivers `Node.js` (`javascript`), `Python` or `Java`.
 3. Click on `Download Bundle`.
 4. Click on `Secure Connect Bundle` to be able to copy the link locally.
 
@@ -204,7 +193,7 @@ The file size should be roughly 12K otherwise something may have gone wrong in t
 -rw-r--r-- 1 gitpod gitpod 12231 Oct 26 00:15 secure-connect-workshops.zip
 ```
 
-TADA your application is now configured we can finally play with some code.
+TADA your application is almost configured we can finally play with some code.
 
 [🏠 Back to Table of Contents](#0-table-of-contents)
 
