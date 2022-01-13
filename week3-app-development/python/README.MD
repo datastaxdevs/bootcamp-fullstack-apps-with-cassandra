@@ -35,7 +35,7 @@ pwd
 From the GitPod terminal window issue the following command
 
 ```bash
-open db_connection.py
+open connection.py
 ```
 
 and update the following lines
@@ -52,7 +52,7 @@ PASSWORD = "FXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXdeOE.kio_.L981
 You can now test the connection to Astra with the following command
 
 ```bash
-python Ex02_Connect_to_Cassandra.py
+python Ex06_Connect_to_Cassandra.py
 ```
 **👁️ Expected output**
 
