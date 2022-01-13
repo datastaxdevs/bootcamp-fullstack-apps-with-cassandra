@@ -4,10 +4,9 @@ from connection import session
 print('========================================')
 print('Start exercise')
 try:
-    output = session.execute("SELECT * FROM system.local")
+    output = session.execute("SELECT * FROM todoitems WHERE user_id = 'john';")
     for row in output:
-        print('You are now connected to cluster %s at %s' %
-              (row.cluster_name, row.data_center))
+        print(str(row))
 except Exception as e:
     print(e)
     print('Failure')

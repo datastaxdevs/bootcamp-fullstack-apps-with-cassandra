@@ -24,9 +24,9 @@ connection.register_connection("db_session", session=db_session, default=True)
 
 class Todos(Model):
     __keyspace__ = os.environ.get("ASTRA_DB_KEYSPACE")
-    id = columns.UUID(primary_key=True, default=uuid.uuid4)
+    user_id = columns.Text(primary_key=True, required=True)
+    item_id = columns.UUID(primary_key=True, default=uuid.uuid4)
     title = columns.Text(required=True)
-    order = columns.Integer()
     completed = columns.Boolean(default=False)
 
 

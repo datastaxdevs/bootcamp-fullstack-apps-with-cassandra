@@ -1,5 +1,0 @@
-python-dotenv==0.19.2
-cassandra-driver==3.25.0
-pytest==6.2.5
-pytest-cov==3.0.0
-pytest-testdox==3.0.0
