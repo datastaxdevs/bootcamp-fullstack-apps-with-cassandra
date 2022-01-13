@@ -219,7 +219,7 @@ Exercises will be different for each language. Pick the language you feel the mo
 | **![JAVASCRIPT](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-javascript.png)** | [Exercises 6 to 10 with JAVASCRIPT](./javascript/README.MD) |
 | **![PYTHON](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-python.png)** | [Exercises 6 to 10 with PYTHON](./python/README.MD) |
 
-[🏠Back to HOME workshop](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra)
+[🏠 Back to Table of Contents](#0-table-of-contents)
 
 ## 11. Homework/Assignment and Badges
 
@@ -232,6 +232,8 @@ Exercises will be different for each language. Pick the language you feel the mo
 You might be eligible for a badge when you attend more workshops and complete the requirements.
 
 ![Badge](images/bootcamp_badge.png)
+
+[🏠Back to HOME workshop](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra)
 
 > Sincerely yours, The DataStax Developers
 
