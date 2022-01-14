@@ -1,7 +1,6 @@
 package com.datastax.workshop;
 
 /*
- * EXERCISE 2:
  *  
  * TODO Please change this constants with the values 
  * you used when you created the ASTRA instance.
