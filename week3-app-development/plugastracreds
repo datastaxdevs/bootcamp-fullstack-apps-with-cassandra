@@ -17,6 +17,11 @@ if [ ! "$ASTRA_PASSWORD" ]; then
     exit -1
 fi
 
+if [ ! -f /workspace/bootcamp-fullstack-apps-with-cassandra/secure-connect-workshops.zip  ]; then
+   echo "Secure connect bundle to connect to Astra does not exist."
+   exit -1
+fi
+
 cat ./java/src/main/java/com/datastax/workshop/DBConnection.java.init | \
     sed "s/\$ASTRA_USERNAME/$ASTRA_USERNAME/" | \
     sed "s/\$ASTRA_PASSWORD/$ASTRA_PASSWORD/" > \
@@ -35,6 +40,6 @@ cat ./python/connection.py.init | \
 echo "Astra credentials plugged into all language environments. Please verify!"
 
 cat ~/.zshrc.init > ~/.zshrc && echo "/workspace/bootcamp-fullstack-apps-with-cassandra/cqlsh-astra/bin/cqlsh \\
-	--secure-connect-bundle=secure-connect-workshops.zip  \\
+	--secure-connect-bundle=/workspace/bootcamp-fullstack-apps-with-cassandra/secure-connect-workshops.zip  \\
 	-u $ASTRA_USERNAME \\
 	-p $ASTRA_PASSWORD" >> ~/.zshrc
