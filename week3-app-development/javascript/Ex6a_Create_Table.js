@@ -5,14 +5,14 @@ console.log("Start exercise");
 
 (async () => {
   try {
-    const result = await client.execute("SELECT * FROM system.local");
-    result.rows.forEach((row) => {
-      console.log(
-        "Your are now connected to Astra '%s' at '%s'",
-        row.cluster_name,
-        row.data_center
-      );
-    });
+    await client.execute(`
+        CREATE TABLE todoitems (
+            user_id         TEXT,
+            item_id         TIMEUUID,
+            title           TEXT,
+            completed       BOOLEAN,
+            PRIMARY KEY ((user_id), item_id)
+        ) WITH CLUSTERING ORDER BY (item_id ASC);`);
     console.log("SUCCESS");
   } catch (e) {
     console.log(e);
