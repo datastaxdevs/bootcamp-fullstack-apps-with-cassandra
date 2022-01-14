@@ -2,6 +2,8 @@
 
 ![datamodel](images/AppDevSplash.png?raw=true)
 
+If you did not attend the previous weeks' workshop **STOP - Complete Week 2 - [Data Modelling](../week2-data-modelling) first.**
+
 Welcome to the 'App Dev of back end with Cassandra' workshop! In this two-hour workshop, the Developer Advocate team of DataStax presents the process and the basic tenets of backend App Dev. If you did not attend the previous workshops, please look at the previous weeks of the bootcamp 
 [Week 1 - Intro to Cassandra](../week1-intro-to-cassandra) and [Week 2 - Data Modelling](../week2-data-modelling).
 
@@ -86,13 +88,13 @@ Notice the clipboard icon at the end of each value.
 
 - `Client Secret:` We will use it as a _password_ to connect to Astra.
 
-- `appToken:` It can be used as an api token Key to interact with APIs.
+- `appToken:` It can be used as an api token Key to interact with APIs. **(we won't be using this in today's workshop)**
 
 To know more about roles, tokens, etc. you can lok at [this video.](https://www.youtube.com/watch?v=TUTCLsBuUd4)
 
 **Note: Make sure you don't close the window accidentally or otherwise - if you close this window before you copy the values, the application token is lost forever. They won't be available later for security reasons. You'll have to create a new application token**
 
-We are now set with the database and credentials. Let's start coding with Quarkus!
+We are now set with the database and credentials. Let's start coding!
 
 [🏠 Back to Table of Contents](#0-table-of-contents)
 
@@ -122,6 +124,8 @@ Although GitPod terminal might seem to be available, the setup might still be on
 
 ## 4. Know your Gitpod
 
+**You are not going to run any command in this step but it's a great idea to take a moment and familiarize yourself with Gitpod. This steps provides some details for just that. Click around and get comfortable.**
+
 Take a moment to read this entire section since it'll help you with the rest of the workshop as you'll be spending most of your time in Gitpod. If you're familiar with Gitpod, you can easily skip this entire section.
 
 The extreme left side has the explorer view(1). The top left, middle to right is where you'll be editing files(2), etc. and the bottom left, middle to right is what we will refer to as the Gitpod terminal window(3) as shown below.
@@ -135,6 +139,9 @@ You can always get back to the file explorer view whenever by clicking on the ha
 
 ![gitpod](images/Filexplorer0.png?raw=true)
 
+At the top right of the terminal window is a `+` sign which allows you to create multiple shells. Familiarize yourself since we will be using `cql` in one of the shells.
+
+![gitpod](images/shells.png?raw=true)
 
 You may encounter the following at different steps and although this may not be applicable right away, the steps are included **in advance** and summarized here so that you can keep an eye out for it. Different paths and different environments might be slightly different although Gipod levels the playing field a bit.
 
@@ -153,14 +160,12 @@ Or allow ports to be opened by just exiting windows that are informational messa
 
 To run the application(s) you need to provide the database credentials.
 
-
 ✅ **Step 5a: Note the two values from the downloaded token**
 
 
 Note down the values of `Client Id` and `Client Secret` from values noted earlier that we will subsequently use for `username` and `password` in the respective language in a later step.
 
 ✅ **Step 5b: Download the secure connect bundle**
-
 
 This next step is probably the most involved step in the entire workshop. The goal of this step is to get the customized connect bundle into Gitpod. One of the several ways of doing this is as follows.
 
@@ -193,10 +198,81 @@ The file size should be roughly 12K otherwise something may have gone wrong in t
 -rw-r--r-- 1 gitpod gitpod 12231 Oct 26 00:15 secure-connect-workshops.zip
 ```
 
-TADA your application is almost configured we can finally play with some code.
+TADA your application is configured we can finally play with some code.
 
 [🏠 Back to Table of Contents](#0-table-of-contents)
 
+✅ **Step 5c: Setup the username and password**
+
+We have provided some convenience scripts to setup the credentials across all the languages.
+
+As a first step `cd` to the `week3-app-development` sub-directory with thefollowing command.
+
+```bash
+cd week3-app-development
+```
+
+
+Let's start by issuing the following command.
+
+```bash
+cp .env.sample .env
+```
+
+Open this file and update it by entering the `ASTRA_USERNAME` (`Client Id`) and `ASTRA_PASSWORD` (`Client Secret`) values. **Values are not shown here. You obtained this in an earlier step.** 
+
+You may issue the following command in the GitPod terminal window.
+
+```bash
+gp open .env
+```
+
+![dotenv](images/dotenv1.png?raw=true)
+
+You are almost ready to start coding. The next step is to run the convenience script which updates the connection files that you'll be using with the appropriate values. Run the following command
+
+```bash
+./plugastracreds
+```
+
+Issue the following command from the Gitpod terminal window if you're interested in knowing what happened behind the scenes/script.
+
+```bash
+git diff
+```
+
+✅ **Step 5d: Verify cql access from Gitpod**
+
+Invoke `zsh` as shown below (far right top corner of Gitpod terminal window).
+
+![dotenv](images/dotenv2.png?raw=true)
+
+If you completed the earlier steps properly, you should be dropped into the CQL shell as shown below.
+
+![dotenv](images/dotenv3.png?raw=true)
+
+Run the following command from the CQL shell of the Gitpod terminal window.
+
+```
+describe keyspaces;
+```
+
+**👁️ Expected output**
+
+```
+system_virtual_schema  system_auth   datastax_sla        todos
+todolist               system_views  data_endpoint_auth
+system_schema          system        system_traces     
+
+FXHtFByhHAjqNjdcLgZNYEll@cqlsh> 
+```
+
+
+We will refer to this as the `CQL shell` (`python2`) and the orginal shell as the `Gitpod terminal` (`bash ..`. You can click on those tabs to switch between the shells.
+
+![dotenv](images/dotenv4.png?raw=true)
+
+TADA! Now you're really done done with the setup and ready to start coding.
 
 ## 6. CRUD with Cassandra
 
