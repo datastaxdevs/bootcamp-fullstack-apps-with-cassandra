@@ -30,7 +30,7 @@ pwd
 /workspace/bootcamp-fullstack-apps-with-cassandra/week3-app-development/python
 ```
 
-**✅ Step 6a. Run unit test `Ex06_Connect_to_Cassandra.py`**
+**✅ Step 6a. Run unit test `Ex06_Connect_to_Astra.py`**
 
 From the GitPod terminal window issue the following command
 
@@ -52,7 +52,7 @@ PASSWORD = "FXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXdeOE.kio_.L981
 You can now test the connection to Astra with the following command
 
 ```bash
-python Ex06_Connect_to_Cassandra.py
+python Ex06_Connect_to_Astra.py
 ```
 **👁️ Expected output**
 

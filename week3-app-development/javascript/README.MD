@@ -31,12 +31,12 @@ pwd
 /workspace/bootcamp-fullstack-apps-with-cassandra/week3-app-development/javascript
 ```
 
-**✅ Step 6a. Run unit test `Ex06_Connect_to_Cassandra.js`**
+**✅ Step 6a. Run unit test `Ex06_Connect_to_Astra.js`**
 
 From the GitPod terminal window issue the following command
 
 ```bash
-open db_connection.js
+open connection.js
 ```
 
 and update the following lines
@@ -53,7 +53,7 @@ const PASSWORD = "FXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXdeOE.kio
 You can now test the connection to Astra with the following command
 
 ```bash
-node Ex06_Connect_to_Cassandra.js 
+node Ex06_Connect_to_Astra.js 
 ```
 **👁️ Expected output**
 

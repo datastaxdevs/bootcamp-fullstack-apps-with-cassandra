@@ -8,6 +8,10 @@ tasks:
       sdk install java 21.2.0.r11-grl -y
       pip3 install cassandra-driver
       npm install cassandra-driver
+      wget https://downloads.datastax.com/enterprise/cqlsh-astra.tar.gz \
+          && tar xvzf cqlsh-astra.tar.gz \
+          && rm -f cqlsh-astra.tar.gz
+      cp ~/.zshrc ~/.zshrc.init
 ports: 
   - port: 5005
   - port: 8080
