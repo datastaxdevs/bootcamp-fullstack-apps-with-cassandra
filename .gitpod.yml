@@ -2,12 +2,16 @@ tasks:
   - name: setup
     before: |
       echo "Setting up, please wait!"
-      cd /workspace/bootcamp-fullstack-apps-with-cassandra  
+      cd /workspace/bootcamp-fullstack-apps-with-cassandra 
       sed -i '1,$s/sdkman_auto_answer=false/sdkman_auto_answer=true/' /home/gitpod/.sdkman/etc/config 
       sed -i '1,$s/sdkman_selfupdate_enable=true/sdkman_selfupdate_enable=false/' /home/gitpod/.sdkman/etc/config 
       sdk install java 21.2.0.r11-grl -y
       pip3 install cassandra-driver
       npm install cassandra-driver
+      wget https://downloads.datastax.com/enterprise/cqlsh-astra.tar.gz \
+          && tar xvzf cqlsh-astra.tar.gz \
+          && rm -f cqlsh-astra.tar.gz
+      cp ~/.zshrc ~/.zshrc.init
 ports: 
   - port: 5005
   - port: 8080
@@ -25,6 +29,6 @@ github:
     addBadge: true
     addLabel: false
  
-vscode:
+ vscode:
   extensions:
     - datastax.astra-for-vs-code
