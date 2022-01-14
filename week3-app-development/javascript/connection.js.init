@@ -5,9 +5,9 @@ const cassandra = require("cassandra-driver");
 const SECURE_CONNECT_BUNDLE =
   "/workspace/bootcamp-fullstack-apps-with-cassandra/secure-connect-workshops.zip";
 // This is the "Client Id" value you obtained earlier
-const USERNAME = "";
+const USERNAME = "$ASTRA_USERNAME";
 // This is the "Client Secret" value you obtained earlier
-const PASSWORD = "";
+const PASSWORD = "$ASTRA_PASSWORD";
 // This is the keyspace name
 const KEYSPACE = "todos";
 
