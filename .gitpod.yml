@@ -25,3 +25,6 @@ github:
     addBadge: true
     addLabel: false
  
+vscode:
+  extensions:
+    - datastax.astra-for-vs-code

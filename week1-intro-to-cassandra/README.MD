@@ -27,6 +27,8 @@ To complete the workshop and get a verified badge, follow these simple steps:
 > docker run -d -t --name class-201 drchung5/ds201
 > docker exec -u root -it class-201 bash
 > ```
+> **_For those doing the exercises skip "exercise 5 - drivers" from the Docker image above. We noticed a set of problems causing frustration with this exercise and we will be covering using the drivers in Java, Python, and JS in the coming weeks._**
+
 4. [Submit the Homework through this form](https://dtsx.io/homework-intro-to-cassandra) and attach the screenshots above.
 5. Give us a few days to review your submission and relax: your well-earned badge will soon land in your mailbox!
 
