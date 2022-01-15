@@ -73,3 +73,4 @@ Closing connection (up to 10s)
 ## CRUD tests - TBD
 
 You may run other Create, Read, Update, Delete (CRUD) tests in the same sub-directory in a similar manner.
+Periodically, verify from the CQL Shell in Gitpod that the programs/tests are working as expected.

@@ -144,4 +144,4 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
 ## CRUD tests - TBD
 
-You may run other Create, Read, Update, Delete (CRUD) tests in the same sub-directory in a similar manner.
+You may run other Create, Read, Update, Delete (CRUD) tests in the same sub-directory in a similar manner. Periodically, verify from the CQL Shell in Gitpod that the programs/tests are working as expected.
