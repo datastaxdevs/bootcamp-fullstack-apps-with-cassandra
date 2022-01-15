@@ -51,7 +51,7 @@ You can optionally issue the following command or notice the changes in the expl
 
 ```bash
 git diff $_
-
+```
 
 Compile the project with the following command
 
