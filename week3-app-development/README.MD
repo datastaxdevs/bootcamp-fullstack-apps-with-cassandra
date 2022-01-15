@@ -38,7 +38,7 @@ To complete the workshop and get a verified badge, follow these simple steps:
 | **2. Create Astra Token** | [Create Astra Token](#2-create-astra-token) |
 | **3. Launch Gitpod** | [Launch Gitpod](#3-launch-gitpod) |
 | **4. Know your Gitpod** | [Know your Gitpod](#4-know-your-gitpod) |
-| **5. Setup your Application** | [Setup your Application](#5-setup-your-application)
+| **5. Setup your Application** | [Setup for the Applications](#5-setup-for-the-applications)
 | **6-10. CRUD with Cassandra** | [CRUD with Cassandra](#6-crud-with-cassandra) |
 | **11. Homework/Assignment and Badges** | [Homework/Assignment and Badges](#11-homework-assignment-badges) |
 
@@ -156,7 +156,7 @@ Or allow ports to be opened by just exiting windows that are informational messa
 
 [🏠 Back to Table of Contents](#0-table-of-contents)
 
-## 5. Setup for the application
+## 5. Setup for the applications
 
 To run the application(s) you need to provide the database credentials.
 
