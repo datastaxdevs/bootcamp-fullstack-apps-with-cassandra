@@ -38,9 +38,7 @@ From the GitPod terminal window issue the following command
 ```bash
 gp open src/main/java/com/datastax/workshop/DBConnection.java
 ```
-and update the following lines
-
-*Do not copy-paste - this is just a sample.*
+and notice the following lines have been updated with the appropriate values.
 
 ```java
 // This is the "Client Id" value you obtained earlier
@@ -48,6 +46,11 @@ String USERNAME = "FXXXXXXXXXXl";
 // This is the "Client Secret" value you obtained earlier
 String PASSWORD = "FXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXdeOE.kio_.L981NQ.xq5HqXDB7s_FIJC.ssbLgbdz+G1IC0BCwIA_ZrwPrQNJWUiv26uZf2f4w";
 ```
+
+You can optionally issue the following command or notice the changes in the explorer window. 
+
+```bash
+git diff $_
 
 
 Compile the project with the following command
@@ -82,7 +85,7 @@ mvn clean compile
 [INFO] ------------------------------------------------------------------------
 ```
 
-Run UNIT TEST in the GitPod terminal window as following
+You are ready and can now test the connection to Astra with the following command
 
 ```bash
 mvn test -Dtest=com.datastax.workshop.Ex06_Connect_to_Cassandra
@@ -139,5 +142,6 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 ```
 
+## CRUD tests - TBD
 
-
+You may run other Create, Read, Update, Delete (CRUD) tests in the same sub-directory in a similar manner.
