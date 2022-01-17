@@ -31,7 +31,7 @@ pwd
 /workspace/bootcamp-fullstack-apps-with-cassandra/week3-app-development/java
 ```
 
-**✅ Step 6a. Run unit test `Ex06_Connect_to_Cassandra.java`**
+**✅ Step 6a. Run unit test `Ex06_Connect_to_Astra.java`**
 
 From the GitPod terminal window issue the following command 
 
@@ -88,7 +88,7 @@ mvn clean compile
 You are ready and can now test the connection to Astra with the following command
 
 ```bash
-mvn test -Dtest=com.datastax.workshop.Ex06_Connect_to_Cassandra
+mvn test -Dtest=com.datastax.workshop.Ex06_Connect_to_Astra
 ```
 
 **👁️ Expected output**
@@ -121,7 +121,7 @@ mvn test -Dtest=com.datastax.workshop.Ex06_Connect_to_Cassandra
  T E S T S
 -------------------------------------------------------
 Picked up JAVA_TOOL_OPTIONS:  -Xmx2576m
-Running com.datastax.workshop.Ex06_Connect_to_Cassandra
+Running com.datastax.workshop.Ex06_Connect_to_Astra
 03:13:12.445 INFO  Exercise 6 : ========================================
 03:13:12.448 INFO  Exercise 6 : Start exercise
 03:13:12.451 INFO  Exercise 6 : File /workspace/bootcamp-fullstack-apps-with-cassandra/secure-connect-workshops.zip located

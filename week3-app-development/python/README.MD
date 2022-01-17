@@ -38,8 +38,9 @@ From the GitPod terminal window issue the following command
 open connection.py
 ```
 
-and notice the following lines have been updated with the appropriate values.
+and update the following lines
 
+*Do not copy-paste - this is just a sample.*
 
 ```python
 # This is the "Client Id" value you obtained earlier
@@ -48,13 +49,7 @@ USERNAME = "FXXXXXXXXXXl";
 PASSWORD = "FXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXdeOE.kio_.L981NQ.xq5HqXDB7s_FIJC.ssbLgbdz+G1IC0BCwIA_ZrwPrQNJWUiv26uZf2f4wo";
 ```
 
-You can optionally issue the following command or notice the changes in the explorer window. 
-
-```bash
-git diff $_
-```
-
-You are ready and can now test the connection to Astra with the following command
+You can now test the connection to Astra with the following command
 
 ```bash
 python Ex06_Connect_to_Astra.py
@@ -69,8 +64,3 @@ Success
 Closing connection (up to 10s)
 ========================================
 ```
-
-## CRUD tests - TBD
-
-You may run other Create, Read, Update, Delete (CRUD) tests in the same sub-directory in a similar manner.
-Periodically, verify from the CQL Shell in Gitpod that the programs/tests are working as expected.
