@@ -10,13 +10,13 @@
 
 We will be walking through code that establishes a connection to the Astra database and does CRUD (Create, Read, Update, Delete commands).
 
-- 6.[Connect to Cassandra](#-step-6-run-unit-test-ex06_connect_to_astra)
-- 6a. [Create the todoitems Table](#-step-6a-run-unit-test-ex6a_create_table)
-- 6b. [Insert values](#-step-6b-run-unit-test-ex6b_insert_todos)
-- 6c. [Retrieve all rows](#-step-6c-run-unit-test-ex6c_get_all_todos)
-- 6d. [Update a todo](#-step-6d-run-unit-test-ex6d_update_a_todo)
-- 6e. [Remove a todo list](#-step-6e-run-unit-test-ex6e_remove_a_todoj)
-- 6f. [Remove all todos](#-step-6f-run-unit-test-ex6f_remove_all_todos)
+- 6.[Connect to Astra](#-step-6-run-unit-test-ex06_connect_to_astrajava)
+- 6a. [Create the todoitems Table](#-step-6a-run-unit-test-ex6a_create_tablejava)
+- 6b. [Insert values](#-step-6b-run-unit-test-ex6b_insert_todosjava)
+- 6c. [Retrieve all rows](#-step-6c-run-unit-test-ex6c_get_all_todosjava)
+- 6d. [Update a todo](#-step-6d-run-unit-test-ex6d_update_a_todojava)
+- 6e. [Remove a todo list](#-step-6e-run-unit-test-ex6e_remove_a_todojava)
+- 6f. [Remove all todos](#-step-6f-run-unit-test-ex6f_remove_all_todosjava)
 
 Make sure you're in the right sub-directory (`java`) by issuing the following command in the GitPod terminal window.
 
