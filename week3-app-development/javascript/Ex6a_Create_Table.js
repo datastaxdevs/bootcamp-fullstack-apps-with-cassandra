@@ -6,7 +6,7 @@ console.log("Start exercise");
 (async () => {
   try {
     await client.execute(`
-        CREATE TABLE todoitems (
+        CREATE TABLE IF NOT EXISTS todoitems (
             user_id         TEXT,
             item_id         TIMEUUID,
             title           TEXT,
