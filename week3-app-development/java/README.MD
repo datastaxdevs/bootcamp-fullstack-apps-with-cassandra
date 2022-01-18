@@ -8,13 +8,15 @@
 
 ## Table of contents
 
-- 6.[Connect to Cassandra](#-step-6-run-unit-test-ex06_connect_to_astrajava)
-- 6a. [Create the todoitems Table](#-step-6a-run-unit-test-ex6a_create_tablejava)
-- 6b. [Insert values](#-step-6b-run-unit-test-ex6b_insert_todosjava)
-- 6c. [Retrieve all rows](#-step-6c-run-unit-test-ex6c_get_all_todosjava)
-- 6d. [Update a todo](#-step-6d-run-unit-test-ex6d_update_a_todojava)
-- 6e. [Remove a todo list](#-step-6e-run-unit-test-ex6e_remove_a_todojava)
-- 6f. [Remove all todos](#-step-6f-run-unit-test-ex6f_remove_all_todosjava)
+We will be walking through code that establishes a connection to the Astra database and does CRUD (Create, Read, Update, Delete commands).
+
+- 6.[Connect to Cassandra](#-step-6-run-unit-test-ex06_connect_to_astra)
+- 6a. [Create the todoitems Table](#-step-6a-run-unit-test-ex6a_create_table)
+- 6b. [Insert values](#-step-6b-run-unit-test-ex6b_insert_todos)
+- 6c. [Retrieve all rows](#-step-6c-run-unit-test-ex6c_get_all_todos)
+- 6d. [Update a todo](#-step-6d-run-unit-test-ex6d_update_a_todo)
+- 6e. [Remove a todo list](#-step-6e-run-unit-test-ex6e_remove_a_todoj)
+- 6f. [Remove all todos](#-step-6f-run-unit-test-ex6f_remove_all_todos)
 
 Make sure you're in the right sub-directory (`java`) by issuing the following command in the GitPod terminal window.
 
@@ -32,6 +34,9 @@ pwd
 ```
 /workspace/bootcamp-fullstack-apps-with-cassandra/week3-app-development/java
 ```
+**Suggestion**
+
+Read, digest and modify the source code in the next few steps and get comfortable with the drivers and the code in preparation for the remaining workshop series.
 
 #### ✅ Step 6. Run unit test `Ex06_Connect_to_Astra.java`
 
@@ -105,7 +110,23 @@ mvn test -Dtest=com.datastax.workshop.Ex06_Connect_to_Astra
 [should_connect_to_astra] ========================================
 ```
 
-#### ✅ Step 6a. Run unit test `Ex6a_Create_Table.java`**
+Now that we're successfully able to establish the connection, take a moment to walk through how the connection has been established by opening the source code using the following command
+
+```
+gp open src/main/java/com/datastax/workshop/DBConnection.java
+```
+
+#### ✅ Step 6a. Run unit test `Ex6a_Create_Table.java`
+
+Let's create the table.
+
+Take a moment to review the code with the following command
+
+```bash
+gp open src/test/java/com/datastax/workshop/Ex6a_Create_Table.java
+```
+After reviewing the code, run the following command in the GitPod terminal window which runs the code after making the connection.
+
 
 ```bash
 mvn test -Dtest=com.datastax.workshop.Ex6a_Create_Table
@@ -165,6 +186,13 @@ CREATE TABLE todos.todoitems (
 #### ✅ Step 6b. Run unit test `Ex6b_Insert_Todos.java`
 
 Let's insert some items.
+
+Take a moment to review the code with the following command
+
+```bash
+gp open src/test/java/com/datastax/workshop/Ex6b_Insert_Todos.java
+```
+After reviewing the code, run the following command in the GitPod terminal window which runs the code after making the connection.
 
 ```bash
 mvn test -Dtest=com.datastax.workshop.Ex6b_Insert_Todos
@@ -234,6 +262,15 @@ select * from todoitems;
 
 #### ✅ Step 6c. Run unit test `Ex6c_Get_All_Todos.java`
 
+Let's get all the todos associated with an user.
+
+Take a moment to review the code with the following command
+
+```bash
+gp open src/test/java/com/datastax/workshop/Ex6c_Get_All_Todos.java
+```
+After reviewing the code, run the following command in the GitPod terminal window which runs the code after making the connection.
+
 ```bash
 mvn test -Dtest=com.datastax.workshop.Ex6c_Get_All_Todos
 ```
@@ -269,9 +306,19 @@ Todoitem title = Prepared Task
 [should_get_todos_3] ========================================
 ```
 
-You can verify via the CQL shell or via the console again as you did in previous step(s).
+You can verify via the CQL shell or via the console as well as you did in previous step(s).
 
 #### ✅ Step 6d. Run unit test `Ex6d_Update_A_Todo.java`
+
+Let's update an item.
+
+Take a moment to review the code with the following command
+
+```bash
+gp open src/test/java/com/datastax/workshop/Ex6d_Update_A_Todo.java
+```
+
+After reviewing the code, run the following command in the GitPod terminal window which runs the code after making the connection.
 
 ```bash
 mvn test -Dtest=com.datastax.workshop.Ex6d_Update_A_Todo
@@ -329,6 +376,16 @@ select * from todoitems;
 
 #### ✅ Step 6e. Run unit test `Ex6e_Remove_A_Todo.java`
 
+Let's remove an item.
+
+Take a moment to review the code with the following command
+
+```bash
+gp open src/test/java/com/datastax/workshop/Ex6e_Remove_A_Todo.java
+```
+
+After reviewing the code, run the following command in the GitPod terminal window which runs the code after making the connection.
+
 ```bash
 mvn test -Dtest=com.datastax.workshop.Ex6e_Remove_A_Todo
 ```
@@ -356,14 +413,22 @@ select * from todoitems where user_id='john';
 **👁️ Expected output**
 
 ```bash
-
  user_id | item_id                              | completed | title
 ---------+--------------------------------------+-----------+---------------------
     john | 22222222-5cff-11ec-be16-1fedb0dfd057 |      True | Have lunch tomorrow
-
 ```
 
-#### ✅ Step 6f. Run unit test`Ex6f_Remove_All_Todos.java`
+#### ✅ Step 6f. Run unit test `Ex6f_Remove_All_Todos.java`
+
+Finally, let's remove all todos associated with an user.
+
+Take a moment to review the code with the following command
+
+```bash
+gp open src/test/java/com/datastax/workshop/Ex6f_Remove_All_Todos.java
+```
+
+After reviewing the code, run the following command in the GitPod terminal window which runs the code after making the connection.
 
 ```bash
 mvn test -Dtest=com.datastax.workshop.Ex6f_Remove_All_Todos
@@ -383,6 +448,7 @@ mvn test -Dtest=com.datastax.workshop.Ex6f_Remove_All_Todos
 **6f. CQL Console**
 
 From either the CQL shell window or the CQL console in the Astra console issue the following command to notice the items that have been created.
+
 **👁️ Expected output** 
 
 ```sql
@@ -395,3 +461,13 @@ select * from todoitems;
  user_id | item_id | completed | title
 ---------+---------+-----------+-------
 ```
+
+
+**Cleanup**
+
+**Caution: You will lose all the data** if you run the following command in the CQL Console
+
+```cql
+DROP TABLE IF EXISTS todos.todoitems;
+```
+
