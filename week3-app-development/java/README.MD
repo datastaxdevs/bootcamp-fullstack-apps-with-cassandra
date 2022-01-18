@@ -6,7 +6,7 @@
 
 ![JAVA](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-java.png)
 
-## Table of content
+## Table of contents
 
 - 6.[Connect to Cassandra](#-step-6-run-unit-test-ex06_connect_to_astrajava)
 - 6a. [Create the todoitems Table](#-step-6a-run-unit-test-ex6a_create_tablejava)
@@ -52,7 +52,7 @@ String PASSWORD = "FXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXdeOE.ki
 You can optionally issue the following command or notice the changes in the explorer window. 
 
 ```bash
-git diff $_
+git diff src/main/java/com/datastax/workshop/DBConnection.java
 ```
 
 Compile the project with the following command
@@ -124,14 +124,18 @@ mvn test -Dtest=com.datastax.workshop.Ex6a_Create_Table
 [should_create_a_table_2] ========================================
 ```
 
-**6a. Cql Console**
+**6a. CQL Console**
+
+From either the CQL shell window or the CQL console in the Astra console issue the following command to notice the items that have been created.
 
 ```sql
 use todos;
-DECBRIBE TABLE todoitems;
+DESCRIBE TABLE todoitems;
 ```
 
-**6a. Cql output**
+**6a. CQL output**
+
+**👁️ Expected output**
 
 ```bash
 CREATE TABLE todos.todoitems (
@@ -159,11 +163,15 @@ CREATE TABLE todos.todoitems (
 
 #### ✅ Step 6b. Run unit test `Ex6b_Insert_Todos.java`
 
+Let's insert some items.
+
 ```bash
 mvn test -Dtest=com.datastax.workshop.Ex6b_Insert_Todos
 ```
 
 **6b. Test output**
+
+**👁️ Expected output**
 
 ```bash
 [should_insert_todos_1] ========================================
@@ -198,13 +206,17 @@ mvn test -Dtest=com.datastax.workshop.Ex6b_Insert_Todos
 [should_insert_task_prepared] ========================================
 ```
 
-**6b. Cql Console**
+**6b. CQL Console**
+
+From either the CQL shell window or the CQL console in the Astra console issue the following command to notice the items that have been created.
 
 ```sql
 select * from todoitems;
 ```
 
-**6b. Cql Output**
+**6b. CQL Output**
+
+**👁️ Expected output**
 
 ```bash
 
@@ -227,9 +239,11 @@ mvn test -Dtest=com.datastax.workshop.Ex6c_Get_All_Todos
 
 **6c. Test output**
 
+**👁️ Expected output**
+
 ```bash
 [should_get_todos_1] ========================================
-[should_get_todos_1] Looking for John Tasks
+[should_get_todos_1] Looking for John's Tasks
 [should_get_todos_1] 11111111-5cff-11ec-be16-1fedb0dfd057: Walk the dog
 [should_get_todos_1] 22222222-5cff-11ec-be16-1fedb0dfd057: Have lunch tomorrow
 [should_get_todos_1] [OK]
@@ -243,7 +257,18 @@ mvn test -Dtest=com.datastax.workshop.Ex6c_Get_All_Todos
 [should_get_todos_2] a3a9c670-7842-11ec-ac4e-0fa3c250f26e: Prepared Task
 [should_get_todos_2] [OK]
 [should_get_todos_2] ========================================
+
+[should_get_todos_3 with simple object mapper]=================
+[should_get_todos_3] Looking for 'createTask' Tasks
+Todoitem title = Task CQL
+Todoitem title = Task Simple Statement position
+Todoitem title = Task Simple Statement name
+Todoitem title = Prepared Task
+[should_get_todos_3 with simple object mapper] [OK]
+[should_get_todos_3] ========================================
 ```
+
+You can verify via the CQL shell or via the console again as you did in previous step(s).
 
 #### ✅ Step 6d. Run unit test `Ex6d_Update_A_Todo.java`
 
@@ -252,6 +277,8 @@ mvn test -Dtest=com.datastax.workshop.Ex6d_Update_A_Todo
 ```
 
 **6d. Test output**
+
+**👁️ Expected output**
 
 ```bash
 [should_update_todos] ========================================
@@ -273,13 +300,17 @@ mvn test -Dtest=com.datastax.workshop.Ex6d_Update_A_Todo
 [should_update_todos_2] ========================================
 ```
 
-**6d. Cql Console**
+**6d. CQL Console**
+
+From either the CQL shell window or the CQL console in the Astra console issue the following command to notice the items that have been created.
 
 ```sql
 select * from todoitems;
 ```
 
-**6d. Cql Output**
+**6d. CQL Output**
+
+**👁️ Expected output**
 
 ```bash
  user_id    | item_id                              | completed | title
@@ -311,13 +342,17 @@ mvn test -Dtest=com.datastax.workshop.Ex6e_Remove_A_Todo
 [should_remove_todos] ========================================
 ```
 
-**6e. Cql Console**
+**6e. CQL Console**
+
+From either the CQL shell window or the CQL console in the Astra console issue the following command to notice the items that have been created.
 
 ```sql
 select * from todoitems where user_id='john';
 ```
 
-**6e. Cql Output**
+**6e. CQL Output**
+
+**👁️ Expected output**
 
 ```bash
 
@@ -327,13 +362,15 @@ select * from todoitems where user_id='john';
 
 ```
 
-#### ✅ Step 6f. Run unit test `Ex6f_Remove_All_Todos.java`
+#### ✅ Step 6f. Run unit test`Ex6f_Remove_All_Todos.java`
 
 ```bash
 mvn test -Dtest=com.datastax.workshop.Ex6f_Remove_All_Todos
 ```
 
 **6f. Test output**
+
+**👁️ Expected output**
 
 ```bash
 [should_remote_all_todos] ========================================
@@ -342,7 +379,10 @@ mvn test -Dtest=com.datastax.workshop.Ex6f_Remove_All_Todos
 [should_remote_all_todos] ========================================
 ```
 
-**6f. Cql Console**
+**6f. CQL Console**
+
+From either the CQL shell window or the CQL console in the Astra console issue the following command to notice the items that have been created.
+**👁️ Expected output** 
 
 ```sql
 select * from todoitems;
