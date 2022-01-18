@@ -128,7 +128,7 @@ Although GitPod terminal might seem to be available, the setup might still be on
 
 ## 4. Know your Gitpod
 
-**You are not going to run any command in this step but it's a great idea to take a moment and familiarize yourself with Gitpod. This steps provides some details for just that. Click around and get comfortable.**
+**You are not going to run any command in this step but it's a great idea to take a moment and familiarize yourself with Gitpod. These steps provides some details for just that. Take a tour around and get comfortable.**
 
 Take a moment to read this entire section since it'll help you with the rest of the workshop as you'll be spending most of your time in Gitpod. If you're familiar with Gitpod, you can easily skip this entire section.
 
@@ -297,18 +297,20 @@ Exercises will be different for each language. Pick the language you feel the mo
 
 ## 11. Homework/Assignment and Badges
 
+
+<img src="images/appdev_badge.png?raw=true" width="200" align="right" />
+
+
 **Now go ahead and start app dev: Good luck!**
 
-![Badge](images/appdev_badge.png)
+> You might be eligible for a badge when you attend more workshops and complete the requirements.
 
-**... and see you at our next workshop!**
+<img src="images/bootcamp_badge.png?raw=true" width="200" align="left" />
 
-You might be eligible for a badge when you attend more workshops and complete the requirements.
-
-![Badge](images/bootcamp_badge.png)
+> Sincerely yours, The DataStax Developers
+> THE END.
 
 [🏠Back to HOME workshop](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra)
 
-> Sincerely yours, The DataStax Developers
 
-THE END.
+
