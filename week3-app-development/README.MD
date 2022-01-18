@@ -242,7 +242,7 @@ You are almost ready to start coding. The next step is to run the convenience sc
 ./plugastracreds
 ```
 
-Issue the following command from the Gitpod terminal window if you're interested in knowing what happened behind the scenes/script.
+Optionally, issue the following command from the Gitpod terminal window if you're interested in knowing what happened behind the scenes/script. Hit space bar to proceed through the changes or hit <Ctrl-C> or `q` to exit the command.
 
 ```bash
 git diff
