@@ -39,8 +39,8 @@ To complete the workshop and get a verified badge, follow these simple steps:
 | **3. Launch Gitpod** | [Launch Gitpod](#3-launch-gitpod) |
 | **4. Know your Gitpod** | [Know your Gitpod](#4-know-your-gitpod) |
 | **5. Setup your Application** | [Setup for the Applications](#5-setup-for-the-applications)
-| **6-10. CRUD with Cassandra** | [CRUD with Cassandra](#6-crud-with-cassandra) |
-| **11. Homework/Assignment and Badges** | [Homework/Assignment and Badges](#11-homework-assignment-badges) |
+| **6-6f. CRUD with Cassandra** | [CRUD with Cassandra](#6-crud-with-cassandra) |
+| **7. Homework/Assignment and Badges** | [Homework/Assignment and Badges](#7-homework-assignment-badges) |
 
 
 ## 1. Connect to your Astra DB instance
@@ -295,7 +295,7 @@ Exercises will be different for each language. Pick the language you feel the mo
 
 [🏠 Back to Table of Contents](#0-table-of-contents)
 
-## 11. Homework/Assignment and Badges
+## 7. Homework/Assignment and Badges
 
 
 <img src="images/appdev_badge.png?raw=true" width="200" align="right" />
