@@ -82,7 +82,7 @@ Following the [Manage Application Tokens docs](https://docs.datastax.com/en/astr
 
 ![image](images/astra-create-token.gif?raw=true)
 
-This is what the token page looks like. You can now download the values as a CSV. We will need those values but you can also keep this window open for use later.
+This is what the token page looks like. You can now download the values as a CSV since you will need those values very soon.
 
 ![image](images/astra-token.png?raw=true)
 
@@ -312,6 +312,4 @@ Refer back to the [Homework](#Homework) which is required to earn the badges.
 > THE END.
 
 [🏠Back to HOME workshop](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra)
-
-
 
