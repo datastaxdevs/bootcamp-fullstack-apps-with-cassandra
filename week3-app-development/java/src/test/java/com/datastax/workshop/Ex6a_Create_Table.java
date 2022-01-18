@@ -28,6 +28,7 @@ public class Ex6a_Create_Table implements DBConnection {
     
     System.out.println("[should_create_a_table_1] [OK]");
     System.out.println("[should_create_a_table_1] ========================================");
+    System.out.println();
   }
   
   @Test
