@@ -36,7 +36,7 @@ pwd
 From the GitPod terminal window issue the following command
 
 ```bash
-open connection.js
+open connection.py
 ```
 
 and notice the following lines have been updated with the appropriate values.
