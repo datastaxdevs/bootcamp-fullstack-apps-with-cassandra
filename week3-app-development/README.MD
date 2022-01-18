@@ -16,7 +16,7 @@ In this repository, you'll find everything you need for this workshop:
 
 - [Materials used during presentations](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/blob/main/week3-app-development/slides/WEEK3%20-%20App%20Development%20with%20Cassandra.pdf)
 - [Hands-on exercises](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/tree/main/week3-app-development#table-of-contents)
-- [Workshop video](https://youtu.be/iwDKqUesqvE)
+- [Workshop video](https://youtu.be/PGOv68epSQ8)
 - [Discord chat](https://dtsx.io/discord)
 - [Questions and Answers](https://community.datastax.com/)
 
