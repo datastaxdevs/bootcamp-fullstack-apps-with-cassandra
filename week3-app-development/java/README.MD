@@ -15,7 +15,7 @@ We will be walking through code that establishes a connection to the Astra datab
 - 6b. [Insert values](#-step-6b-run-unit-test-ex6b_insert_todosjava)
 - 6c. [Retrieve all rows](#-step-6c-run-unit-test-ex6c_get_all_todosjava)
 - 6d. [Update a todo](#-step-6d-run-unit-test-ex6d_update_a_todojava)
-- 6e. [Remove a todo list](#-step-6e-run-unit-test-ex6e_remove_a_todojava)
+- 6e. [Remove a todo](#-step-6e-run-unit-test-ex6e_remove_a_todojava)
 - 6f. [Remove all todos](#-step-6f-run-unit-test-ex6f_remove_all_todosjava)
 
 Make sure you're in the right sub-directory (`java`) by issuing the following command in the GitPod terminal window.
