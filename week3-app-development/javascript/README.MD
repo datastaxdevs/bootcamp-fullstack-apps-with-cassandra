@@ -49,10 +49,10 @@ const USERNAME = "FXXXXXXXXXXl";
 const PASSWORD = "FXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXdeOE.kio_.L981NQ.xq5HqXDB7s_FIJC.ssbLgbdz+G1IC0BCwIA_ZrwPrQNJWUiv26uZf2f4wo";
 ```
 
-You can optionally issue the following command or notice the changes in the explorer window. 
+You can optionally issue the following command or notice the changes in the Gitpod explorer window.
 
 ```bash
-git diff $_
+git diff connection.js
 ```
 
 You are ready and can now test the connection to Astra with the following command
