@@ -4,7 +4,7 @@ from connection import session
 print('========================================')
 print('Start exercise')
 try:
-    session.execute("""CREATE TABLE todoitems (
+    session.execute("""CREATE TABLE IF NOT EXISTS todoitems (
                         user_id         TEXT,
                         item_id         TIMEUUID,
                         title           TEXT,
