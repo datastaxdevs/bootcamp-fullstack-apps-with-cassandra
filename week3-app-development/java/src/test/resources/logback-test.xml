@@ -7,17 +7,6 @@
     <root level="WARN">
         <appender-ref ref="STDOUT"/>
     </root>
-    <logger name="Exercise 2" level="INFO"/>
-    <logger name="Exercise 3" level="INFO"/>
-    <logger name="Exercise 4" level="INFO"/>
-    <logger name="Exercise 5" level="INFO"/>
-    <logger name="Exercise 6" level="INFO"/>
-    <logger name="Exercise 6a" level="INFO"/>
-    <logger name="Exercise 6b" level="INFO"/>
-    <logger name="Exercise 6c" level="INFO"/>
-    <logger name="Exercise 6d" level="INFO"/>
-    <logger name="Exercise 6e" level="INFO"/>
-    <logger name="Exercise 6f" level="INFO"/>
     <logger name="com.datastax.oss"     level="ERROR"/>
     <logger name="org.junit.vintage"    level="ERROR" />
 </configuration>

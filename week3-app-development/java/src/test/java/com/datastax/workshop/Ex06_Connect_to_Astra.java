@@ -7,21 +7,16 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.datastax.oss.driver.api.core.CqlSession;
 
 @RunWith(JUnitPlatform.class)
-public class Ex06_Connect_to_Astra implements DBConnection {
-
-  /** Logger for the class. */
-  private static Logger LOGGER = LoggerFactory.getLogger("Exercise 6");
-
+public class Ex06_Connect_to_Astra {
+  
   @Test
   public void should_connect_to_astra() {
-    LOGGER.info("========================================");
-    LOGGER.info("should_connect_to_astra");
+    System.out.println("[should_connect_to_astra] ========================================");
+    System.out.println("[should_connect_to_astra] Start Exercise");
     // Given
     Assertions.assertFalse(
       DBConnection.SECURE_CONNECT_BUNDLE.equals(""),
@@ -47,7 +42,7 @@ public class Ex06_Connect_to_Astra implements DBConnection {
       "To run this sample you need to download the secure bundle file from ASTRA WebPage\n" +
       "More info here:"
     );
-    LOGGER.info("File {} located", DBConnection.SECURE_CONNECT_BUNDLE);
+    System.out.println("[should_connect_to_astra] File '" + DBConnection.SECURE_CONNECT_BUNDLE + "' located");
 
     // When
     try (
@@ -61,9 +56,9 @@ public class Ex06_Connect_to_Astra implements DBConnection {
         .build()
     ) {
       // Then
-      LOGGER.info("Connected with Keyspace {}", cqlSession.getKeyspace().get());
+        System.out.println("[should_connect_to_astra] Connected with Keyspace " + cqlSession.getKeyspace().get());
     }
-    LOGGER.info("SUCCESS");
-    LOGGER.info("========================================");
+    System.out.println("[should_connect_to_astra] [OK]");
+    System.out.println("[should_connect_to_astra] ========================================");
   }
 }

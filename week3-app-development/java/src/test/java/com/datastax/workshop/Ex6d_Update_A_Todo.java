@@ -1,6 +1,5 @@
 package com.datastax.workshop;
 
-import java.nio.file.Paths;
 import java.util.UUID;
 
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
@@ -9,8 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.SimpleStatement;
@@ -19,37 +16,34 @@ import com.datastax.oss.driver.api.core.cql.SimpleStatement;
 @TestMethodOrder(OrderAnnotation.class)
 public class Ex6d_Update_A_Todo implements DBConnection {
 
-  /** Logger for the class. */
-  private static Logger LOGGER = LoggerFactory.getLogger("Exercise 6d");
-
   @Test
   @Order(1)
   public void should_update_todos() {
-    LOGGER.info("========================================");
-    LOGGER.info("should_update_todos 1");
-
+    System.out.println("[should_update_todos] ========================================");
+    System.out.println("[should_update_todos] Start Exercise");
     // When
-    try (CqlSession cqlSession = createCqlSession()) {
-      LOGGER.info("Before");
-      showTasks(cqlSession, "john");
+    try (CqlSession cqlSession = TestUtils.createCqlSession()) {
+      System.out.println("[should_update_todos] Before:");
+      TestUtils.showTasks(cqlSession, "john");
       cqlSession.execute(""
         + "UPDATE todoitems "
         + "SET completed = true "
         + "WHERE user_id = 'john' "
         + "AND item_id = 22222222-5cff-11ec-be16-1fedb0dfd057;"
       );
-      LOGGER.info("After:");
-      showTasks(cqlSession, "john");
+      System.out.println("[should_update_todos] After:");
+      TestUtils.showTasks(cqlSession, "john");
     }
-    LOGGER.info("[OK]");
+    System.out.println("[should_update_todos] [OK]");
+    System.out.println("[should_update_todos] ========================================\n");
   }
  
   @Test
   @Order(2)
   public void should_update_todos_2() {
-    LOGGER.info("========================================");
-    LOGGER.info("should_update_todos 2");
-    try (CqlSession cqlSession = createCqlSession()) {
+    System.out.println("[should_update_todos_2] ========================================");
+    System.out.println("[should_update_todos_2] Start Exercise");
+    try (CqlSession cqlSession = TestUtils.createCqlSession()) {
       cqlSession.execute(SimpleStatement.builder(""
               + "UPDATE todoitems "
               + "SET completed=:flag "
@@ -58,32 +52,10 @@ public class Ex6d_Update_A_Todo implements DBConnection {
               .addNamedValue("userId", "john")
               .addNamedValue("itemId", UUID.fromString("11111111-5cff-11ec-be16-1fedb0dfd057"))
               .build());
-       showTasks(cqlSession, "john");
+       TestUtils.showTasks(cqlSession, "john");
     }
-    LOGGER.info("[OK]");
-    LOGGER.info("========================================");
+    System.out.println("[should_update_todos_2] [OK]");
+    System.out.println("[should_update_todos_2] ========================================\n");
   }
-  
-  // ======== Utilities ==============
-  
-  private CqlSession createCqlSession() {
-      return CqlSession
-              .builder()
-              .withCloudSecureConnectBundle(Paths.get(DBConnection.SECURE_CONNECT_BUNDLE))
-              .withAuthCredentials(DBConnection.USERNAME, DBConnection.PASSWORD)
-              .withKeyspace(DBConnection.KEYSPACE)
-              .build();
-  }
-  
-  private void showTasks(CqlSession cqlSession, String user) {
-      cqlSession.execute(SimpleStatement
-                  .builder("SELECT item_id, completed, title  FROM todoitems WHERE user_id=?")
-                  .addPositionalValue(user).build())
-                .forEach(row -> {
-                  LOGGER.info("+" + row.getUuid("item_id") + ": " + 
-                          row.getBoolean("completed") + ":" + 
-                          row.getString("title"));      
-                });
-  }
-  
+   
 }

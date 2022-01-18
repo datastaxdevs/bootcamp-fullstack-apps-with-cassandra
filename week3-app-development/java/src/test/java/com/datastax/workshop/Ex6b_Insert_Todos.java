@@ -1,6 +1,5 @@
 package com.datastax.workshop;
 
-import java.nio.file.Paths;
 import java.util.UUID;
 
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
@@ -9,8 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.PreparedStatement;
@@ -20,55 +17,54 @@ import com.datastax.oss.driver.api.core.uuid.Uuids;
 @RunWith(JUnitPlatform.class)
 @TestMethodOrder(OrderAnnotation.class)
 public class Ex6b_Insert_Todos implements DBConnection {
-
-  /** Logger for the class. */
-  private static Logger LOGGER = LoggerFactory.getLogger("Exercise 6b");
   
   @Test
   @Order(1)
-  public void should_create_todos_1() {
-    LOGGER.info("========================================");
-    LOGGER.info("Insert CQL 1");
-    try (CqlSession cqlSession = createCqlSession()) {
-      LOGGER.info("Connected with Keyspace {}", cqlSession.getKeyspace().get());
+  public void should_insert_todos_1() {
+    System.out.println("[should_insert_todos_1] ========================================");
+    System.out.println("[should_insert_todos_1] Start with static CQL");
+    try (CqlSession cqlSession = TestUtils.createCqlSession()) {
       cqlSession.execute(
         "INSERT INTO todoitems (user_id, item_id, completed, title) " + 
         "VALUES ( 'john', 11111111-5cff-11ec-be16-1fedb0dfd057, true, 'Walk the dog');"
       );
-      LOGGER.info("Task '11111111-5cff-11ec-be16-1fedb0dfd057' has been inserted");       
+      
+      System.out.println("[should_insert_todos_1] Task '11111111-5cff-11ec-be16-1fedb0dfd057' has been inserted");       
       cqlSession.execute(
         "INSERT INTO todoitems (user_id, item_id, completed, title) " +
         "VALUES ( 'john', 22222222-5cff-11ec-be16-1fedb0dfd057, false, 'Have lunch tomorrow');"
       );
-      LOGGER.info("Task '22222222-5cff-11ec-be16-1fedb0dfd057' has been inserted"); 
+      System.out.println("[should_insert_todos_1] Task '22222222-5cff-11ec-be16-1fedb0dfd057' has been inserted"); 
       cqlSession.execute(
         "INSERT INTO todoitems (user_id, item_id, completed, title) " + 
         "VALUES ( 'mary', 33333333-5cff-11ec-be16-1fedb0dfd057, true, 'Attend the workshop');"
       );
-      LOGGER.info("Task '33333333-5cff-11ec-be16-1fedb0dfd057' has been inserted"); 
+      System.out.println("[should_insert_todos_1] Task '33333333-5cff-11ec-be16-1fedb0dfd057' has been inserted"); 
     }
-    LOGGER.info("[OK]");
+    System.out.println("[should_insert_todos_1] [OK]");
+    System.out.println("[should_insert_todos_1] ========================================\n");
   }
   
   @Test
   @Order(2)
   public void should_create_task_cql() {
-      LOGGER.info("========================================");
-      LOGGER.info("Insert CQL 2");
-      try (CqlSession cqlSession = createCqlSession()) {
+      System.out.println("[should_create_task_cql] ========================================");
+      System.out.println("[should_create_task_cql] Start Exercise");
+      try (CqlSession cqlSession = TestUtils.createCqlSession()) {
           cqlSession.execute(""
               + "INSERT INTO todoitems (user_id, item_id, title, completed) "
               + "VALUES('createTask'," +  Uuids.timeBased() + ",'Task CQL',FALSE)");
       }
-      LOGGER.info("[OK]");
+      System.out.println("[should_create_task_cql] [OK]");
+      System.out.println("[should_create_task_cql] ========================================\n");
   }
   
   @Test
   @Order(3)
   public void should_insert_task_simple_position() {
-      LOGGER.info("========================================");
-      LOGGER.info("Insert Simple Statement (position)");
-      try (CqlSession cqlSession = createCqlSession()) {
+      System.out.println("[should_insert_task_simple_position] ========================================");
+      System.out.println("[should_insert_task_simple_position] Start Exercise");
+      try (CqlSession cqlSession = TestUtils.createCqlSession()) {
           UUID itemId =  Uuids.timeBased();
           cqlSession.execute(SimpleStatement.builder(""
                   + "INSERT INTO todoitems (user_id, item_id, title, completed) "
@@ -78,17 +74,18 @@ public class Ex6b_Insert_Todos implements DBConnection {
                   .addPositionalValue("Task Simple Statement position")
                   .addPositionalValue(Boolean.FALSE)
                   .build());
-          LOGGER.info("Task '{}' has been inserted", itemId);        
+          System.out.println("[should_insert_task_simple_position] Task " + itemId + " has been inserted");        
       }
-      LOGGER.info("[OK]");
+      System.out.println("[should_insert_task_simple_position] [OK]");
+      System.out.println("[should_insert_task_simple_position] ========================================\n");
   }
   
   @Test
   @Order(4)
   public void should_insert_task_simple_label() {
-      LOGGER.info("========================================");
-      LOGGER.info("Insert Simple Statement (named)");
-      try (CqlSession cqlSession = createCqlSession()) {
+      System.out.println("[should_insert_task_simple_label] ========================================");
+      System.out.println("[should_insert_task_simple_label] Start Exercise");
+      try (CqlSession cqlSession = TestUtils.createCqlSession()) {
           UUID itemId =  Uuids.timeBased();
           cqlSession.execute(SimpleStatement.builder(""
                   + "INSERT INTO todoitems (user_id, item_id, title, completed) "
@@ -98,36 +95,28 @@ public class Ex6b_Insert_Todos implements DBConnection {
                   .addNamedValue("title","Task Simple Statement name")
                   .addNamedValue("completed", Boolean.FALSE)
                   .build());
-          LOGGER.info("Task '{}' has been inserted", itemId);        
+          System.out.println("[should_insert_task_simple_label] Task " + itemId + " has been inserted");     
       }
-      LOGGER.info("[OK]");
+      System.out.println("[should_insert_task_simple_label] [OK]");
+      System.out.println("[should_insert_task_simple_label] ========================================\n");
   }
   
   @Test
   @Order(5)
   public void should_insert_task_prepared() {
-      LOGGER.info("========================================");
-      LOGGER.info("Insert Prepared Statement");
+      System.out.println("[should_insert_task_prepared] ========================================");
+      System.out.println("[should_insert_task_prepared] Start Exercise");
       // When
-      try (CqlSession cqlSession = createCqlSession()) {
+      try (CqlSession cqlSession = TestUtils.createCqlSession()) {
           PreparedStatement ps = cqlSession.prepare(
                   "INSERT INTO todoitems (user_id, item_id, title, completed) "
                   + "VALUES(?,?,?,?)");
           UUID itemId = Uuids.timeBased();
           cqlSession.execute(ps.bind("createTask", itemId, "Prepared Task", Boolean.FALSE));
-          LOGGER.info("Task '{}' has been inserted", itemId);               
+          System.out.println("[should_insert_task_prepared] Task " + itemId + " has been inserted");               
       }
-      LOGGER.info("[OK]");
+      System.out.println("[should_insert_task_prepared] [OK]");
+      System.out.println("[should_insert_task_prepared] ========================================\n");
   }
-  
-  private CqlSession createCqlSession() {
-      return CqlSession
-              .builder()
-              .withCloudSecureConnectBundle(Paths.get(DBConnection.SECURE_CONNECT_BUNDLE))
-              .withAuthCredentials(DBConnection.USERNAME, DBConnection.PASSWORD)
-              .withKeyspace(DBConnection.KEYSPACE)
-              .build();
-  }
-  
   
 }

@@ -1,7 +1,6 @@
 package com.datastax.workshop;
 
 /*
- *
  * TODO Please change this constants with the values
  * you used when you created the ASTRA instance.
  */
@@ -18,4 +17,5 @@ public interface DBConnection {
     
     // This is the keyspace name, recommended value was killrvideo
     String KEYSPACE = "todos";
+    
 }
