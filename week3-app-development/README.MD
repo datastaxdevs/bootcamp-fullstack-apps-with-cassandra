@@ -8,7 +8,7 @@ Welcome to the 'App Dev of back end with Cassandra' workshop! In this two-hour w
 [Week 1 - Intro to Cassandra](../week1-intro-to-cassandra) and [Week 2 - Data Modelling](../week2-data-modelling).
 
 For the hands-on part of this workshop, we will use Astra DB, a Database-as-a-Service
-built on Cassandra and delivered by DataStax, that was created as the data store for the Web application.
+built on Cassandra and delivered by DataStax.
 
 It doesn't matter if you join our workshop live or you prefer to do at your own pace, we have you covered. But please if you did not attend [Week 1 - Intro to Cassandra](../week1-intro-to-cassandra) and/or [Week 2 - Data Modelling](../week2-data-modelling) we suggest you get caught up since the material in this workshop will build on top of the previous weeks' workshops!
 
@@ -33,7 +33,7 @@ To complete the workshop and get a verified badge, follow these simple steps:
 
 | Title  | Description
 |---|---|
-| **Slide deck** | [Slide deck for the workshop](slides/WEEK3%20-%20App%20Development%20Awith%20Cassandra.pdf) |
+| **Slide deck** | [Slide deck for the workshop](slides/WEEK3%20-%20App%20Development%20with%20Cassandra.pdf) |
 | **1. Connect to your Astra DB instance** | [Connect to your Astra DB instance](#1-connect-to-your-astra-db-instance) |
 | **2. Create Astra Token** | [Create Astra Token](#2-create-astra-token) |
 | **3. Launch Gitpod** | [Launch Gitpod](#3-launch-gitpod) |
@@ -47,6 +47,10 @@ To complete the workshop and get a verified badge, follow these simple steps:
 
 **Once again, If you did not attend the previous workshops, please look at the previous weeks of the bootcamp 
 [Week 1 - Intro to Cassandra](../week1-intro-to-cassandra) and [Week 2 - Data Modelling](../week2-data-modelling) please complete that first.**
+
+Verify that the keyspace `todos` indeed exists in database `workshops` as shown in the [astra dashboard](https://astra.datastax.com).
+
+![Astra](images/Verifytodos.png?raw=true)
 
 Now that you've created a database and keyspace already and familiarized yourself with the Astra console, we will start preparing to connect to the database, programmatically.
 
@@ -90,7 +94,7 @@ Notice the clipboard icon at the end of each value.
 
 - `appToken:` It can be used as an api token Key to interact with APIs. **(we won't be using this in today's workshop)**
 
-To know more about roles, tokens, etc. you can lok at [this video.](https://www.youtube.com/watch?v=TUTCLsBuUd4)
+To know more about roles, tokens, etc. you can look at [this video.](https://www.youtube.com/watch?v=TUTCLsBuUd4)
 
 **Note: Make sure you don't close the window accidentally or otherwise - if you close this window before you copy the values, the application token is lost forever. They won't be available later for security reasons. You'll have to create a new application token**
 
@@ -100,7 +104,7 @@ We are now set with the database and credentials. Let's start coding!
 
 ## 3. Launch Gitpod
 
-[Gitpod](https://www.gitpod.io/) is an IDE 100% online based on [VS Code](https://github.com/gitpod-io/vscode/blob/gp-code/LICENSE.txt?lang=en-US). To initialize your environment simply click on the button below _(CTRL + Click to open in new tab)_ You will be asked for you github account, as needed.
+[Gitpod](https://www.gitpod.io/) is an IDE 100% online based on [VS Code](https://github.com/gitpod-io/vscode/blob/gp-code/LICENSE.txt?lang=en-US). To initialize your environment simply click on the button below _(CTRL + Click to open in new tab)_ You will be asked for your github account, as needed.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra)
 
@@ -183,7 +187,7 @@ as shown below.
 
 ![gitpod](images/secureconnectbundle1.png?raw=true)	
 
-Locate the file locally in the finder/explorer window. Drag and drop the file into the Gitpod explorer window (on the left side, making sure that the cursor, indicating the drop is positioned in the Gitpod explorer window as shown below.
+Locate the file locally in the finder/explorer window. Drag and drop the file into the Gitpod explorer window (on the left side, making sure that the cursor, indicating the drop, is positioned in the Gitpod explorer window as shown below.
 
 ![gitpod](images/secureconnectbundle3.png?raw=true)
 
@@ -209,7 +213,7 @@ TADA your application is configured we can finally play with some code.
 
 We have provided some convenience scripts to setup the credentials across all the languages.
 
-As a first step `cd` to the `week3-app-development` sub-directory with thefollowing command.
+As a first step `cd` to the `week3-app-development` sub-directory with the following command.
 
 ```bash
 cd week3-app-development
@@ -244,6 +248,8 @@ Issue the following command from the Gitpod terminal window if you're interested
 git diff
 ```
 
+**A BIG NOTE OF CAUTION: It's not a good practice to include username, password and other secrets in the source file. Don't ever git commit with clear case passwords, etc. This is done purely for convenience of getting started.**
+
 ✅ **Step 5d: Verify cql access from Gitpod**
 
 Invoke `zsh` as shown below (far right top corner of Gitpod terminal window).
@@ -271,7 +277,7 @@ FXHtFByhHAjqNjdcLgZNYEll@cqlsh>
 ```
 
 
-We will refer to this as the `CQL shell` (`python2`) and the orginal shell as the `Gitpod terminal` (`bash ..`. You can click on those tabs to switch between the shells.
+We will refer to this as the `CQL shell` (`python2`) and the original shell as the `Gitpod terminal` (`bash ..`). You can click on those tabs to switch between the shells.
 
 ![dotenv](images/dotenv4.png?raw=true)
 
