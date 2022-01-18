@@ -49,7 +49,8 @@ const USERNAME = "FXXXXXXXXXXl";
 const PASSWORD = "FXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXdeOE.kio_.L981NQ.xq5HqXDB7s_FIJC.ssbLgbdz+G1IC0BCwIA_ZrwPrQNJWUiv26uZf2f4wo";
 ```
 
-You can optionally issue the following command or notice the changes in the Gitpod explorer window.
+You can optionally issue the following command or notice the changes in the Gitpod explorer window. Hit space bar to proceed through the changes or hit <Ctrl-C> or `q` to exit the command.
+
 
 ```bash
 git diff connection.py
