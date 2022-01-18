@@ -1,43 +1,35 @@
 package com.datastax.workshop;
 
-import com.datastax.oss.driver.api.core.CqlSession;
-import java.io.File;
 import java.nio.file.Paths;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
+
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.datastax.oss.driver.api.core.CqlSession;
+
 @RunWith(JUnitPlatform.class)
 public class Ex6a_Create_Table implements DBConnection {
 
   /** Logger for the class. */
-  private static Logger LOGGER = LoggerFactory.getLogger("Exercise 6");
+  private static Logger LOGGER = LoggerFactory.getLogger("Exercise 6a");
 
   @Test
   public void should_create_a_table() {
     LOGGER.info("========================================");
-    LOGGER.info("Start exercise");
-
-    // When
-    try (
-      CqlSession cqlSession = CqlSession
+    LOGGER.info("should_create_a_table");
+    try (CqlSession cqlSession = CqlSession
         .builder()
-        .withCloudSecureConnectBundle(
-          Paths.get(DBConnection.SECURE_CONNECT_BUNDLE)
-        )
+        .withCloudSecureConnectBundle(Paths.get(DBConnection.SECURE_CONNECT_BUNDLE))
         .withAuthCredentials(DBConnection.USERNAME, DBConnection.PASSWORD)
         .withKeyspace(DBConnection.KEYSPACE)
-        .build()
-    ) {
-      // Then
+        .build()) {
       LOGGER.info("Connected with Keyspace {}", cqlSession.getKeyspace().get());
 
       String query =
-        "CREATE TABLE todoitems (" +
+        "CREATE TABLE IF NOT EXISTS todoitems (" +
         "user_id         TEXT," +
         "item_id         TIMEUUID," +
         "title           TEXT," +
@@ -45,8 +37,8 @@ public class Ex6a_Create_Table implements DBConnection {
         "PRIMARY KEY ((user_id), item_id)" +
         ") WITH CLUSTERING ORDER BY (item_id ASC);";
       cqlSession.execute(query);
+      LOGGER.info("Table todoitems created if needed");
     }
-    LOGGER.info("SUCCESS");
-    LOGGER.info("========================================");
+    LOGGER.info("[OK]");
   }
 }

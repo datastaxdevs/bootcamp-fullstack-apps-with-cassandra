@@ -1,15 +1,16 @@
 package com.datastax.workshop;
 
-import com.datastax.oss.driver.api.core.CqlSession;
 import java.io.File;
 import java.nio.file.Paths;
+
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.datastax.oss.driver.api.core.CqlSession;
 
 @RunWith(JUnitPlatform.class)
 public class Ex06_Connect_to_Astra implements DBConnection {
@@ -20,7 +21,7 @@ public class Ex06_Connect_to_Astra implements DBConnection {
   @Test
   public void should_connect_to_astra() {
     LOGGER.info("========================================");
-    LOGGER.info("Start exercise");
+    LOGGER.info("should_connect_to_astra");
     // Given
     Assertions.assertFalse(
       DBConnection.SECURE_CONNECT_BUNDLE.equals(""),

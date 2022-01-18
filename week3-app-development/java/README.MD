@@ -31,7 +31,7 @@ pwd
 /workspace/bootcamp-fullstack-apps-with-cassandra/week3-app-development/java
 ```
 
-**✅ Step 6a. Run unit test `Ex06_Connect_to_Astra.java`**
+**✅ Step 6. Run unit test `Ex06_Connect_to_Astra.java`**
 
 From the GitPod terminal window issue the following command 
 
@@ -142,6 +142,227 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 ```
 
-## CRUD tests - TBD
+## Create Read Update Delete
 
-You may run other Create, Read, Update, Delete (CRUD) tests in the same sub-directory in a similar manner. Periodically, verify from the CQL Shell in Gitpod that the programs/tests are working as expected.
+**✅ Step 6a. Run unit test `Ex6a_Create_Table.java`**
+
+```bash
+mvn test -Dtest=com.datastax.workshop.Ex6a_Create_Table
+```
+
+**6a. Test output**
+
+```bash
+09:17:50.336 [35mINFO [0;39m [36mExercise 6a[0;39m : ========================================
+09:17:50.338 [35mINFO [0;39m [36mExercise 6a[0;39m : should_create_a_table
+09:17:53.960 [35mINFO [0;39m [36mExercise 6a[0;39m : Connected with Keyspace todos
+09:17:54.029 [35mINFO [0;39m [36mExercise 6a[0;39m : Table todoitems created if needed
+09:17:56.092 [35mINFO [0;39m [36mExercise 6a[0;39m : [OK]
+```
+
+**6a. Cql Console**
+
+```sql
+use todos;
+DECBRIBE TABLE todoitems;
+```
+
+**6a. Cql output**
+
+```bash
+CREATE TABLE todos.todoitems (
+    user_id text,
+    item_id timeuuid,
+    completed boolean,
+    title text,
+    PRIMARY KEY (user_id, item_id)
+) WITH CLUSTERING ORDER BY (item_id ASC)
+    AND additional_write_policy = '99PERCENTILE'
+    AND bloom_filter_fp_chance = 0.01
+    AND caching = {'keys': 'ALL', 'rows_per_partition': 'NONE'}
+    AND comment = ''
+    AND compaction = {'class': 'org.apache.cassandra.db.compaction.UnifiedCompactionStrategy'}
+    AND compression = {'chunk_length_in_kb': '64', 'class': 'org.apache.cassandra.io.compress.LZ4Compressor'}
+    AND crc_check_chance = 1.0
+    AND default_time_to_live = 0
+    AND gc_grace_seconds = 864000
+    AND max_index_interval = 2048
+    AND memtable_flush_period_in_ms = 0
+    AND min_index_interval = 128
+    AND read_repair = 'BLOCKING'
+    AND speculative_retry = '99PERCENTILE';
+```
+
+**✅ Step 6b. Run unit test `Ex6b_Insert_Todos.java`**
+
+```bash
+mvn test -Dtest=com.datastax.workshop.Ex6b_Insert_Todos
+```
+
+**6b. Test output**
+
+```bash
+09:31:04.006 [35mINFO [0;39m [36mExercise 6b[0;39m : ========================================
+09:31:04.007 [35mINFO [0;39m [36mExercise 6b[0;39m : Insert CQL 1
+09:31:07.605 [35mINFO [0;39m [36mExercise 6b[0;39m : Connected with Keyspace todos
+09:31:07.679 [35mINFO [0;39m [36mExercise 6b[0;39m : Task '11111111-5cff-11ec-be16-1fedb0dfd057' has been inserted
+09:31:07.735 [35mINFO [0;39m [36mExercise 6b[0;39m : Task '22222222-5cff-11ec-be16-1fedb0dfd057' has been inserted
+09:31:07.793 [35mINFO [0;39m [36mExercise 6b[0;39m : Task '33333333-5cff-11ec-be16-1fedb0dfd057' has been inserted
+09:31:09.866 [35mINFO [0;39m [36mExercise 6b[0;39m : [OK]
+09:31:09.873 [35mINFO [0;39m [36mExercise 6b[0;39m : ========================================
+09:31:09.873 [35mINFO [0;39m [36mExercise 6b[0;39m : Insert CQL 2
+09:31:14.082 [35mINFO [0;39m [36mExercise 6b[0;39m : [OK]
+09:31:14.084 [35mINFO [0;39m [36mExercise 6b[0;39m : ========================================
+09:31:14.084 [35mINFO [0;39m [36mExercise 6b[0;39m : Insert Simple Statement (position)
+09:31:16.475 [35mINFO [0;39m [36mExercise 6b[0;39m : Task '00d76d70-7839-11ec-8113-894c6aa07015' has been inserted
+09:31:18.531 [35mINFO [0;39m [36mExercise 6b[0;39m : [OK]
+09:31:18.532 [35mINFO [0;39m [36mExercise 6b[0;39m : ========================================
+09:31:18.532 [35mINFO [0;39m [36mExercise 6b[0;39m : Insert Simple Statement (named)
+09:31:20.634 [35mINFO [0;39m [36mExercise 6b[0;39m : Task '03519530-7839-11ec-8113-894c6aa07015' has been inserted
+09:31:22.706 [35mINFO [0;39m [36mExercise 6b[0;39m : [OK]
+09:31:22.708 [35mINFO [0;39m [36mExercise 6b[0;39m : ========================================
+09:31:22.708 [35mINFO [0;39m [36mExercise 6b[0;39m : Insert Prepared Statement
+09:31:24.959 [35mINFO [0;39m [36mExercise 6b[0;39m : Task '05e5ad90-7839-11ec-8113-894c6aa07015' has been inserted
+09:31:27.012 [35mINFO [0;39m [36mExercise 6b[0;39m : [OK]
+```
+
+**6b. Cql Console**
+
+```sql
+select * from todoitems;
+```
+
+**6b. Cql Output**
+
+```bash
+
+ user_id    | item_id                              | completed | title
+------------+--------------------------------------+-----------+--------------------------------
+ createTask | fe2f09c0-7838-11ec-8113-894c6aa07015 |     False |                       Task CQL
+ createTask | 00d76d70-7839-11ec-8113-894c6aa07015 |     False | Task Simple Statement position
+ createTask | 03519530-7839-11ec-8113-894c6aa07015 |     False |     Task Simple Statement name
+ createTask | 05e5ad90-7839-11ec-8113-894c6aa07015 |     False |                  Prepared Task
+       mary | 33333333-5cff-11ec-be16-1fedb0dfd057 |      True |            Attend the workshop
+       john | 11111111-5cff-11ec-be16-1fedb0dfd057 |      True |                   Walk the dog
+       john | 22222222-5cff-11ec-be16-1fedb0dfd057 |     False |            Have lunch tomorrow
+```
+
+**✅ Step 6c. Run unit test `Ex6c_Get_All_Todos.java`**
+
+```bash
+mvn test -Dtest=com.datastax.workshop.Ex6c_Get_All_Todos
+```
+
+**6c. Test output**
+
+```bash
+09:42:12.702 [35mINFO [0;39m [36mExercise 6c[0;39m : ========================================
+09:42:12.703 [35mINFO [0;39m [36mExercise 6c[0;39m : should_get_todos (john)
+09:42:16.341 [35mINFO [0;39m [36mExercise 6c[0;39m : 11111111-5cff-11ec-be16-1fedb0dfd057: Walk the dog
+09:42:16.341 [35mINFO [0;39m [36mExercise 6c[0;39m : 22222222-5cff-11ec-be16-1fedb0dfd057: Have lunch tomorrow
+09:42:18.406 [35mINFO [0;39m [36mExercise 6c[0;39m : [OK]
+09:42:18.413 [35mINFO [0;39m [36mExercise 6c[0;39m : ========================================
+09:42:18.413 [35mINFO [0;39m [36mExercise 6c[0;39m : should_get_todos_2 (createTask)
+09:42:20.509 [35mINFO [0;39m [36mExercise 6c[0;39m : fe2f09c0-7838-11ec-8113-894c6aa07015: Task CQL
+09:42:20.509 [35mINFO [0;39m [36mExercise 6c[0;39m : 00d76d70-7839-11ec-8113-894c6aa07015: Task Simple Statement position
+09:42:20.509 [35mINFO [0;39m [36mExercise 6c[0;39m : 03519530-7839-11ec-8113-894c6aa07015: Task Simple Statement name
+09:42:20.509 [35mINFO [0;39m [36mExercise 6c[0;39m : 05e5ad90-7839-11ec-8113-894c6aa07015: Prepared Task
+09:42:22.578 [35mINFO [0;39m [36mExercise 6c[0;39m : [OK]
+09:42:22.578 [35mINFO [0;39m [36mExercise 6c[0;39m : ========================================
+```
+
+**✅ Step 6d. Run unit test `Ex6d_Update_A_Todo.java`**
+
+```bash
+mvn test -Dtest=com.datastax.workshop.Ex6d_Update_A_Todo
+```
+
+**6d. Test output**
+
+```bash
+10:04:09.399 [35mINFO [0;39m [36mExercise 6d[0;39m : ========================================
+10:04:09.400 [35mINFO [0;39m [36mExercise 6d[0;39m : should_update_todos 1
+10:04:12.973 [35mINFO [0;39m [36mExercise 6d[0;39m : Before
+10:04:13.046 [35mINFO [0;39m [36mExercise 6d[0;39m : +11111111-5cff-11ec-be16-1fedb0dfd057: true:Walk the dog
+10:04:13.046 [35mINFO [0;39m [36mExercise 6d[0;39m : +22222222-5cff-11ec-be16-1fedb0dfd057: false:Have lunch tomorrow
+10:04:13.096 [35mINFO [0;39m [36mExercise 6d[0;39m : After:
+10:04:13.151 [35mINFO [0;39m [36mExercise 6d[0;39m : +11111111-5cff-11ec-be16-1fedb0dfd057: true:Walk the dog
+10:04:13.151 [35mINFO [0;39m [36mExercise 6d[0;39m : +22222222-5cff-11ec-be16-1fedb0dfd057: true:Have lunch tomorrow
+10:04:15.236 [35mINFO [0;39m [36mExercise 6d[0;39m : [OK]
+10:04:15.244 [35mINFO [0;39m [36mExercise 6d[0;39m : ========================================
+10:04:15.244 [35mINFO [0;39m [36mExercise 6d[0;39m : should_update_todos 2
+10:04:17.393 [35mINFO [0;39m [36mExercise 6d[0;39m : +11111111-5cff-11ec-be16-1fedb0dfd057: false:Walk the dog
+10:04:17.393 [35mINFO [0;39m [36mExercise 6d[0;39m : +22222222-5cff-11ec-be16-1fedb0dfd057: true:Have lunch tomorrow
+10:04:19.471 [35mINFO [0;39m [36mExercise 6d[0;39m : [OK]
+10:04:19.471 [35mINFO [0;39m [36mExercise 6d[0;39m : ========================================
+```
+
+**6d. Cql Console**
+
+```sql
+select * from todoitems;
+```
+
+**6d. Cql Output**
+
+```bash
+ user_id    | item_id                              | completed | title
+------------+--------------------------------------+-----------+--------------------------------
+ createTask | 8c6b8e80-783d-11ec-bf8f-0d82d3accec9 |     False |                       Task CQL
+ createTask | 8ef56db0-783d-11ec-bf8f-0d82d3accec9 |     False | Task Simple Statement position
+ createTask | 91740240-783d-11ec-bf8f-0d82d3accec9 |     False |     Task Simple Statement name
+ createTask | 9400eeb0-783d-11ec-bf8f-0d82d3accec9 |     False |                  Prepared Task
+       mary | 33333333-5cff-11ec-be16-1fedb0dfd057 |      True |            Attend the workshop
+       john | 11111111-5cff-11ec-be16-1fedb0dfd057 |      True |                   Walk the dog
+       john | 22222222-5cff-11ec-be16-1fedb0dfd057 |      True |            Have lunch tomorrow
+
+(7 rows)
+```
+
+**✅ Step 6e. Run unit test `Ex6e_Remove_A_Todo.java`**
+
+```bash
+mvn test -Dtest=com.datastax.workshop.Ex6e_Remove_A_Todo
+```
+
+**6e. Test output**
+
+```bash
+xxx
+```
+
+**6e. Cql Console**
+
+```sql
+create
+```
+
+**6e. Cql Output**
+
+```bash
+xx
+```
+
+**✅ Step 6f. Run unit test `Ex6f_Remove_All_Todos.java`**
+
+```bash
+mvn test -Dtest=com.datastax.workshop.Ex6f_Remove_All_Todos
+```
+
+**6f. Test output**
+
+```bash
+xxx
+```
+
+**6f. Cql Console**
+
+```sql
+create
+```
+
+**6f. Cql Output**
+
+```bash
+xx
+```

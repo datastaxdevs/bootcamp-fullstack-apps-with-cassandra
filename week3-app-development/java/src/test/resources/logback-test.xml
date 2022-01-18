@@ -12,11 +12,12 @@
     <logger name="Exercise 4" level="INFO"/>
     <logger name="Exercise 5" level="INFO"/>
     <logger name="Exercise 6" level="INFO"/>
-    <logger name="Exercise 7" level="INFO"/>
-    <logger name="Exercise 8" level="INFO"/>
-    <logger name="Exercise 9" level="INFO"/>
-    <logger name="Exercise 10" level="INFO"/>
-    
+    <logger name="Exercise 6a" level="INFO"/>
+    <logger name="Exercise 6b" level="INFO"/>
+    <logger name="Exercise 6c" level="INFO"/>
+    <logger name="Exercise 6d" level="INFO"/>
+    <logger name="Exercise 6e" level="INFO"/>
+    <logger name="Exercise 6f" level="INFO"/>
     <logger name="com.datastax.oss"     level="ERROR"/>
     <logger name="org.junit.vintage"    level="ERROR" />
 </configuration>
