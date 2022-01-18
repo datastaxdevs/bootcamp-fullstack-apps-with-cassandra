@@ -24,8 +24,8 @@ In this repository, you'll find everything you need for this workshop:
 
 To complete the workshop and get a verified badge, follow these simple steps:
 
-1. Watch the workshop live or recorded.
-2. TBD
+1. Watch the workshop live or recorded. Pick a language and run through the exercises.
+2. **Write a new exercise/test**: Transfer/Copy all Todoitems from any one user_id  to a new user_id with completed being false. At the very least one Todoitem should be created.
 3. [Submit the Homework through this form](https://dtsx.io/homework-bootcamp-2022-week3) and attach the screenshots above.
 4. Give us a few days to review your submission and relax: your well-earned badge will soon land in your mailbox!
 
@@ -297,6 +297,7 @@ Exercises will be different for each language. Pick the language you feel the mo
 
 ## 7. Badges
 
+Refer back to the [Homework](#Homework) which is required to earn the badges.
 
 <img src="images/appdev_badge.png?raw=true" width="200" align="right" />
 
