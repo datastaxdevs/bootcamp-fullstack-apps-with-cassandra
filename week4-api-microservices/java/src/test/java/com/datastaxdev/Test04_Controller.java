@@ -22,15 +22,6 @@ public class Test04_Controller {
     TestRestTemplate restTemplate = new TestRestTemplate();
     
     @Test
-    public void should_retrieve_todolist_v0() {
-        HttpHeaders        headers = new HttpHeaders();
-        HttpEntity<String> entity  = new HttpEntity<String>(null, headers);
-        ResponseEntity<Todo[]> response = restTemplate.exchange(
-             createURLWithPort("/api/v0/todos/"), HttpMethod.GET, entity, Todo[].class);
-        Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
-    }
-    
-    @Test
     public void should_retrieve_todolist_v1() {
         HttpHeaders        headers = new HttpHeaders();
         HttpEntity<String> entity  = new HttpEntity<String>(null, headers);
