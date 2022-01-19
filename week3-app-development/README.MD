@@ -204,7 +204,7 @@ If you get a message `cannot access` or the file size is not roughly 12K, someth
 **👁️ Expected output**
 
 ```
--rw-r--r-- 1 gitpod gitpod 12231 Oct 26 00:15 secure-connect-workshops.zip
+-rw-r--r-- 1 gitpod gitpod 12261 Jan 12 23:34 /workspace/bootcamp-fullstack-apps-with-cassandra/secure-connect-workshops.zip
 ```
 
 TADA your application is configured we can finally play with some code.
