@@ -442,10 +442,10 @@ mvn test -Dtest=com.datastax.workshop.Ex6f_Remove_All_Todos
 **👁️ Expected output**
 
 ```bash
-[should_remote_all_todos] ========================================
-[should_remote_all_todos] Start Exercise
-[should_remote_all_todos] [OK]
-[should_remote_all_todos] ========================================
+[should_remove_all_todos] ========================================
+[should_remove_all_todos] Start Exercise
+[should_remove_all_todos] [OK]
+[should_remove_all_todos] ========================================
 ```
 
 **6f. CQL Console**
