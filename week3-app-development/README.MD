@@ -26,7 +26,7 @@ To complete the workshop and get a verified badge, follow these simple steps:
 
 1. Watch the workshop live or recorded. Pick a language and run through the exercises.
 2. **Write a new exercise/test**: Transfer/Copy all Todoitems from any one user_id  to a new user_id with completed being false. At the very least one Todoitem should be created.
-3. [Submit the Homework through this form](https://dtsx.io/homework-bootcamp-2022-week3) and attach the screenshots above.
+3. [Submit the Homework through this form](https://dtsx.io/homework-cassandra-drivers) and attach the screenshots above.
 4. Give us a few days to review your submission and relax: your well-earned badge will soon land in your mailbox!
 
 ## 0. Table of Contents
@@ -48,7 +48,9 @@ To complete the workshop and get a verified badge, follow these simple steps:
 **Once again, If you did not attend the previous workshops, please look at the previous weeks of the bootcamp 
 [Week 1 - Intro to Cassandra](../week1-intro-to-cassandra) and [Week 2 - Data Modelling](../week2-data-modelling) please complete that first.**
 
-Verify that the keyspace `todos` indeed exists in database `workshops` as shown in the [astra dashboard](https://astra.datastax.com).
+**✨ Please visit [https://astra.datastax.com](https://astra.dev/1-19) to create your free Astra DB instance, required for today's hands-on exercises! 🔥**
+
+Verify that the keyspace `todos` indeed exists in database `workshops` as shown in the [Astra dashboard](https://astra.dev/1-19).
 
 ![Astra](images/Verifytodos.png?raw=true)
 
