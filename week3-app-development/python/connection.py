@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+#WARNING: THIS FILE IS GOING TO BE OVERWRITTEN
 
 import atexit
 from cassandra.cluster import Cluster
