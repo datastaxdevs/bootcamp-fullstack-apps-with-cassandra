@@ -1,3 +1,4 @@
+// WARNING: THIS FILE IS GOING TO BE OVERWRITTEN
 const cassandra = require("cassandra-driver");
 
 // This is the Zip file you downloaded
