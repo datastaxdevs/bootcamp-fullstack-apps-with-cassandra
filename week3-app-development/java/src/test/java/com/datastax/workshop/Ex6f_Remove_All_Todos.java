@@ -11,13 +11,13 @@ public class Ex6f_Remove_All_Todos implements DBConnection {
 
   @Test
   public void should_remote_all_todos() {
-      System.out.println("[should_remote_all_todos] ========================================");
-      System.out.println("[should_remote_all_todos] Start Exercise");
+      System.out.println("[should_remove_all_todos] ========================================");
+      System.out.println("[should_remove_all_todos] Start Exercise");
       try (CqlSession cqlSession = TestUtils.createCqlSession()) {
           cqlSession.execute("TRUNCATE TABLE todoitems;");
           TestUtils.showTasks(cqlSession, "john");
       }
-      System.out.println("[should_remote_all_todos] [OK]");
-      System.out.println("[should_remote_all_todos] ========================================\n");
+      System.out.println("[should_remove_all_todos] [OK]");
+      System.out.println("[should_remove_all_todos] ========================================\n");
   }
 }
