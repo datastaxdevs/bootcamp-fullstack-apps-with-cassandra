@@ -1,4 +1,4 @@
-package com.datastax.workshop.conf;
+package com.datastaxdev.conf;
 
 import java.io.File;
 
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class SpringDataConfig {
+public class CassandraDriverConguration {
     
     @Value("${datastax.astra.secure-connect-bundle}")
     private File cloudSecureBundle;

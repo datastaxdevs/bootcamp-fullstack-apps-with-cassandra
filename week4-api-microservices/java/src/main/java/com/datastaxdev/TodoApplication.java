@@ -1,13 +1,13 @@
-package com.datastax.workshop;
+package com.datastaxdev;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TodobackendSpringdataApplication {
+public class TodoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TodobackendSpringdataApplication.class, args);
+		SpringApplication.run(TodoApplication.class, args);
 	}
 
 }

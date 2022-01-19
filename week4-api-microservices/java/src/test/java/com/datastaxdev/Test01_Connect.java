@@ -1,4 +1,4 @@
-package com.datastax.workshop;
+package com.datastaxdev;
 
 import java.io.File;
 import java.nio.file.Paths;
@@ -6,27 +6,27 @@ import java.nio.file.Paths;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import com.datastax.oss.driver.api.core.CqlSession;
 
-/**
- * Connecticity to ASTRA
- */
+// --> Eclipse Support
+@SuppressWarnings("deprecation")
 @RunWith(JUnitPlatform.class)
-@ExtendWith(SpringExtension.class)
+// <--
+
+@SpringJUnitConfig
 @TestPropertySource(locations="/application.properties")
-public class Ex1_ConnectivityToAstraExplicitTest {
+public class Test01_Connect {
     
     /** Logger for the class. */
-    private static Logger LOGGER = LoggerFactory.getLogger(Ex1_ConnectivityToAstraExplicitTest.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(Test01_Connect.class);
     
     @Value("${spring.data.cassandra.username}")
     private String username;
@@ -52,7 +52,6 @@ public class Ex1_ConnectivityToAstraExplicitTest {
         
         // When connecting to ASTRA
         try (CqlSession cqlSession = CqlSession.builder()
-                //.addContactPoint(new InetSocketAddress("127.0.0.1", 9042))
                 .withCloudSecureConnectBundle(Paths.get(cloudSecureBundle))
                 .withAuthCredentials(username, password)
                 .withKeyspace(keyspace)

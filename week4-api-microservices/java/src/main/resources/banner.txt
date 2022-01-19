@@ -1,12 +1,9 @@
-${AnsiColor.BLUE} ________                __      __ __           .__                   
-${AnsiColor.BLUE} \______ \   _______  __/  \    /  \  | __  _____|  |__   ____ ______  
-${AnsiColor.BLUE}  |    |  \_/ __ \  \/ /\   \/\/   /  |/ / /  ___/  |  \ /  _ \\____ \ 
-${AnsiColor.BLUE}  |    `   \  ___/\   /  \        /|    <  \___ \|   Y  (  <_> )  |_> >
-${AnsiColor.BLUE} /_______  /\___  >\_/    \__/\  / |__|_ \/____  >___|  /\____/|   __/ 
-${AnsiColor.BLUE}         \/     \/             \/       \/     \/     \/       |__|    
+${AnsiColor.BLUE} ________          __                   __                  ________                     .__                                     
+${AnsiColor.BLUE} \______ \ _____ _/  |______    _______/  |______  ___  ___ \______ \   _______  __ ____ |  |   ____ ______   ___________  ______
+${AnsiColor.BLUE}  |    |  \\__  \\   __\__  \  /  ___/\   __\__  \ \  \/  /  |    |  \_/ __ \  \/ // __ \|  |  /  _ \\____ \_/ __ \_  __ \/  ___/
+${AnsiColor.BLUE}  |    `   \/ __ \|  |  / __ \_\___ \  |  |  / __ \_>    <   |    `   \  ___/\   /\  ___/|  |_(  <_> )  |_> >  ___/|  | \/\___ \ 
+${AnsiColor.BLUE} /_______  (____  /__| (____  /____  > |__| (____  /__/\_ \ /_______  /\___  >\_/  \___  >____/\____/|   __/ \___  >__|  /____  >
+${AnsiColor.BLUE}         \/     \/          \/     \/            \/      \/         \/     \/          \/            |__|        \/           \/ 
 
-${AnsiColor.CYAN} Implement a todoList with Spring Data Cassandra and Spring Boot
-
-${AnsiColor.BLACK} You are using BRANCH ZEND
-${AnsiColor.GREEN} The application will start at ${AnsiColor.RED}http://localhost:8080${AnsiColor.BLACK}
- 
+${AnsiColor.CYAN} Todobackend with Spring Boot, String Data and Astra  
+${AnsiColor.GREEN} The application will start at ${AnsiColor.RED}http://localhost:${server.port}${AnsiColor.BLACK}
