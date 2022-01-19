@@ -150,7 +150,7 @@ mvn test -Dtest=com.datastax.workshop.Ex6a_Create_Table
 
 From either the CQL shell window or the CQL console in the Astra console issue the following command to notice the items that have been created.
 
-```sql
+```cql
 use todos;
 DESCRIBE TABLE todoitems;
 ```
@@ -159,7 +159,7 @@ DESCRIBE TABLE todoitems;
 
 **👁️ Expected output**
 
-```bash
+```cql
 CREATE TABLE todos.todoitems (
     user_id text,
     item_id timeuuid,
@@ -239,7 +239,7 @@ mvn test -Dtest=com.datastax.workshop.Ex6b_Insert_Todos
 
 From either the CQL shell window or the CQL console in the Astra console issue the following command to notice the items that have been created.
 
-```sql
+```cql
 select * from todoitems;
 ```
 
@@ -247,7 +247,7 @@ select * from todoitems;
 
 **👁️ Expected output**
 
-```bash
+```cql
 
  user_id    | item_id                              | completed | title
 ------------+--------------------------------------+-----------+--------------------------------
@@ -352,7 +352,7 @@ mvn test -Dtest=com.datastax.workshop.Ex6d_Update_A_Todo
 
 From either the CQL shell window or the CQL console in the Astra console issue the following command to notice the items that have been created.
 
-```sql
+```cql
 select * from todoitems;
 ```
 
@@ -360,7 +360,7 @@ select * from todoitems;
 
 **👁️ Expected output**
 
-```bash
+```cql
  user_id    | item_id                              | completed | title
 ------------+--------------------------------------+-----------+--------------------------------
  createTask | 8c6b8e80-783d-11ec-bf8f-0d82d3accec9 |     False |                       Task CQL
@@ -402,20 +402,23 @@ mvn test -Dtest=com.datastax.workshop.Ex6e_Remove_A_Todo
 
 **6e. CQL Console**
 
-From either the CQL shell window or the CQL console in the Astra console issue the following command to notice the items that have been created.
+From either the CQL shell window or the CQL console in the Astra console issue the following command to notice the items that have been removed.
 
-```sql
-select * from todoitems where user_id='john';
+```cql
+select * from todoitems;
 ```
 
 **6e. CQL Output**
 
 **👁️ Expected output**
 
-```bash
+```cql
  user_id | item_id                              | completed | title
 ---------+--------------------------------------+-----------+---------------------
+    mary | 33333333-5cff-11ec-be16-1fedb0dfd057 |      True | Attend the workshop
     john | 22222222-5cff-11ec-be16-1fedb0dfd057 |      True | Have lunch tomorrow
+
+(2 rows)
 ```
 
 #### ✅ Step 6f. Run unit test `Ex6f_Remove_All_Todos.java`
@@ -451,13 +454,13 @@ From either the CQL shell window or the CQL console in the Astra console issue t
 
 **👁️ Expected output** 
 
-```sql
+```cql
 select * from todoitems;
 ```
 
-**6f. Cql Output**
+**6f. CQL Output**
 
-```bash
+```cql
  user_id | item_id | completed | title
 ---------+---------+-----------+-------
 ```
@@ -471,3 +474,4 @@ select * from todoitems;
 DROP TABLE IF EXISTS todos.todoitems;
 ```
 
+[🏠 Go back](../README.MD)
