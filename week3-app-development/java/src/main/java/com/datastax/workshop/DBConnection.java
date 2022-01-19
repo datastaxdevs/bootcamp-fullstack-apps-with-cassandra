@@ -1,7 +1,7 @@
 package com.datastax.workshop;
 
 /*
- * TODO Please change this constants with the values
+ * WARNING: THIS FILE IS GOING TO BE OVERWRITTEN
  * you used when you created the ASTRA instance.
  */
 public interface DBConnection {
