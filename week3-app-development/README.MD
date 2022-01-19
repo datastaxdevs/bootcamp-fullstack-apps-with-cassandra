@@ -196,10 +196,10 @@ Locate the file locally in the finder/explorer window. Drag and drop the file in
 In the Gitpod terminal window, verify that you dropped the right file and at the top level directory
 
 ```bash
-ls -l secure-connect-workshops.zip
+ls -l /workspace/bootcamp-fullstack-apps-with-cassandra/secure-connect-workshops.zip
 ```
 
-The file size should be roughly 12K otherwise something may have gone wrong in the process.
+If you get a message `cannot access` or the file size is not roughly 12K, something may have gone wrong in the process and you need to repeat this step (step 5b).
 
 **👁️ Expected output**
 
