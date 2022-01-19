@@ -26,7 +26,7 @@ To complete the workshop and get a verified badge, follow these simple steps:
 
 1. Watch the workshop live or recorded.
 2. Try to come up with your own data model for the assignment [below](#5-data-model-assignment) and get ready to submit it in the form of a screenshot (of either Chebotko diagrams or CQL `CREATE TABLE` statements).
-3. Complete the DS201 (Cassandra Fundamentals) course sections 9 - 16 [HERE](https://academy.datastax.com). Look at the setup instructions from [Week 1](../week1-intro-to-cassandra) if needed.
+3. Complete the DS201 (Cassandra Fundamentals) course sections 9 - 18 [HERE](https://academy.datastax.com). Look at the setup instructions from [Week 1](../week1-intro-to-cassandra) if needed.
 
 > _If you are feeling adventurous complete the DS201 exercises using the following Docker image. DO NOT attempt to use the virtual machines in the course._
 >
