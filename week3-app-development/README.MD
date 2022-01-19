@@ -289,9 +289,9 @@ Exercises will be different for each language. Pick the language you feel the mo
 
 | Sections | Material Description
 | - |---|
-| **![JAVA](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-java.png)** | [Exercises 6 ... with Java](./java/README.MD) |
-| **![JAVASCRIPT](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-javascript.png)** | [Exercises 6 ...  with Javascript](./javascript/README.MD) |
-| **![PYTHON](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-python.png)** | [Exercises 6 ... with Python](./python/README.MD) |
+| **![JAVA](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-java.png)** | [Exercises 6..6f with Java](./java/README.MD) |
+| **![JAVASCRIPT](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-javascript.png)** | [Exercises 6..6f  with Javascript](./javascript/README.MD) |
+| **![PYTHON](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-python.png)** | [Exercises 6..6f with Python](./python/README.MD) |
 
 [🏠 Back to Table of Contents](#0-table-of-contents)
 
