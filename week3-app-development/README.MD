@@ -48,9 +48,9 @@ To complete the workshop and get a verified badge, follow these simple steps:
 **Once again, If you did not attend the previous workshops, please look at the previous weeks of the bootcamp 
 [Week 1 - Intro to Cassandra](../week1-intro-to-cassandra) and [Week 2 - Data Modelling](../week2-data-modelling) please complete that first.**
 
-**✨ Please visit [https://astra.datastax.com](https://astra.dev/1-19) to create your free Astra DB instance, required for today's hands-on exercises! 🔥** More details [here](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/tree/main/week2-data-modelling#1-create-your-astra-db-instance) on how to proceed.
+**✨ Please visit [https://astra.datastax.com](https://astra.dev/1-20) to create your free Astra DB instance, required for today's hands-on exercises! 🔥** More details [here](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/tree/main/week2-data-modelling#1-create-your-astra-db-instance) on how to proceed.
 
-Verify that the keyspace `todos` indeed exists in database `workshops` as shown in the [Astra dashboard](https://astra.dev/1-19).
+Verify that the keyspace `todos` indeed exists in database `workshops` as shown in the [Astra dashboard](https://astra.dev/1-20).
 
 ![Astra](images/Verifytodos.png?raw=true)
 
