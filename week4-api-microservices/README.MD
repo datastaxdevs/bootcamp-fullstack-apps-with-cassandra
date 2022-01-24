@@ -35,14 +35,14 @@ In this repository, you'll find everything you need for this workshop:
 
 <img src="images/splash.png?raw=true" align="right" width="400px"/>
 
-1. [Connect to your Astra DB instance](#1-connect-to-your-Astra-DB-instance)
+1. [Connect to your Astra DB instance](#1-connect-to-your-astra-db-instance)
 2. [Create Astra Token](#2-create-astra-token)
 3. [Run the TodoApplication](#3-run-the-todoapplication)
 4. [Launch Gitpod](#4-launch-gitpod)
 5. [Know you Gitpod](#5-know-your-gitpod)
-6. [Rest Api with Apache Cassandra](#)
-7. [Setup for the applications](#)
-8. [Badges and Homework](#)
+6. [Rest Api with Apache Cassandra](#6-setup-for-the-applications)
+7. [Setup for the applications](#7-rest-api-with-cassandra)
+8. [Badges and Homework](#8-badges-and-homework)
 
 ## 1. Connect to your Astra DB instance
 
@@ -104,6 +104,8 @@ You will see your new database as `Pending` in the Dashboard;
 the status will change to `Active` when the database is ready. This will only take 2-3 minutes
 (you will also receive an email when it is ready).
 
+[🏠 Back to Table of Contents](#-hands-on)
+
 ## 2. Create Astra Token
 
 We need to create a **token** that we will use as our credentials. The token do not expired so 
@@ -143,7 +145,7 @@ To know more about roles, tokens, etc. you can look at [this video.](https://www
 
 We are now set with the database and credentials. Let's start coding!
 
-[🏠 Back to Table of Contents](#0-table-of-contents)
+[🏠 Back to Table of Contents](#-hands-on)
 
 ## 3. Run the TodoApplication
 
@@ -169,23 +171,11 @@ There are multiple free implementations available. Some implementations provide 
 
 **Pick one in the 3:**
 
-- Link to [`SpecRunner#1`](https://www.todobackend.com/specs/index.html?https://todo-back-springboot220-java12.herokuapp.com/todos)
+- [`SpecRunner#1`](https://www.todobackend.com/specs/index.html?https://todo-back-springboot220-java12.herokuapp.com/todos)
 
-```
-gp preview https://www.todobackend.com/specs/index.html?https://todo-back-springboot220-java12.herokuapp.com/todos
-```
+- [`SpecRunner#2`](https://www.todobackend.com/specs/index.html?https://todo-quarkus.herokuapp.com/todos)
 
-- Link to [`SpecRunner#2`](https://www.todobackend.com/specs/index.html?https://todo-quarkus.herokuapp.com/todos)
-
-```
-gp preview https://www.todobackend.com/specs/index.html?https://todo-quarkus.herokuapp.com/todos
-```
-
-- Link to [`SpecRunner#3`](https://www.todobackend.com/specs/index.html?https://todo-backend-micronaut.herokuapp.com/todos)
-
-```
-gp preview https://www.todobackend.com/specs/index.html?https://todo-backend-micronaut.herokuapp.com/todos
-```
+- [`SpecRunner#3`](https://www.todobackend.com/specs/index.html?https://todo-backend-micronaut.herokuapp.com/todos)
 
 **👁️ Expected output**
 
@@ -199,29 +189,20 @@ gp preview https://www.todobackend.com/specs/index.html?https://todo-backend-mic
 
 **Pick on of the 3:**
 
-- Link to [`WebClient#1`](https://www.todobackend.com/client/index.html?https://todo-back-springboot220-java12.herokuapp.com/todos)
+- [`WebClient#1`](https://www.todobackend.com/client/index.html?https://todo-back-springboot220-java12.herokuapp.com/todos)
 
-```
-gp preview https://www.todobackend.com/client/index.html?https://todo-back-springboot220-java12.herokuapp.com/todos
-```
+- [`WebClient#2`](https://www.todobackend.com/client/index.html?https://todo-quarkus.herokuapp.com/todos)
 
-- Link to [`WebClient#2`](https://www.todobackend.com/client/index.html?https://todo-quarkus.herokuapp.com/todos)
-
-```
-gp preview https://www.todobackend.com/client/index.html?https://todo-quarkus.herokuapp.com/todos
-```
-
-- Link to [`WebClient#3`](https://www.todobackend.com/client/index.html?https://todo-backend-micronaut.herokuapp.com/todos)
-
-```
-gp preview https://www.todobackend.com/client/index.html?https://todo-backend-micronaut.herokuapp.com/todos
-```
+- [`WebClient#3`](https://www.todobackend.com/client/index.html?https://todo-backend-micronaut.herokuapp.com/todos)
 
 **👁️ Expected output**
 
 ![TodoBackendClient](https://github.com/DataStax-Academy/workshop-spring-data-cassandra/blob/main/images/todobackend-output-client.png?raw=true)
 
 Our mission in the next hour is to implement the *backend API* and store data into Apache Cassandra™. We have you covered by providing the skeleton of the application.
+
+[🏠 Back to Table of Contents](#-hands-on)
+
 
 ## 4. Launch Gitpod
 
@@ -246,6 +227,8 @@ _The screenshot may be slightly different based on your default skin and a few e
 Although GitPod terminal might seem to be available, the setup might still be ongoing. Wait for a few minutes before entering commands in the GitPod terminal window.
 
 [🏠 Back to Table of Contents](#table-of-contents)
+
+[🏠 Back to Table of Contents](#-hands-on)
 
 ## 5. Know your Gitpod
 
@@ -282,7 +265,7 @@ Or allow ports to be opened by just exiting windows that are informational messa
 
  ![gitpod prefs](images/gitpodpreferences1.png?raw=true)
 
-[🏠 Back to Table of Contents](#0-table-of-contents)
+[🏠 Back to Table of Contents](#-hands-on)
 
 ## 6. Setup for the applications
 
@@ -404,6 +387,8 @@ We will refer to this as the `CQL shell` (`python2`) and the original shell as t
 
 TADA! Now you're really done done with the setup and ready to start coding.
 
+[🏠 Back to Table of Contents](#-hands-on)
+
 ## 7. REST API with Cassandra
 
 Exercises will be different for each language. Pick the language you feel the most confortable with with and JUMP to the respective README.
@@ -412,7 +397,7 @@ Exercises will be different for each language. Pick the language you feel the mo
 - [Run Hands-on with JAVASCRIPT/TYPSCRIPT](./javascript/README.MD) ![JAVA](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-javascript.png)
 - [Run Hands-on with PYTHON](./python/README.MD) ![JAVA](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-python.png)
 
-[🏠 Back to Table of Contents](#0-Hands-on)
+[🏠 Back to Table of Contents](#-hands-on)
 
 ## 8. Badges and Homework
 
