@@ -48,7 +48,7 @@ In this repository, you'll find everything you need for this workshop:
 
 **✨ Please visit [https://astra.datastax.com](https://astra.dev/1-20) to create your free Astra DB instance, required for today's hands-on exercises! 🔥** More details [here](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/tree/main/week2-data-modelling#1-create-your-astra-db-instance) on how to proceed.
 
-### 1.1 You already have an Astra Account
+### `Option 1A` (You already have an Astra Account)
 
 If you attend previous weeks, you will have your Astra DB account already.
 
@@ -64,7 +64,7 @@ If you attend previous weeks, you will have your Astra DB account already.
   <img src="https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/raw/main/week2-data-modelling/images/create_keyspace_todos.gif?raw=true" />
 </details>
 
-### 1.2 You are new to Astra
+### `Option 1B` (You are new to Astra)
 
 If you are new to Astra DB, please read on.
 
@@ -225,8 +225,6 @@ _The screenshot may be slightly different based on your default skin and a few e
 ![image](images/gitpod-bootcampappdev-1.jpg?raw=true)
 
 Although GitPod terminal might seem to be available, the setup might still be ongoing. Wait for a few minutes before entering commands in the GitPod terminal window.
-
-[🏠 Back to Table of Contents](#table-of-contents)
 
 [🏠 Back to Table of Contents](#-hands-on)
 
