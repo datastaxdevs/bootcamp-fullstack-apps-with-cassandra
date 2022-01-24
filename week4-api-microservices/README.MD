@@ -1,4 +1,4 @@
-## 🎓🔥 Api and MicroService with Apache Cassandra 🔥🎓
+# 🎓🔥 Api and MicroService with Apache Cassandra 🔥🎓
 
 Welcome to the *Build Api and Microservices with Apache Cassandra* workshop! In this two-hour workshop, the Developer 
 Advocate team of DataStax presents the process and the basic tenets of building a REST API on top of Apache Cassandra. 
@@ -37,19 +37,10 @@ In this repository, you'll find everything you need for this workshop:
 
 1. [Connect to your Astra DB instance](#1-connect-to-your-Astra-DB-instance)
 2. [Create Astra Token](#2-create-astra-token)
-4. [Create your Database](#4-create-astra-db-instance)
-5. [Create a Table](#5-create-a-table)
-6. [Execute CRUD Operations](#6-execute-crud-operations)
-7. [Sensor Data Modeling](#7-sensor-data-modeling)
-8. [Order Management Data Modeling](#8--order-management-system-data-modelling)
-9. [Create Astra Token](#9-create-astra-token)
-10. [Native Drivers](#10-native-drivers)
-11. [Drivers Object Mapping](#11-drivers-object-mapping)
-12. [Spring Data Cassandra](#12-spring-data-cassandra)
-13. [Cassandra Quarkus extension](#13-cassandra-quarkus-extension)
-14. [Overview of Stargate APis](#14-overview-of-stargate-apis)
-15. [Astra and Stargate SDK](#15-astra-and-stargate-sdk)
-
+3. [Run the TodoApplication](#3-run-the-todoapplication)
+4. [Launch Gitpod](#4-launch-gitpod)
+5. [Know you Gitpod](#5-know-your-gitpod)
+6. 
 
 ## 1. Connect to your Astra DB instance
 
@@ -230,7 +221,7 @@ gp preview https://www.todobackend.com/client/index.html?https://todo-backend-mi
 
 Our mission in the next hour is to implement the *backend API* and store data into Apache Cassandra™. We have you covered by providing the skeleton of the application.
 
-## 3. Launch Gitpod
+## 4. Launch Gitpod
 
 [Gitpod](https://www.gitpod.io/) is an IDE 100% online based on [VS Code](https://github.com/gitpod-io/vscode/blob/gp-code/LICENSE.txt?lang=en-US). To initialize your environment simply click on the button below _(CTRL + Click to open in new tab)_ You will be asked for your github account, as needed.
 
@@ -254,7 +245,7 @@ Although GitPod terminal might seem to be available, the setup might still be on
 
 [🏠 Back to Table of Contents](#table-of-contents)
 
-## 4. Know your Gitpod
+## 5. Know your Gitpod
 
 **You are not going to run any command in this step but it's a great idea to take a moment and familiarize yourself with Gitpod. These steps provides some details for just that. Take a tour around and get comfortable.**
 
@@ -291,16 +282,16 @@ Or allow ports to be opened by just exiting windows that are informational messa
 
 [🏠 Back to Table of Contents](#0-table-of-contents)
 
-## 5. Setup for the applications
+## 6. Setup for the applications
 
 To run the application(s) you need to provide the database credentials.
 
-✅ **Step 5a: Note the two values from the downloaded token**
+####  ✅ **Step 6a: Note the two values from the downloaded token**
 
 
 Note down the values of `Client Id` and `Client Secret` from values noted earlier that we will subsequently use for `username` and `password` in the respective language in a later step.
 
-✅ **Step 5b: Download the secure connect bundle**
+#### ✅ **Step 6b: Download the secure connect bundle**
 
 This next step is probably the most involved step in the entire workshop. The goal of this step is to get the customized connect bundle into Gitpod. One of the several ways of doing this is as follows.
 
@@ -337,7 +328,7 @@ TADA your application is configured we can finally play with some code.
 
 [🏠 Back to Table of Contents](#0-table-of-contents)
 
-✅ **Step 5c: Setup the username and password**
+#### ✅ **Step 6c: Setup the username and password**
 
 We have provided some convenience scripts to setup the credentials across all the languages.
 
@@ -378,7 +369,7 @@ git diff
 
 **A BIG NOTE OF CAUTION: It's not a good practice to include username, password and other secrets in the source file. Don't ever git commit with clear case passwords, etc. This is done purely for convenience of getting started.**
 
-✅ **Step 5d: Verify cql access from Gitpod**
+✅ **Step 6d: Verify cql access from Gitpod**
 
 Invoke `zsh` as shown below (far right top corner of Gitpod terminal window).
 
@@ -411,42 +402,34 @@ We will refer to this as the `CQL shell` (`python2`) and the original shell as t
 
 TADA! Now you're really done done with the setup and ready to start coding.
 
-## 6. CRUD with Cassandra
+## 7. REST API with Cassandra
 
 Exercises will be different for each language. Pick the language you feel the most confortable with with and JUMP to the respective README.
 
-| Sections | Material Description
-| - |---|
-| **![JAVA](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-java.png)** | [Exercises 6..6f with Java](./java/README.MD) |
-| **![JAVASCRIPT](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-javascript.png)** | [Exercises 6..6f  with Javascript](./javascript/README.MD) |
-| **![PYTHON](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-python.png)** | [Exercises 6..6f with Python](./python/README.MD) |
+- [Run Hands-on with JAVA => ](./java/README.MD) ![JAVA](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-java.png)
+- [Run Hands-on with JAVASCRIPT/TYPSCRIPT](./javascript/README.MD) ![JAVA](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-javascript.png)
+- [Run Hands-on with PYTHON](./python/README.MD) ![JAVA](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-python.png)
 
-[🏠 Back to Table of Contents](#0-table-of-contents)
+[🏠 Back to Table of Contents](#0-Hands-on)
 
-## 7. Badges
-
-Refer back to the [Homework](#Homework) which is required to earn the badges.
-
-<img src="images/appdev_badge.png?raw=true" width="200" align="right" />
-
-
-**Now go ahead and start app dev: Good luck!**
+## 8 Badges and Homework
 
 > You might be eligible for a badge when you attend more workshops and complete the requirements.
 
 <img src="images/bootcamp_badge.png?raw=true" width="200" align="left" />
 
-> Sincerely yours, The DataStax Developers
-> THE END.
-
-## Homework
+<img src="images/api_badge.png?raw=true" width="200" align="right" />
 
 To complete the workshop and get a verified badge, follow these simple steps:
 
 1. Watch the workshop live or recorded. Pick a language and run through the exercises.
 2. **Write a new exercise/test**: Transfer/Copy all Todoitems from any one user_id  to a new user_id with completed being false. At the very least one Todoitem should be created.
-3. [Submit the Homework through this form](https://dtsx.io/homework-cassandra-drivers) and attach the screenshots above.
+3. [Submit the Homework through this form](https://dtsx.io/homework-cassandra-api) and attach the screenshots above.
 4. Give us a few days to review your submission and relax: your well-earned badge will soon land in your mailbox!
+
+
+> Sincerely yours, The DataStax Developers
+> THE END.
 
 
 [🏠Back to HOME workshop](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra)
