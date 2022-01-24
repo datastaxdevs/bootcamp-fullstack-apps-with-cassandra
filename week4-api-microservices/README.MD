@@ -9,8 +9,8 @@ Advocate team of DataStax presents the process and the basic tenets of building 
 
 This session is part of the 4-week bootcamp for you to learn anything you need to 
 develop great applications for Apache Cassandra. Each Session can be followed as 
-standalone and this one is no different. Now it is recommended to complete weeks 1,2,3
-to get the most of it.
+**standalone** and this one is no different. Now it is recommended to complete weeks 1,2,3
+to get the most of this week.
 
 - [Week 1 - Intro to Cassandra](../week1-intro-to-cassandra)
 - [Week 2 - Data Modelling](../week2-data-modelling)
@@ -59,19 +59,17 @@ In this repository, you'll find everything you need for this workshop:
 
 If you attend previous weeks, you will have your Astra DB account already.
 
-- If your database has the status `StandBy` then it needs to be resumed before going on. 
+> ✅ If your database has the status `StandBy` then it needs to be resumed before going on. 
 
-<details><summary>Show me how to resume my database, click your database and then the `health` tab.</summary>
+<details><summary>Show me how to resume my database.</summary>
   <img src="images/resume-db.png?raw=true" />
 </details>
 
-- Making sure you have a keyspace, called `todos`, if not please add it. then skip to [Section 2](#2-create-astra-token).
+> ✅ Making sure you have a keyspace, called `todos`, if not please add it. then skip to [Section 2](#2-create-astra-token).
 
 <details><summary>Show me how to add a keyspace!</summary>
   <img src="https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/raw/main/week2-data-modelling/images/create_keyspace_todos.gif?raw=true" />
 </details>
-
-
 
 ### 1.2 You are new to Astra
 
@@ -79,11 +77,11 @@ If you are new to Astra DB, please read on.
 
 _**`ASTRA DB`** is the simplest way to run Cassandra with zero operations at all - just push the button and get your cluster. No credit card required, $25.00 USD credit every month, roughly 5M writes, 30M reads, 40GB storage monthly - sufficient to run small production workloads._
 
-✅ Register (if needed) and Sign In to Astra DB [https://astra.datastax.com](https://astra.dev/1-13): You can use your `Github`, `Google` accounts or register with an `email`.
+#### ✅ Register (if needed) and Sign In to Astra DB [https://astra.datastax.com](https://astra.dev/1-25): You can use your `Github`, `Google` accounts or register with an `email`.
 
 _Make sure to chose a password with minimum 8 characters, containing upper and lowercase letters, at least one number and special character_
 
-✅ Choose "Start Free Now"
+#### ✅ Choose "Start Free Now"
 
 Choose the "Start Free Now" plan, then "Get Started" to work in the free tier.
 
@@ -94,16 +92,16 @@ to 80 GB of storage and 20M read/write operations.
 
 (You can follow this [guide](https://docs.datastax.com/en/astra/docs/creating-your-astra-database.html) to set up your free-tier database with the $25 monthly credit.)
 
+#### ✅ Fill the form
+
 - **For the database name** - use `workshops`. While Astra DB allows you to fill in these fields with values of your own choosing, please follow our recommendations to ensure the application runs properly.
 
 - **For the keyspace name** - use `todos`. Please stick to this name, it will make the following steps much easier (you have to customize here and there otherwise). In short:
 
-| Parameter | Value
-|---|---|
-| Database name | workshops  |
-| Keyspace name | todos |
-
-_Note_: if you already have a `workshops` database, for instance from a previous workshop with us, you can simply create the keyspace with the `Add Keyspace` button in your Astra DB dashboard: the new keyspace will be available in few seconds.
+| Parameter       | Value
+|-----------------|---|
+| *Database name* | `workshops`  |
+| *Keyspace name* | `todos` |
 
 - **For provider and region**: Choose any provider (either GCP, AWS or Azure). Region is where your database will reside physically (choose one close to you or your users).
 
@@ -115,7 +113,8 @@ the status will change to `Active` when the database is ready. This will only ta
 
 ## 2. Create Astra Token
 
-We need to create a **token** that we will use as our credentials.
+We need to create a **token** that we will use as our credentials. The token do not expired so 
+if you already have one you can reuse it.
 
 ✅ **Step 2a: Generate Token**
 
@@ -152,6 +151,84 @@ To know more about roles, tokens, etc. you can look at [this video.](https://www
 We are now set with the database and credentials. Let's start coding!
 
 [🏠 Back to Table of Contents](#0-table-of-contents)
+
+## 3. Run the TodoApplication
+
+**TodoMVC** is a fabulous community contribution that helps developers compare frameworks on the basis of actual project code, not just claims and anecdotes. TodoMVC is an immensely valuable attempt at a difficult problem - providing a structured way of comparing JS libraries and frameworks.
+
+![TodoMVC](images/todomvc.png?raw=true)
+
+**✅ Step 1a. Visit [TodoMVC.com](http://todomvc.com/) to discover what we are building today** : We want you to see what it looks like before starting anything. So please browse to [http://todomvc.com/](http://todomvc.com/) and take a look. You will see that there are multiple implementations, feel free to pick one of those and test it live in your browser.
+
+
+**[Todo-Backend](https://www.todobackend.com/)** is an example to showcase backend tech stacks. The Todo-Backend project defines a simple web API spec for managing a todo list. Contributors implement that spec using various tech stacks. Those implementations are cataloged below. A spec runner verifies that each contribution implements the exact same API, by running an automated test suite which defines the API.
+
+![TodoBackend](images/todobackend.png?raw=true)
+
+There are multiple free implementations available. Some implementations provide endpoints to be tested in `heroku`. [Heroku provide free hosting for a Java application but this is on-demand](https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku). With `Heroku` The application will be incative until you access the endpoint. Due to this it will take 30s for the first person hitting the endpoint to wake up the application. Among the available free endpoints we can list:
+- `#1` : [https://todo-back-springboot220-java12.herokuapp.com/todos](https://todo-back-springboot220-java12.herokuapp.com/todo)
+- `#2` : [https://todo-quarkus.herokuapp.com/todos](https://todo-quarkus.herokuapp.com/todos)
+- `#3` : [https://todo-backend-micronaut.herokuapp.com/todos](https://todo-backend-micronaut.herokuapp.com/todos)
+
+**✅ Step 1b. Test TodoBackEnd Spec Runner** : Locate the [spec runner](https://www.todobackend.com/specs/index.html) and use one of the `endpoints` listed above to evaluate if API matchs the requirements. To do so copy-paste one URL and click `Run Tests`.
+
+![TodoBackendTest](https://github.com/DataStax-Academy/workshop-spring-data-cassandra/blob/main/images/todobackend-runtest.png?raw=true)
+
+**Pick one in the 3:**
+
+- Link to [`SpecRunner#1`](https://www.todobackend.com/specs/index.html?https://todo-back-springboot220-java12.herokuapp.com/todos)
+
+```
+gp preview https://www.todobackend.com/specs/index.html?https://todo-back-springboot220-java12.herokuapp.com/todos
+```
+
+- Link to [`SpecRunner#2`](https://www.todobackend.com/specs/index.html?https://todo-quarkus.herokuapp.com/todos)
+
+```
+gp preview https://www.todobackend.com/specs/index.html?https://todo-quarkus.herokuapp.com/todos
+```
+
+- Link to [`SpecRunner#3`](https://www.todobackend.com/specs/index.html?https://todo-backend-micronaut.herokuapp.com/todos)
+
+```
+gp preview https://www.todobackend.com/specs/index.html?https://todo-backend-micronaut.herokuapp.com/todos
+```
+
+**👁️ Expected output**
+
+![TodoBackendOuput](images/todobackend-output-host.png?raw=true)
+
+**Note:** *During the live stream there will be dozens of people testing the same endpoints.  It is possible that we could hit some slowness or issues with race conditions.*
+
+**✅ Step 1c. Test TodoBackEnd Web Client** : todoBackend.com provides a [client](https://www.todobackend.com/client/index.html) to work with the API. As before pick one of the `endpoints` listed before and try the client.
+
+![TodoBackendClient](images/todobackend-runclient.png?raw=true)
+
+**Pick on of the 3:**
+
+- Link to [`WebClient#1`](https://www.todobackend.com/client/index.html?https://todo-back-springboot220-java12.herokuapp.com/todos)
+
+```
+gp preview https://www.todobackend.com/client/index.html?https://todo-back-springboot220-java12.herokuapp.com/todos
+```
+
+- Link to [`WebClient#2`](https://www.todobackend.com/client/index.html?https://todo-quarkus.herokuapp.com/todos)
+
+```
+gp preview https://www.todobackend.com/client/index.html?https://todo-quarkus.herokuapp.com/todos
+```
+
+- Link to [`WebClient#3`](https://www.todobackend.com/client/index.html?https://todo-backend-micronaut.herokuapp.com/todos)
+
+```
+gp preview https://www.todobackend.com/client/index.html?https://todo-backend-micronaut.herokuapp.com/todos
+```
+
+**👁️ Expected output**
+
+![TodoBackendClient](https://github.com/DataStax-Academy/workshop-spring-data-cassandra/blob/main/images/todobackend-output-client.png?raw=true)
+
+Our mission in the next hour is to implement the *backend API* and store data into Apache Cassandra™. We have you covered by providing the skeleton of the application.
 
 ## 3. Launch Gitpod
 
