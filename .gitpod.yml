@@ -12,7 +12,7 @@ tasks:
           && tar xvzf cqlsh-astra.tar.gz \
           && rm -f cqlsh-astra.tar.gz
       cp ~/.zshrc ~/.zshrc.init
-      if [ ! -f /workspace/bootcamp-fullstack-apps-with-cassandra/zshrcinit ]; then
+      if [ -f /workspace/bootcamp-fullstack-apps-with-cassandra/zshrcinit ]; then
           cp /workspace/bootcamp-fullstack-apps-with-cassandra/zshrcinit ~/.zshrc
       fi
 ports: 
