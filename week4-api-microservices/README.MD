@@ -40,7 +40,9 @@ In this repository, you'll find everything you need for this workshop:
 3. [Run the TodoApplication](#3-run-the-todoapplication)
 4. [Launch Gitpod](#4-launch-gitpod)
 5. [Know you Gitpod](#5-know-your-gitpod)
-6. 
+6. [Rest Api with Apache Cassandra](#)
+7. [Setup for the applications](#)
+8. [Badges and Homework](#)
 
 ## 1. Connect to your Astra DB instance
 
@@ -412,7 +414,7 @@ Exercises will be different for each language. Pick the language you feel the mo
 
 [🏠 Back to Table of Contents](#0-Hands-on)
 
-## 8 Badges and Homework
+## 8. Badges and Homework
 
 > You might be eligible for a badge when you attend more workshops and complete the requirements.
 
