@@ -3,23 +3,7 @@
 Welcome to the *Build Api and Microservices with Apache Cassandra* workshop! In this two-hour workshop, the Developer 
 Advocate team of DataStax presents the process and the basic tenets of building a REST API on top of Apache Cassandra. 
 
-<img src="images/splash.png?raw=true" />
-
-
-## 📋 Materials
-
-It doesn't matter if you join our workshop live or you prefer to do at your own pace, we have you covered. But please if you did not attend [Week 1 - Intro to Cassandra](../week1-intro-to-cassandra) and/or [Week 2 - Data Modelling](../week2-data-modelling) we suggest you get caught up since the material in this workshop will build on top of the previous weeks' workshops!
-
-For the hands-on part of this workshop, we will use **[Astra DB](http://astra.dev/1-25)**, a Database-as-a-Service
-built on Cassandra and delivered by DataStax.
-
-In this repository, you'll find everything you need for this workshop:
-
-- [Materials used during presentations](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/blob/main/week4-api-microservices/slides/slides.pdf)
-- [Hands-on exercises](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/tree/main/week4-api-microservices#-Hands-on)
-- [Workshop video (*Recording in progress*)](#)
-- [Discord chat](https://dtsx.io/discord)
-- [Questions and Answers](https://community.datastax.com/)
+<img src="images/splash.png?raw=true"  width="600px"/>
 
 ## 🎓 BootCamp 2022
 
@@ -32,14 +16,27 @@ to get the most of it.
 - [Week 2 - Data Modelling](../week2-data-modelling)
 - [Week 3 - Application Developement](../week3-app-development)
 
+## 📋 Materials
+
+It doesn't matter if you join our workshop live or you prefer to do at your own pace, we have you covered.
+
+For the hands-on part of this workshop, we will use **[Astra DB](http://astra.dev/1-25)**, a Database-as-a-Service
+built on Cassandra and delivered by DataStax.
+
+In this repository, you'll find everything you need for this workshop:
+
+- [Materials used during presentations](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/blob/main/week4-api-microservices/slides/slides.pdf)
+- [Hands-on exercises](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/tree/main/week4-api-microservices#-Hands-on)
+- [Workshop video (*Recording in progress*)](#)
+- [Discord chat](https://dtsx.io/discord)
+- [Questions and Answers](https://community.datastax.com/)
 
 ## 📋 Hands-On
 
-<img src="images/splash.png?raw=true" align="right" width="400px"/>
+<img src="images/splash.png?raw=true" align="right" width="600px"/>
 
-1. [Objectives](#1-objectives)
-2. [Frequently asked questions](#2-frequently-asked-questions)
-3. [Materials for the Session](#3-materials-for-the-session)
+1. [Connect to your Astra DB instance](#1-connect-to-your-Astra-DB-instance)
+2. [Create Astra Token](#2-create-astra-token)
 4. [Create your Database](#4-create-astra-db-instance)
 5. [Create a Table](#5-create-a-table)
 6. [Execute CRUD Operations](#6-execute-crud-operations)
@@ -54,27 +51,67 @@ to get the most of it.
 15. [Astra and Stargate SDK](#15-astra-and-stargate-sdk)
 
 
-
 ## 1. Connect to your Astra DB instance
-
-**Once again, If you did not attend the previous workshops, please look at the previous weeks of the bootcamp 
-[Week 1 - Intro to Cassandra](../week1-intro-to-cassandra) and [Week 2 - Data Modelling](../week2-data-modelling) please complete that first.**
 
 **✨ Please visit [https://astra.datastax.com](https://astra.dev/1-20) to create your free Astra DB instance, required for today's hands-on exercises! 🔥** More details [here](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/tree/main/week2-data-modelling#1-create-your-astra-db-instance) on how to proceed.
 
-Verify that the keyspace `todos` indeed exists in database `workshops` as shown in the [Astra dashboard](https://astra.dev/1-20).
+### 1.1 You already have an Astra Account
 
-![Astra](images/Verifytodos.png?raw=true)
+If you attend previous weeks, you will have your Astra DB account already.
 
-Now that you've created a database and keyspace already and familiarized yourself with the Astra console, we will start preparing to connect to the database, programmatically.
+- If your database has the status `StandBy` then it needs to be resumed before going on. 
 
-There are several language drivers (includes Java, NodeJS, Python) to access a Cassandra database programmatically and each with different capabilites. The driver matrix is at [https://docs.datastax.com/en/driver-matrix/doc/driver_matrix/common/driverMatrix.html](https://docs.datastax.com/en/driver-matrix/doc/driver_matrix/common/driverMatrix.html).
+<details><summary>Show me how to resume my database, click your database and then the `health` tab.</summary>
+  <img src="images/resume-db.png?raw=true" />
+</details>
 
-In principle, they all work by setting up a connection to the database and manipulating the data via CQL statements or higher abstractions referred to as collections.
+- Making sure you have a keyspace, called `todos`, if not please add it. then skip to [Section 2](#2-create-astra-token).
 
-We will start by establishing connectivity (which is common across languages) and then branch off into the respective language paths.
+<details><summary>Show me how to add a keyspace!</summary>
+  <img src="https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/raw/main/week2-data-modelling/images/create_keyspace_todos.gif?raw=true" />
+</details>
 
-To establish connectivity to the Astra database that we created, we need some credentials from the Astra console and we need to use a secure connect bundle alongside the driver. The next few steps will accomplish just that.
+
+
+### 1.2 You are new to Astra
+
+If you are new to Astra DB, please read on.
+
+_**`ASTRA DB`** is the simplest way to run Cassandra with zero operations at all - just push the button and get your cluster. No credit card required, $25.00 USD credit every month, roughly 5M writes, 30M reads, 40GB storage monthly - sufficient to run small production workloads._
+
+✅ Register (if needed) and Sign In to Astra DB [https://astra.datastax.com](https://astra.dev/1-13): You can use your `Github`, `Google` accounts or register with an `email`.
+
+_Make sure to chose a password with minimum 8 characters, containing upper and lowercase letters, at least one number and special character_
+
+✅ Choose "Start Free Now"
+
+Choose the "Start Free Now" plan, then "Get Started" to work in the free tier.
+
+You will have plenty of free initial credit (renewed each month!), roughly corresponding
+to 80 GB of storage and 20M read/write operations.
+
+> If this is not enough for you, congratulations! You are most likely running a mid- to large-sized business! In that case you should switch to a paid plan.
+
+(You can follow this [guide](https://docs.datastax.com/en/astra/docs/creating-your-astra-database.html) to set up your free-tier database with the $25 monthly credit.)
+
+- **For the database name** - use `workshops`. While Astra DB allows you to fill in these fields with values of your own choosing, please follow our recommendations to ensure the application runs properly.
+
+- **For the keyspace name** - use `todos`. Please stick to this name, it will make the following steps much easier (you have to customize here and there otherwise). In short:
+
+| Parameter | Value
+|---|---|
+| Database name | workshops  |
+| Keyspace name | todos |
+
+_Note_: if you already have a `workshops` database, for instance from a previous workshop with us, you can simply create the keyspace with the `Add Keyspace` button in your Astra DB dashboard: the new keyspace will be available in few seconds.
+
+- **For provider and region**: Choose any provider (either GCP, AWS or Azure). Region is where your database will reside physically (choose one close to you or your users).
+
+- **Create the database**. Review all the fields to make sure they are as shown, and click the `Create Database` button.
+
+You will see your new database as `Pending` in the Dashboard;
+the status will change to `Active` when the database is ready. This will only take 2-3 minutes
+(you will also receive an email when it is ready).
 
 ## 2. Create Astra Token
 
