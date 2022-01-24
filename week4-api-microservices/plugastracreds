@@ -1,0 +1,39 @@
+#!/bin/bash
+
+if [ ! -f .env ]; then
+   echo "File .env needs to exist."
+   exit -1
+fi
+
+source .env
+
+if [ ! "$ASTRA_USERNAME" ]; then
+    echo "env variable ASTRA_USERNAME needs to be set"
+    exit -1
+fi
+
+if [ ! "$ASTRA_PASSWORD" ]; then
+    echo "env variable ASTRA_PASSWORD needs to be set"
+    exit -1
+fi
+
+if [ ! -f /workspace/bootcamp-fullstack-apps-with-cassandra/secure-connect-workshops.zip  ]; then
+   echo "Secure connect bundle to connect to Astra does not exist."
+   exit -1
+fi
+
+cat ./java/src/main/resources/application.properties.init | \
+    sed "s/\$ASTRA_USERNAME/$ASTRA_USERNAME/" | \
+    sed "s/\$ASTRA_PASSWORD/$ASTRA_PASSWORD/" > \
+    ./java/src/main/resources/application.properties
+
+echo "Astra credentials plugged into all language environments. Please verify!"
+
+if [ ! -f ~/.zshrc.init  ]; then
+    cp ~/.zshrc ~/.zshrc.init
+fi
+
+cat ~/.zshrc.init > ~/.zshrc && echo "/workspace/bootcamp-fullstack-apps-with-cassandra/cqlsh-astra/bin/cqlsh \\
+	--secure-connect-bundle=/workspace/bootcamp-fullstack-apps-with-cassandra/secure-connect-workshops.zip  \\
+	-u $ASTRA_USERNAME \\
+	-p $ASTRA_PASSWORD" >> ~/.zshrc

@@ -33,7 +33,7 @@ In this repository, you'll find everything you need for this workshop:
 
 ## 📋 Hands-On
 
-<img src="images/splash.png?raw=true" align="right" width="600px"/>
+<img src="images/splash.png?raw=true" align="right" width="400px"/>
 
 1. [Connect to your Astra DB instance](#1-connect-to-your-Astra-DB-instance)
 2. [Create Astra Token](#2-create-astra-token)

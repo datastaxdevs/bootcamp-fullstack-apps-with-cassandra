@@ -1,0 +1,10 @@
+server.port=9191
+
+spring.data.cassandra.schema-action=CREATE_IF_NOT_EXISTS
+spring.data.cassandra.request.timeout=10s
+spring.data.cassandra.connection.connect-timeout=10s
+spring.data.cassandra.connection.init-query-timeout=10s
+spring.data.cassandra.keyspace-name=native_java
+spring.data.cassandra.username=$ASTRA_USERNAME
+spring.data.cassandra.password=$ASTRA_PASSWORD
+datastax.astra.secure-connect-bundle=/workspace/bootcamp-fullstack-apps-with-cassandra/secure-connect-workshops.zip
