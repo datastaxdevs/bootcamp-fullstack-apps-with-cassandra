@@ -1,20 +1,9 @@
 # 🎓🔥 Api and MicroService with Apache Cassandra 🔥🎓
 
-<img src="../images/splash.png?raw=true"  width="600px"/>
+![pic](../images/splash.png)
 
 ![JAVA](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-java.png)
 
-## Table of contents
-
-We will be walking through code that establishes a connection to the Astra database and does CRUD (Create, Read, Update, Delete commands).
-
-- [Connect to Astra](#-step-6-run-unit-test-ex06_connect_to_astrajava)
-- [Create the schema](#-step-6a-run-unit-test-ex6a_create_tablejava)
-- [Save a Task](#-step-6b-run-unit-test-ex6b_insert_todosjava)
-- [Test unitary REST Endpoint](#-step-6c-run-unit-test-ex6c_get_all_todosjava)
-- [Start the application](#-step-6d-run-unit-test-ex6d_update_a_todojava)
-- [Test with curl](#-step-6e-run-unit-test-ex6e_remove_a_todojava)
-- [Plug TodoMVC to your backend](#-step-6f-run-unit-test-ex6f_remove_all_todosjava)
 
 ## 7a - Connect to Astra
 
@@ -227,7 +216,7 @@ token@cqlshs> select * from todos.todoitems;
 ---------+--------------------------------------+-----------+--------+--------------
     john | 1793e4e0-7d65-11ec-b3f6-15c8273bc04a |     False |      0 | Sample task1
 ```
-`
+
 ## 7d - Test  REST Endpoint
 
 ### ✅ Run Test
@@ -311,7 +300,7 @@ Picked up JAVA_TOOL_OPTIONS:  -Xmx2576m
 
 - A popup may ask you to set the port `9191` public, please accept. To get the public URL of your service.
 
-![pic](images/gitpod-openport.png)
+![pic](../images/gitpod-openport.png)
 
 - The application is not running on a translated URL if you want to know which one:
 
@@ -330,7 +319,7 @@ https://9191-datastaxdevs-bootcampful-8p9qehl18vj.ws-eu28.gitpod.io
 gp preview $(gp url 9191)
 ```
 
-![pic](images/gitpod-home-error.png)
+![pic](../images/gitpod-home-error.png)
 
 ## 7f - Run the integrations tests
 
@@ -342,7 +331,7 @@ gp preview $(gp url 9191)/api/v1/john/todos/
 
 You should see some of your tasks
 
-![pic](images/gitpod-john-task.png)
+![pic](../images/gitpod-john-task.png)
 
 - You might tempted to run the unit test suite now (well you should)
 
@@ -352,11 +341,11 @@ gp preview https://todobackend.com/specs/index.html?$(gp url 9191)/api/v1/test/t
 
 You will get an error this is expected, it is a limitation of the preview in gitpod.
 
-![pic](images/gitpod-spec-error.png)
+![pic](../images/gitpod-spec-error.png)
 
 - Open the same link in a new tabs in your browser
 
-![pic](images/gitpod-spec-success.png)
+![pic](../images/gitpod-spec-success.png)
 
 ## 7g - Run the client
 
@@ -368,15 +357,14 @@ Change in the url the `specs` path by `client`
 gp preview https://todobackend.com/client/index.html?$(gp url 9191)/api/v1/test/todos/
 ```
 
-![pic](images/gitpod-client-success.png)
+![pic](../images/gitpod-client-error.png)
 
 again no success = limitation of the gitpod preview, open the link in a new TAB.
 
-![pic](images/gitpod-client-success.png)
+![pic](../images/gitpod-client-success.png)
 
 
 ### ✅ Validate with CQLSH.
-
 
 ```cql
 token@cqlsh:native_java> select * from todoitems;
@@ -390,3 +378,7 @@ token@cqlsh:native_java> select * from todoitems;
  bootcamp | a2fb77b0-7d69-11ec-8c88-2913db53e434 |     False |      2 |         Week 2 - data modelling
  bootcamp | a5b3b9e0-7d69-11ec-8c88-2913db53e434 |     False |      3 |      Week 3 - App developerment
 ```
+
+Congratulation you can come back to previous
+
+[BACK](../README.MD)
