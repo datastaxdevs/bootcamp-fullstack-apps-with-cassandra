@@ -60,11 +60,18 @@ public class Test02_CreateSchema {
                 .build()) {
             LOGGER.info("Connection Established to Astra with Keyspace '{}'", 
                     cqlSession.getKeyspace().get());
+
+            SimpleStatement stmtDropTable = SchemaBuilder
+                    .dropTable("todoitems")
+                    .ifExists().build();
+            // When creating the table
+            cqlSession.execute(stmtDropTable);
+            
             SimpleStatement stmtCreateTable = SchemaBuilder
                     .createTable("todoitems")
                     .ifNotExists()
-                    .withPartitionKey("user_id", DataTypes.UUID)
-                    .withClusteringColumn("item_id", DataTypes.UUID)
+                    .withPartitionKey("user_id", DataTypes.TEXT)
+                    .withClusteringColumn("item_id", DataTypes.TIMEUUID)
                     .withColumn("title",     DataTypes.TEXT)
                     .withColumn("completed", DataTypes.BOOLEAN)
                     .withColumn("offset",     DataTypes.INT)
