@@ -315,7 +315,7 @@ https://9191-datastaxdevs-bootcampful-8p9qehl18vj.ws-eu28.gitpod.io
 
 - You can try open the application, but you will got an error screen as there is no resources listening at root. 
 
-```aidl
+```bash
 gp preview $(gp url 9191)
 ```
 
