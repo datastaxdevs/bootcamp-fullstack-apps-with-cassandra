@@ -15,7 +15,9 @@ tasks:
       if [ -f /workspace/bootcamp-fullstack-apps-with-cassandra/zshrcinit ]; then
           cp /workspace/bootcamp-fullstack-apps-with-cassandra/zshrcinit ~/.zshrc
       fi
-ports: 
+      pip3 install -r week4-api-microservices/python/requirements.txt
+      npm i --prefix week4-api-microservices/javascript
+ports:
   - port: 5005
   - port: 8080
   - port: 8081
@@ -33,7 +35,7 @@ github:
     addComment: false
     addBadge: true
     addLabel: false
- 
+
 vscode:
   extensions:
     - datastax.astra-for-vs-code
