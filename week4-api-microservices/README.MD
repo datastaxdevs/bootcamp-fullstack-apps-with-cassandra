@@ -151,7 +151,7 @@ We are now set with the database and credentials. Let's get started!
 
 ![TodoMVC](images/todomvc.png?raw=true)
 
-**✅ Step 1a. Visit [TodoMVC.com](http://todomvc.com/) to discover what we are building today** : We want you to visualize the application (if you're building a brand new app you might create wire frame diagrams, for example) before we start coding. We already have a working application -so please browse [http://todomvc.com/](http://todomvc.com/) and play around. You will see that there are multiple implementations, feel free to pick one of those and test it live in your browser.
+**✅ Step 1a. Visit [TodoMVC.com](http://todomvc.com/) to discover what we are building today** : We want you to visualize the application (if you're building a brand new app you might create wire frame diagrams, for example) before we start coding. We already have a working application -so please browse [http://todomvc.com/](http://todomvc.com/). You will see that there are multiple implementations, feel free to pick one of those and test it live in your browser.
 
 
 **[Todo-Backend](https://www.todobackend.com/)** is an example to showcase backend tech stacks. The Todo-Backend project defines a simple web API spec for managing a todo list. Contributors implement that spec using various tech stacks. Those implementations are cataloged below. A spec runner verifies that each contribution implements the exact same API, by running an automated test suite which defines the API.
@@ -159,9 +159,14 @@ We are now set with the database and credentials. Let's get started!
 ![TodoBackend](images/todobackend.png?raw=true)
 
 There are multiple free implementations available. Some implementations provide endpoints to be tested in `heroku`. [Heroku provides free hosting](https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku). With `Heroku` The application will be inactive until you access the endpoint. Due to this it will take 30s (or more) for the first person hitting the endpoint to wake up the application. Among the available free endpoints we can recommend:
-- `#1` : [https://todo-back-springboot220-java12.herokuapp.com/todos](https://todo-back-springboot220-java12.herokuapp.com/todo)
+
+- `#1` : [https://todo-back-springboot220-java12.herokuapp.com/todos](https://todo-back-springboot220-java12.herokuapp.com/todos)
 - `#2` : [https://todo-quarkus.herokuapp.com/todos](https://todo-quarkus.herokuapp.com/todos)
 - `#3` : [https://todo-backend-micronaut.herokuapp.com/todos](https://todo-backend-micronaut.herokuapp.com/todos)
+
+**👁️ Expected output**
+
+![TodoBackendClient](images/todobackend2-1.png?raw=true)
 
 **✅ Step 1b. Test TodoBackEnd Spec Runner** : Locate the [spec runner](https://www.todobackend.com/specs/index.html) and use one of the `endpoints` listed above to evaluate if API matches the requirements. To do so copy-paste one URL and click `Run Tests`.
 
