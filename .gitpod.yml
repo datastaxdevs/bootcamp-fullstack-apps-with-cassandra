@@ -19,7 +19,9 @@ ports:
   - port: 5005
   - port: 8080
   - port: 8081
-    onOpen: open-browser 
+    onOpen: open-browser
+  - port: 9191
+    onOpen: open-browser
 
 github:
   prebuilds:
