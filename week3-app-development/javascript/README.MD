@@ -64,7 +64,7 @@ git diff connection.js
 You are ready and can now test the connection to Astra with the following command
 
 ```bash
-node Ex06_Connect_to_Astra.js 
+node Ex07a_Connect_to_Astra.js 
 ```
 **👁️ Expected output**
 

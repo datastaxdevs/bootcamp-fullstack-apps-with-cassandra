@@ -70,7 +70,7 @@ gitpod /workspace/bootcamp-fullstack-apps-with-cassandra/week4-api-microservices
 
 ### ✅ Run Test
 
-- Look at the class [`Test01_Connect.java`](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/blob/main/week4-api-microservices/java/src/test/java/com/datastaxdev/Test02_CreateSchema.java)
+- Look at the class [`Test02_CreateSchema.java`](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/blob/main/week4-api-microservices/java/src/test/java/com/datastaxdev/Test02_CreateSchema.java)
 
 ```bash
 /workspace/bootcamp-fullstack-apps-with-cassandra/week4-api-microservices/java/src/test/java/com/datastaxdev/Test02_CreateSchema.java
@@ -152,7 +152,7 @@ token@cqlsh>
 
 ### ✅ Run Test
 
-- Look at class [`Test01_Connect.java`](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/blob/main/week4-api-microservices/java/src/test/java/com/datastaxdev/Test03_SaveTask.java)
+- Look at class [`Test03_SaveTask.java`](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/blob/main/week4-api-microservices/java/src/test/java/com/datastaxdev/Test03_SaveTask.java)
 
 ```bash
 /workspace/bootcamp-fullstack-apps-with-cassandra/week4-api-microservices/java/src/test/java/com/datastaxdev/Test03_SaveTask.java
@@ -221,7 +221,7 @@ token@cqlshs> select * from todos.todoitems;
 
 ### ✅ Run Test
 
-- Look at the class [`Test01_Connect.java`](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/blob/main/week4-api-microservices/java/src/test/java/com/datastaxdev/Test04_Controller.java)
+- Look at the class [`Test04_Controller.java`](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/blob/main/week4-api-microservices/java/src/test/java/com/datastaxdev/Test04_Controller.java)
 
 ```bash
 /workspace/bootcamp-fullstack-apps-with-cassandra/week4-api-microservices/java/src/test/java/com/datastaxdev/Test04_Controller.java

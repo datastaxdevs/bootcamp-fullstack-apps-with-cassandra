@@ -385,9 +385,11 @@ TADA! Now you're really done done with the setup and ready to start coding.
 
 Exercises will be different for each language. Pick the language you feel the most confortable with with and JUMP to the respective README.
 
-- [Run Hands-on with JAVA => ](./java/README.MD) ![JAVA](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-java.png)
-- [Run Hands-on with JAVASCRIPT/TYPSCRIPT](./javascript/README.MD) ![JAVA](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-javascript.png)
-- [Run Hands-on with PYTHON](./python/README.MD) ![JAVA](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-python.png)
+| Sections | Material Description
+| - |---|
+| **![JAVA](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-java.png)** | [Exercises 7a..7g with Java](./java/README.MD) |
+| **![JAVASCRIPT](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-javascript.png)** | [Exercises 7a..7g with Javascript](./javascript/README.MD) |
+| **![PYTHON](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-python.png)** | [Exercises 7a..7g with Python](./python/README.MD) |
 
 [🏠 Back to Table of Contents](#-hands-on)
 
