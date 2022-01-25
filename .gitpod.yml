@@ -24,6 +24,7 @@ ports:
   - port: 8081
     onOpen: open-browser
   - port: 9191
+    visibility: public
     onOpen: open-browser
 
 github:
