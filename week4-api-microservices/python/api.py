@@ -5,12 +5,14 @@ from cassandra.cqlengine import ValidationError
 from cassandra.cqlengine.models import Model
 from flask import Flask, jsonify, request
 from todos import Todos, db_session
+from flask_cors import CORS
 
 load_dotenv()
 
 
 # setup flask
 app = Flask(__name__)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 
 @app.route("/api/v1/<user_id>/todos", methods=["GET"])

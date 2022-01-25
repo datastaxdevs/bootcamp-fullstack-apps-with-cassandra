@@ -15,7 +15,7 @@ cloud_config = {
     "secure_connect_bundle": os.environ.get("ASTRA_DB_BUNDLE_PATH")
 }
 auth_provider = PlainTextAuthProvider(
-    "token", os.environ.get("ASTRA_DB_APPLICATION_TOKEN"))
+    os.environ.get("ASTRA_DB_CLIENT_ID"), os.environ.get("ASTRA_DB_CLIENT_SECRET"))
 cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider)
 db_session = cluster.connect()
 db_session.default_timeout = 60

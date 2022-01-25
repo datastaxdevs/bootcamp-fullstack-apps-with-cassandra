@@ -15,8 +15,8 @@ module.exports = {
         secureConnectBundle: process.env.ASTRA_DB_BUNDLE_PATH,
       },
       credentials: {
-        username: "token",
-        password: process.env.ASTRA_DB_APPLICATION_TOKEN,
+        username: process.env.ASTRA_DB_CLIENT_ID,
+        password: process.env.ASTRA_DB_CLIENT_SECRET,
       },
       keyspace: process.env.ASTRA_DB_KEYSPACE,
     });
