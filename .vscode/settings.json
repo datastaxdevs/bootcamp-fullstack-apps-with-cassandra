@@ -9,7 +9,7 @@
       "cqlsh": {
         "path": "zsh",
         "args": ["-l"],
-        "overideName": "cqlsh"
+        "overrideName": true
       }
     }
 }
