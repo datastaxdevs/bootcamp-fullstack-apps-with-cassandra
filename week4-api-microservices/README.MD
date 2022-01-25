@@ -1,7 +1,6 @@
-# 🎓🔥 Api and MicroService with Apache Cassandra 🔥🎓
+# 🎓🔥 API and Microservices with Apache Cassandra 🔥🎓
 
-Welcome to the *Build Api and Microservices with Apache Cassandra* workshop! In this two-hour workshop, the Developer 
-Advocate team of DataStax presents the process and the basic tenets of building a REST API on top of Apache Cassandra. 
+Welcome to the *Build API and Microservices with Apache Cassandra* workshop! In this two-hour workshop, the Developer Advocate team of DataStax presents the process and the basic tenets of building a REST API (which is the foundation of microservices) with data backed by Apache Cassandra.
 
 <img src="images/splash.png?raw=true"  width="600px"/>
 
@@ -9,7 +8,7 @@ Advocate team of DataStax presents the process and the basic tenets of building 
 
 This session is part of the 4-week bootcamp for you to learn anything you need to 
 develop great applications for Apache Cassandra. Each Session can be followed as 
-**standalone** and this one is no different. Now it is recommended to complete weeks 1,2,3
+**standalone** and this one is no different. It is strongly recommended that you complete weeks 1,2,3
 to get the most of this week.
 
 - [Week 1 - Intro to Cassandra](../week1-intro-to-cassandra)
@@ -20,7 +19,7 @@ to get the most of this week.
 
 It doesn't matter if you join our workshop live or you prefer to do at your own pace, we have you covered.
 
-For the hands-on part of this workshop, we will use **[Astra DB](http://astra.dev/1-25)**, a Database-as-a-Service
+For the hands-on part of this workshop, we will use **[Astra DB](http://astra.dev/1-26)**, a Database-as-a-Service
 built on Cassandra and delivered by DataStax.
 
 In this repository, you'll find everything you need for this workshop:
@@ -46,19 +45,19 @@ In this repository, you'll find everything you need for this workshop:
 
 ## 1. Connect to your Astra DB instance
 
-**✨ Please visit [https://astra.datastax.com](https://astra.dev/1-20) to create your free Astra DB instance, required for today's hands-on exercises! 🔥** More details [here](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/tree/main/week2-data-modelling#1-create-your-astra-db-instance) on how to proceed.
+**✨ Please visit [https://astra.datastax.com](https://astra.dev/1-26) to create your free Astra DB instance, required for today's hands-on exercises! 🔥** More details [here](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/tree/main/week2-data-modelling#1-create-your-astra-db-instance) on how to proceed.
 
 ### `Option 1A` (You already have an Astra Account)
 
-If you attend previous weeks, you will have your Astra DB account already.
+If you attended previous weeks, you will have your Astra DB account already.
 
-> ✅ If your database has the status `StandBy` then it needs to be resumed before going on. 
+> ✅ If your database has the status `Standby` then it needs to be resumed before going on.
 
 <details><summary>Show me how to resume my database.</summary>
   <img src="images/resume-db.png?raw=true" />
 </details>
 
-> ✅ Making sure you have a keyspace, called `todos`, if not please add it. then skip to [Section 2](#2-create-astra-token).
+> ✅ Next, make sure you have a keyspace, called `todos`, if not please add it. then skip to [Section 2](#2-create-astra-token).
 
 <details><summary>Show me how to add a keyspace!</summary>
   <img src="https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/raw/main/week2-data-modelling/images/create_keyspace_todos.gif?raw=true" />
@@ -100,8 +99,7 @@ to 80 GB of storage and 20M read/write operations.
 
 - **Create the database**. Review all the fields to make sure they are as shown, and click the `Create Database` button.
 
-You will see your new database as `Pending` in the Dashboard;
-the status will change to `Active` when the database is ready. This will only take 2-3 minutes
+You will see your new database as `Pending` in the Dashboard; the status will change to `Active` when the database is ready. This will only take 2-3 minutes
 (you will also receive an email when it is ready).
 
 [🏠 Back to Table of Contents](#-hands-on)
@@ -143,7 +141,7 @@ To know more about roles, tokens, etc. you can look at [this video.](https://www
 
 **Note: Make sure you don't close the window accidentally or otherwise - if you close this window before you copy the values, the application token is lost forever. They won't be available later for security reasons. You'll have to create a new application token**
 
-We are now set with the database and credentials. Let's start coding!
+We are now set with the database and credentials. Let's get started!
 
 [🏠 Back to Table of Contents](#-hands-on)
 
@@ -153,23 +151,23 @@ We are now set with the database and credentials. Let's start coding!
 
 ![TodoMVC](images/todomvc.png?raw=true)
 
-**✅ Step 1a. Visit [TodoMVC.com](http://todomvc.com/) to discover what we are building today** : We want you to see what it looks like before starting anything. So please browse to [http://todomvc.com/](http://todomvc.com/) and take a look. You will see that there are multiple implementations, feel free to pick one of those and test it live in your browser.
+**✅ Step 1a. Visit [TodoMVC.com](http://todomvc.com/) to discover what we are building today** : We want you to visualize the application (if you're building a brand new app you might create wire frame diagrams, for example) before we start coding. We already have a working application -so please browse [http://todomvc.com/](http://todomvc.com/) and play around. You will see that there are multiple implementations, feel free to pick one of those and test it live in your browser.
 
 
 **[Todo-Backend](https://www.todobackend.com/)** is an example to showcase backend tech stacks. The Todo-Backend project defines a simple web API spec for managing a todo list. Contributors implement that spec using various tech stacks. Those implementations are cataloged below. A spec runner verifies that each contribution implements the exact same API, by running an automated test suite which defines the API.
 
 ![TodoBackend](images/todobackend.png?raw=true)
 
-There are multiple free implementations available. Some implementations provide endpoints to be tested in `heroku`. [Heroku provide free hosting for a Java application but this is on-demand](https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku). With `Heroku` The application will be incative until you access the endpoint. Due to this it will take 30s for the first person hitting the endpoint to wake up the application. Among the available free endpoints we can list:
+There are multiple free implementations available. Some implementations provide endpoints to be tested in `heroku`. [Heroku provides free hosting](https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku). With `Heroku` The application will be inactive until you access the endpoint. Due to this it will take 30s (or more) for the first person hitting the endpoint to wake up the application. Among the available free endpoints we can recommend:
 - `#1` : [https://todo-back-springboot220-java12.herokuapp.com/todos](https://todo-back-springboot220-java12.herokuapp.com/todo)
 - `#2` : [https://todo-quarkus.herokuapp.com/todos](https://todo-quarkus.herokuapp.com/todos)
 - `#3` : [https://todo-backend-micronaut.herokuapp.com/todos](https://todo-backend-micronaut.herokuapp.com/todos)
 
-**✅ Step 1b. Test TodoBackEnd Spec Runner** : Locate the [spec runner](https://www.todobackend.com/specs/index.html) and use one of the `endpoints` listed above to evaluate if API matchs the requirements. To do so copy-paste one URL and click `Run Tests`.
+**✅ Step 1b. Test TodoBackEnd Spec Runner** : Locate the [spec runner](https://www.todobackend.com/specs/index.html) and use one of the `endpoints` listed above to evaluate if API matches the requirements. To do so copy-paste one URL and click `Run Tests`.
 
 ![TodoBackendTest](https://github.com/DataStax-Academy/workshop-spring-data-cassandra/blob/main/images/todobackend-runtest.png?raw=true)
 
-**Pick one in the 3:**
+**Pick any one of the three listed below:**
 
 - [`SpecRunner#1`](https://www.todobackend.com/specs/index.html?https://todo-back-springboot220-java12.herokuapp.com/todos)
 
@@ -187,7 +185,7 @@ There are multiple free implementations available. Some implementations provide 
 
 ![TodoBackendClient](images/todobackend-runclient.png?raw=true)
 
-**Pick on of the 3:**
+**Pick one of the three from below:**
 
 - [`WebClient#1`](https://www.todobackend.com/client/index.html?https://todo-back-springboot220-java12.herokuapp.com/todos)
 
@@ -199,7 +197,7 @@ There are multiple free implementations available. Some implementations provide 
 
 ![TodoBackendClient](https://github.com/DataStax-Academy/workshop-spring-data-cassandra/blob/main/images/todobackend-output-client.png?raw=true)
 
-Our mission in the next hour is to implement the *backend API* and store data into Apache Cassandra™. We have you covered by providing the skeleton of the application.
+Our mission for the next hour is to implement the *backend API* and store data into Apache Cassandra™. We have you covered by providing the skeleton of the application.
 
 [🏠 Back to Table of Contents](#-hands-on)
 
@@ -395,16 +393,16 @@ Exercises will be different for each language. Pick the language you feel the mo
 
 ## 8. Badges and Homework
 
-> You might be eligible for a badge when you attend more workshops and complete the requirements.
+> You might be eligible for these badges when you attend workshops and complete the requirements.
 
 <img src="images/bootcamp_badge.png?raw=true" width="200" align="left" />
 
-<img src="images/api_badge.png?raw=true" width="200" align="right" />
+<img src="images/week4_badge.png?raw=true" width="200" align="right" />
 
 To complete the workshop and get a verified badge, follow these simple steps:
 
 1. Watch the workshop live or recorded. Pick a language and run through the exercises.
-2. **Write a new exercise/test**: Transfer/Copy all Todoitems from any one user_id  to a new user_id with completed being false. At the very least one Todoitem should be created.
+2. **Write a new exercise/test**: TODO
 3. [Submit the Homework through this form](https://dtsx.io/homework-cassandra-api) and attach the screenshots above.
 4. Give us a few days to review your submission and relax: your well-earned badge will soon land in your mailbox!
 
