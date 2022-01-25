@@ -20,6 +20,7 @@ tasks:
 ports:
   - port: 5005
   - port: 8080
+    visibility: public
   - port: 8081
     onOpen: open-browser
   - port: 9191
