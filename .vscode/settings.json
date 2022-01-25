@@ -4,5 +4,12 @@
     "workbench.editor.enablePreview": true,
     "workbench.editorAssociations": {
         "*.md": "vscode.markdown.preview.editor"
+    },
+    "terminal.integrated.profiles.linux": {
+      "cqlsh": {
+        "path": "zsh",
+        "args": ["-l"],
+        "overrideName": true
+      }
     }
 }

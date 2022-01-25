@@ -39,11 +39,17 @@ cat ./python/connection.py.init | \
 
 echo "Astra credentials plugged into all language environments. Please verify!"
 
-if [ ! -f ~/.zshrc.init  ]; then
-    cp ~/.zshrc ~/.zshrc.init
+
+if [ ! -f /workspace/bootcamp-fullstack-apps-with-cassandra/zshrcinit ]; then
+    cp ~/.zshrc /workspace/bootcamp-fullstack-apps-with-cassandra/zshrcinit
+    echo "/workspace/bootcamp-fullstack-apps-with-cassandra/cqlsh-astra/bin/cqlsh \\
+	--secure-connect-bundle=/workspace/bootcamp-fullstack-apps-with-cassandra/secure-connect-workshops.zip  \\
+	--color \\
+	-u $ASTRA_USERNAME \\
+	-p $ASTRA_PASSWORD" >> /workspace/bootcamp-fullstack-apps-with-cassandra/zshrcinit
+    cp /workspace/bootcamp-fullstack-apps-with-cassandra/zshrcinit ~/.zshrc
+else
+    cp /workspace/bootcamp-fullstack-apps-with-cassandra/zshrcinit ~/.zshrc
 fi
 
-cat ~/.zshrc.init > ~/.zshrc && echo "/workspace/bootcamp-fullstack-apps-with-cassandra/cqlsh-astra/bin/cqlsh \\
-	--secure-connect-bundle=/workspace/bootcamp-fullstack-apps-with-cassandra/secure-connect-workshops.zip  \\
-	-u $ASTRA_USERNAME \\
-	-p $ASTRA_PASSWORD" >> ~/.zshrc
+touch /workspace/bootcamp-fullstack-apps-with-cassandra/zshrcinit

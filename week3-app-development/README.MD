@@ -147,7 +147,7 @@ You can always get back to the file explorer view whenever by clicking on the ha
 
 At the top right of the terminal window is a `+` sign which allows you to create multiple shells. Familiarize yourself since we will be using `cql` in one of the shells.
 
-![gitpod](images/shells.png?raw=true)
+![gitpod](images/dotenv2.png?raw=true)
 
 You may encounter the following at different steps and although this may not be applicable right away, the steps are included **in advance** and summarized here so that you can keep an eye out for it. Different paths and different environments might be slightly different although Gipod levels the playing field a bit.
 
@@ -162,6 +162,8 @@ Or allow ports to be opened by just exiting windows that are informational messa
 **OPTIONAL:** In Gitpod, If you prefer "Dark Mode" you can set it in [Preferences](https://gitpod.io/preferences) as shown below.
 
  ![gitpod prefs](images/gitpodpreferences1.png?raw=true)
+ 
+You can also use editing commands like <Ctrl-Z> or <Command-Z> (on macs) to Undo for example.
 
 [🏠 Back to Table of Contents](#0-table-of-contents)
 
@@ -254,7 +256,7 @@ git diff
 
 ✅ **Step 5d: Verify cql access from Gitpod**
 
-Invoke `zsh` as shown below (far right top corner of Gitpod terminal window).
+Invoke `cqlsh` as shown below (far right top corner of Gitpod terminal window).
 
 ![dotenv](images/dotenv2.png?raw=true)
 
@@ -279,9 +281,13 @@ FXHtFByhHAjqNjdcLgZNYEll@cqlsh>
 ```
 
 
-We will refer to this as the `CQL shell` (`python2`) and the original shell as the `Gitpod terminal` (`bash ..`). You can click on those tabs to switch between the shells.
+We will refer to this as the `CQL shell` (`cqlsh`) and the original shell as the `Gitpod terminal` (`bash ..`). You can click on those tabs to switch between the shells.
 
 ![dotenv](images/dotenv4.png?raw=true)
+
+**OPTIONAL:** You coud also `split terminal` and have both the `bash` and `cqlsh` side-by-side as shown below rather than clicking on the respective tabs.
+
+![dotenv](images/dotenv5.png?raw=true)
 
 TADA! Now you're really done done with the setup and ready to start coding.
 
