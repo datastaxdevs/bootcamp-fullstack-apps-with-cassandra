@@ -1,0 +1,17 @@
+{
+  "name": "todos",
+  "version": "0.0.1",
+  "main": "api.js",
+  "scripts": {
+    "start": "node api.js",
+    "test": "mocha *.test.js --timeout 30000 --exit"
+  },
+  "devDependencies": {
+    "mocha": "^9.2.0"
+  },
+  "dependencies": {
+    "cassandra-driver": "^4.6.3",
+    "dotenv": "^14.2.0",
+    "express": "^4.17.2"
+  }
+}
