@@ -164,6 +164,8 @@ There are multiple free implementations available. Some implementations provide 
 - `#2` : [https://todo-quarkus.herokuapp.com/todos](https://todo-quarkus.herokuapp.com/todos)
 - `#3` : [https://todo-backend-micronaut.herokuapp.com/todos](https://todo-backend-micronaut.herokuapp.com/todos)
 
+**Please be patient if you only see an empty JSON output `[]` and refresh the browser until you see some output.**
+
 You should see the following or similar output in a JSON enabled browser.
 
 **👁️ Expected output**
@@ -174,13 +176,12 @@ You should see the following or similar output in a JSON enabled browser.
 
 ![TodoBackendTest](https://github.com/DataStax-Academy/workshop-spring-data-cassandra/blob/main/images/todobackend-runtest.png?raw=true)
 
-**Pick any one of the three listed below:**
+**Pick any one from listed below:**
 
-- [`SpecRunner#1`](https://www.todobackend.com/specs/index.html?https://todo-back-springboot220-java12.herokuapp.com/todos)
+- [`SpecRunner#1 (Spring Boot)`](https://www.todobackend.com/specs/index.html?https://todo-back-springboot220-java12.herokuapp.com/todos)
 
-- [`SpecRunner#2`](https://www.todobackend.com/specs/index.html?https://todo-quarkus.herokuapp.com/todos)
+- [`SpecRunner#2 (Quarkus)`](https://www.todobackend.com/specs/index.html?https://todo-quarkus.herokuapp.com/todos)
 
-- [`SpecRunner#3`](https://www.todobackend.com/specs/index.html?https://todo-backend-micronaut.herokuapp.com/todos)
 
 **👁️ Expected output**
 
