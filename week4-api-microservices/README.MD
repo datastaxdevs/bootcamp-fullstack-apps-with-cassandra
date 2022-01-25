@@ -164,6 +164,8 @@ There are multiple free implementations available. Some implementations provide 
 - `#2` : [https://todo-quarkus.herokuapp.com/todos](https://todo-quarkus.herokuapp.com/todos)
 - `#3` : [https://todo-backend-micronaut.herokuapp.com/todos](https://todo-backend-micronaut.herokuapp.com/todos)
 
+You should see the following or similar output in a JSON enabled browser.
+
 **👁️ Expected output**
 
 ![TodoBackendClient](images/todobackend2-1.png?raw=true)
@@ -192,17 +194,17 @@ There are multiple free implementations available. Some implementations provide 
 
 **Pick one of the three from below:**
 
-- [`WebClient#1`](https://www.todobackend.com/client/index.html?https://todo-back-springboot220-java12.herokuapp.com/todos)
+- [`WebClient#1 (Spring Boot)`](https://www.todobackend.com/client/index.html?https://todo-back-springboot220-java12.herokuapp.com/todos)
 
-- [`WebClient#2`](https://www.todobackend.com/client/index.html?https://todo-quarkus.herokuapp.com/todos)
+- [`WebClient#2 (Quarkus)`](https://www.todobackend.com/client/index.html?https://todo-quarkus.herokuapp.com/todos)
 
-- [`WebClient#3`](https://www.todobackend.com/client/index.html?https://todo-backend-micronaut.herokuapp.com/todos)
+- [`WebClient#3 (Micronaut)`](https://www.todobackend.com/client/index.html?https://todo-backend-micronaut.herokuapp.com/todos)
 
 **👁️ Expected output**
 
 ![TodoBackendClient](https://github.com/DataStax-Academy/workshop-spring-data-cassandra/blob/main/images/todobackend-output-client.png?raw=true)
 
-Our mission for the next hour is to implement the *backend API* and store data into Apache Cassandra™. We have you covered by providing the skeleton of the application.
+Our mission in the next hour is to implement the *backend API* and store data into Apache Cassandra™. We have you covered by providing the skeleton of the application.
 
 [🏠 Back to Table of Contents](#-hands-on)
 
