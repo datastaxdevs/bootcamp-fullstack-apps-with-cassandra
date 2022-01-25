@@ -344,13 +344,7 @@ You are almost ready to start coding. The next step is to run the convenience sc
 ./plugastracreds
 ```
 
-Optionally, issue the following command from the Gitpod terminal window if you're interested in knowing what happened behind the scenes/script. Hit space bar to proceed through the changes or hit <Ctrl-C> or `q` to exit the command.
-
-```bash
-git diff
-```
-
-**A BIG NOTE OF CAUTION: It's not a good practice to include username, password and other secrets in the source file. Don't ever git commit with clear case passwords, etc. This is done purely for convenience of getting started.**
+> **A BIG NOTE OF CAUTION: It's not a good practice to include username, password and other secrets in the source file. Don't ever git commit with clear case passwords, etc. This is done purely for convenience of getting started.**
 
 ✅ **Step 6d: Verify cql access from Gitpod**
 
@@ -364,13 +358,13 @@ If you completed the earlier steps properly, you should be dropped into the CQL 
 
 Run the following command from the CQL shell of the Gitpod terminal window.
 
-```
+```sql
 describe keyspaces;
 ```
 
 **👁️ Expected output**
 
-```
+```sql
 system_virtual_schema  system_auth   datastax_sla        todos
 todolist               system_views  data_endpoint_auth
 system_schema          system        system_traces     
