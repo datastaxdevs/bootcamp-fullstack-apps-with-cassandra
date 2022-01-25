@@ -162,6 +162,8 @@ Or allow ports to be opened by just exiting windows that are informational messa
 **OPTIONAL:** In Gitpod, If you prefer "Dark Mode" you can set it in [Preferences](https://gitpod.io/preferences) as shown below.
 
  ![gitpod prefs](images/gitpodpreferences1.png?raw=true)
+ 
+You can also use editing commands like <Ctrl-Z> or <Command-Z> (on macs) to Undo for example.
 
 [🏠 Back to Table of Contents](#0-table-of-contents)
 
