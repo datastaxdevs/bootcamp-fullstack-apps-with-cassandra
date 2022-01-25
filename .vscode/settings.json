@@ -8,7 +8,7 @@
     "terminal.integrated.profiles.linux": {
       "cqlsh": {
         "path": "zsh",
-        "args": ["-l"]
+        "args": ["-l"],
         "overrideName": "cqlsh"
       }
     }
