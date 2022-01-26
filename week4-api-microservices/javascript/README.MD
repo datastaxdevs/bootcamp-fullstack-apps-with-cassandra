@@ -228,9 +228,11 @@ npm start
 Example app listening on port 8080
 ```
 
-## 7f - Run the integrations tests
+## 7f - Run the integration tests
 
 ### ✅ Open the Api in the preview
+
+Spawn a new shell (Bash is fine) while the app is running, and use it to get the full URL the API will be available at:
 
 ```bash
 gp preview $(gp url 8080)/api/v1/john/todos/
