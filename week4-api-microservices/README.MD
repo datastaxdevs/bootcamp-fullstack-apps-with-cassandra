@@ -295,7 +295,8 @@ as shown below.
 
 ![gitpod](images/secureconnectbundle1.png?raw=true)	
 
-Locate the file locally in the finder/explorer window. Drag and drop the file into the Gitpod explorer window (on the left side, making sure that the cursor, indicating the drop, is positioned in the Gitpod explorer window as shown below.
+Locate the file locally in the finder/explorer window.
+Drag and drop the file into the Gitpod explorer window (on the left side, making sure that the cursor, indicating the drop, is positioned in the Gitpod explorer window as shown below and on bottom right as shown below.
 
 ![gitpod](images/secureconnectbundle3.png?raw=true)
 
@@ -321,10 +322,10 @@ TADA your application is configured we can finally play with some code.
 
 We have provided some convenience scripts to setup the credentials across all the languages.
 
-As a first step `cd` to the `week3-app-development` sub-directory with the following command.
+As a first step `cd` to the `week4-api-microservices` sub-directory with the following command.
 
 ```bash
-cd week3-app-development
+cd week4-api-microservices
 ```
 
 
@@ -350,11 +351,11 @@ You are almost ready to start coding. The next step is to run the convenience sc
 ./plugastracreds
 ```
 
-> **A BIG NOTE OF CAUTION: It's not a good practice to include username, password and other secrets in the source file. Don't ever git commit with clear case passwords, etc. This is done purely for convenience of getting started.**
+**A BIG NOTE OF CAUTION: It's not a good practice to include username, password and other secrets in the source file. Don't ever git commit with clear case passwords, etc. This is done purely for convenience of getting started.**
 
 ✅ **Step 6d: Verify cql access from Gitpod**
 
-Invoke `zsh` as shown below (far right top corner of Gitpod terminal window).
+Invoke `cqlsh` as shown below (far right top corner of Gitpod terminal window).
 
 ![dotenv](images/dotenv2.png?raw=true)
 
@@ -382,6 +383,10 @@ FXHtFByhHAjqNjdcLgZNYEll@cqlsh>
 We will refer to this as the `CQL shell` (`python2`) and the original shell as the `Gitpod terminal` (`bash ..`). You can click on those tabs to switch between the shells.
 
 ![dotenv](images/dotenv4.png?raw=true)
+
+**OPTIONAL:** You coud also `split terminal` and have both the `bash` and `cqlsh` side-by-side as shown below rather than clicking on the respective tabs.
+
+![dotenv](images/dotenv5.png?raw=true)
 
 TADA! Now you're really done done with the setup and ready to start coding.
 
