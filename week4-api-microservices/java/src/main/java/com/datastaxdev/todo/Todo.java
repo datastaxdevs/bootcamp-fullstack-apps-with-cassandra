@@ -131,4 +131,10 @@ public class Todo {
     public String getUrl() {
         return url;
     }
+
+    /** {@inheritDoc} */
+    @Override
+    public String toString() {
+        return "Todo [url=" + url + ", uuid=" + uuid + ", title=" + title + ", completed=" + completed + ", order=" + order + "]";
+    }
 }

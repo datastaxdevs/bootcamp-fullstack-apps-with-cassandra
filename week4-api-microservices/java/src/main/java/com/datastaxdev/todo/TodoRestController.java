@@ -80,10 +80,26 @@ public class TodoRestController {
             @PathVariable(value = "uid") String uid, 
             @RequestBody Todo todoReq) 
     throws URISyntaxException {
-        todoReq.setUuid(UUID.fromString(uid));
-        todoReq.setUrl(req.getRequestURL().toString());
-        TodoItem item = mapAsTodoEntity(todoReq, user);
+        
+        // Retrieve existing task
+        Optional<TodoItem> todo = repo.findById(new TodoItemKey(user, UUID.fromString(uid)));
+        if (todo.isEmpty()) return ResponseEntity.notFound().build();
+        
+        // Update based on provided information
+        TodoItem item = todo.get();
+        if (null != todoReq.getTitle() && !"".equals(todoReq.getTitle())) {
+            item.setTitle(todoReq.getTitle());
+        }
+        if (null != todoReq.getOrder()) {
+            item.setOffset(todoReq.getOrder());
+        }
+        item.setCompleted(todoReq.isCompleted());
+        
+        // Save
         repo.save(item);
+        todoReq.setTitle(item.getTitle());
+        todoReq.setUrl(req.getRequestURL().toString());
+        todoReq.setUuid(UUID.fromString(uid));
         return ResponseEntity.accepted().body(todoReq);
     }
     
