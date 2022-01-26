@@ -98,9 +98,9 @@ SUCCESS
 ========================================
 ```
 
-### ✅ Validate Schema with CqlSH
+### ✅ Validate Schema with Cqlsh
 
-- Open a terminal `zsh` to open a cqlsh shell (we overrided .zshrc to give you that feature)
+- Open a terminal `cqlsh` to open a cqlsh shell (we overrided .zshrc to give you that feature)
 
 ```cql
 DESCRIBE KEYSPACE todos;
@@ -169,7 +169,7 @@ SUCCESS
 ========================================
 ```
 
-### ✅ Validate with CqlSh
+### ✅ Validate with Cqlsh
 
 - Open a terminal `zsh` to open a cqlsh shell (we overrided .zshrc to give you that feature)
 
@@ -239,7 +239,7 @@ If running into the gitpod preview limitations, open the link in a new TAB.
 
 ![pic](../images/gitpod-client-success.png)
 
-### ✅ Validate with CQLSH.
+### ✅ Validate with cqlsh
 
 ```cql
 select * from todos.todoitems;

@@ -35,13 +35,26 @@ Let's do a `clean compile` with the following command
 mvn clean compile
 ```
 
+**👁️ Expected output**
+
+```
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /workspace/bootcamp-fullstack-apps-with-cassandra/week4-api-microservices/java/target/classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  12.515 s
+[INFO] Finished at: 2022-01-26T02:19:25Z
+[INFO] ------------------------------------------------------------------------
+
+```
 ### ✅ Run the test
 
 - Look at the class [`Test01_Connect.java`](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/blob/main/week4-api-microservices/java/src/test/java/com/datastaxdev/Test01_Connect.java)
 
 ```bash
 gp open /workspace/bootcamp-fullstack-apps-with-cassandra/week4-api-microservices/java/src/test/java/com/datastaxdev/Test01_Connect.java
-````
+```
 
 - Run the test
 
@@ -74,11 +87,15 @@ gitpod /workspace/bootcamp-fullstack-apps-with-cassandra/week4-api-microservices
 
 ## 7b - Create the schema
 
-Lets drop the table if it exists and create anew in the cqlsh console with the following command
+Lets drop the table if it exists and create anew in the `cqlsh` console with the following command
 
 ```
 drop table if exists todos.todoitems;
 ```
+
+You can ignore `timeout error` if it happens.
+
+Back in the Gitpod terminal `bash` tab
 
 ### ✅ Run Test
 
@@ -237,7 +254,7 @@ token@cqlshs> select * from todos.todoitems;
 - Look at the class [`Test04_Controller.java`](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/blob/main/week4-api-microservices/java/src/test/java/com/datastaxdev/Test04_Controller.java)
 
 ```bash
-/workspace/bootcamp-fullstack-apps-with-cassandra/week4-api-microservices/java/src/test/java/com/datastaxdev/Test04_Controller.java
+gp open /workspace/bootcamp-fullstack-apps-with-cassandra/week4-api-microservices/java/src/test/java/com/datastaxdev/Test04_Controller.java
 ```
 
 - Run the Test
@@ -315,9 +332,14 @@ Picked up JAVA_TOOL_OPTIONS:  -Xmx2576m
 
 ![pic](../images/gitpod-openport.png)
 
+If need be explictly make port `9191` public as shown below. The final state should be `public` (click on the lock icon).
+
+![pic](../images/public9191.png)
+
+
 - Open up another `bash` tab in the Gitpod terminal window and **leave the application running** in the other tab.
 
-- The application is not running on a translated URL if you want to know which one:
+- The application is now running on a translated URL if you want to know which one:
 
 ```bash
 gp url 9191
@@ -329,7 +351,7 @@ gp url 9191
 https://9191-datastaxdevs-bootcampful-8p9qehl18vj.ws-eu28.gitpod.io
 ```
 
-- You can try to open the application, but you will got an error screen as there is no resources listening at root, which is fine.
+- You can try to open the application, but you will get an error screen as there is no resources listening at root, as seen below, which is fine.
 
 ```bash
 gp preview $(gp url 9191)
@@ -337,7 +359,7 @@ gp preview $(gp url 9191)
 
 ![pic](../images/gitpod-home-error.png)
 
-## 7f - Run the integrations tests
+## 7f - Run the integration tests
 
 ### ✅ Open the API in the preview
 
@@ -380,7 +402,7 @@ If running into the gitpod preview limitations, open the link in a new TAB.
 ![pic](../images/gitpod-client-success.png)
 
 
-### ✅ Validate with CQLSH.
+### ✅ Validate with cqlsh
 
 ```cql
 token@cqlsh:native_java> select * from todoitems;
