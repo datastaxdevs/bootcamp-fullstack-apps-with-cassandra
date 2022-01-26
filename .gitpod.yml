@@ -1,5 +1,8 @@
 tasks:
   - name: setup
+    env:
+        CQLENG_ALLOW_SCHEMA_MANAGEMENT: 1
+        FLASK_APP: api
     before: |
       echo "Setting up, please wait!"
       cd /workspace/bootcamp-fullstack-apps-with-cassandra 

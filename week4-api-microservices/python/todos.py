@@ -18,6 +18,7 @@ class Todos(Model):
     user_id = columns.Text(primary_key=True, required=True)
     item_id = columns.TimeUUID(
         primary_key=True, clustering_order="DESC", default=uuid.uuid1)
+    url = columns.Text()
     title = columns.Text(required=True)
     completed = columns.Boolean(default=False)
     offset = columns.Integer()
