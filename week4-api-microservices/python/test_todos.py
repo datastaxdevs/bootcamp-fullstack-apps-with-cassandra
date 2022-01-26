@@ -1,6 +1,6 @@
 import pytest
 import os
-from todos import Todos, db_session
+from todos import Todos, session
 
 
 @pytest.mark.it("it should create a todo")
@@ -29,5 +29,5 @@ def test_update_todo():
 
 @pytest.mark.it("it should delete all todos")
 def test_delete_all_todos():
-    db_session.execute(
-        f"DROP TABLE {os.environ.get('ASTRA_DB_KEYSPACE')}.todoitems")
+    session.execute(
+        f"TRUNCATE TABLE {os.environ.get('ASTRA_DB_KEYSPACE')}.todoitems")

@@ -102,6 +102,7 @@ SUCCESS
 ```cql
 DESCRIBE KEYSPACE todos;
 ```
+
 **👁️ Expected output**
 
 ```cql
@@ -195,20 +196,37 @@ Now that we know the application is working we can go ahead and start it
 
 ## 7f - Run the integrations tests
 
+```bash
+npm test
+```
+
+**👁️ Expected output**
+
+```bash
+  Todos
+    ✔ it should initialize (761ms)
+    ✔ it should create a todo (172ms)
+    ✔ it should get todos (86ms)
+    ✔ it should update todos (200ms)
+    ✔ it should delete a todo (133ms)
+    ✔ it should delete todos (615ms)
+
+
+  6 passing (2s)
+```
+
 ### ✅ Open the Api in the preview
 
 ```bash
-gp preview $(gp url 9191)/api/v1/john/todos/
+gp preview $(gp url 8080)/api/v1/john/todos/
 ```
 
-You should see some of your tasks
-
-![pic](../images/gitpod-john-task.png)
+You should see an empty list of todos 
 
 - You might tempted to run the unit test suite now (as well you should)
 
 ```bash
-gp preview https://todobackend.com/specs/index.html?$(gp url 9191)/api/v1/test/todos/
+gp preview https://todobackend.com/specs/index.html?$(gp url 8080)/api/v1/test/todos/
 ```
 
 You will get an error this is expected, it is a limitation of the preview in gitpod.
@@ -226,7 +244,7 @@ You will get an error this is expected, it is a limitation of the preview in git
 Change in the url the `specs` path by `client`
 
 ```bash
-gp preview https://todobackend.com/client/index.html?$(gp url 9191)/api/v1/test/todos/
+gp preview https://todobackend.com/client/index.html?$(gp url 8080)/api/v1/test/todos/
 ```
 
 ![pic](../images/gitpod-client-error.png)
@@ -257,4 +275,3 @@ select * from todoitems;
 Congratulations! You can now head back!
 
 [BACK](../README.MD)
-

@@ -1,7 +1,7 @@
 require("dotenv").config();
+const { client } = require("./connection");
 const cassandra = require("cassandra-driver");
 
-let client = null;
 let todoMapper = null;
 
 process.on("exit", () => client.shutdown());
@@ -10,16 +10,6 @@ module.exports = {
   client,
   todoMapper,
   init: async () => {
-    client = new cassandra.Client({
-      cloud: {
-        secureConnectBundle: process.env.ASTRA_DB_BUNDLE_PATH,
-      },
-      credentials: {
-        username: process.env.ASTRA_DB_CLIENT_ID,
-        password: process.env.ASTRA_DB_CLIENT_SECRET,
-      },
-      keyspace: process.env.ASTRA_DB_KEYSPACE,
-    });
     await client.connect();
     await client.execute(`CREATE TABLE IF NOT EXISTS todoitems (
           user_id         TEXT,

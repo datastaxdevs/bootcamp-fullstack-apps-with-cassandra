@@ -4,7 +4,7 @@ from cassandra.cqlengine.management import sync_table
 from cassandra.cqlengine import ValidationError
 from cassandra.cqlengine.models import Model
 from flask import Flask, jsonify, request
-from todos import Todos, db_session
+from todos import Todos, session
 from flask_cors import CORS
 
 load_dotenv()
@@ -23,8 +23,8 @@ def get_todos(user_id):
 
 @app.route("/api/v1/<user_id>/todos", methods=["DELETE"])
 def delete_todos(user_id):
-    db_session.execute(
-        f"DROP TABLE {os.environ.get('ASTRA_DB_KEYSPACE')}.todoitems")
+    session.execute(
+        f"TRUNCATE TABLE {os.environ.get('ASTRA_DB_KEYSPACE')}.todoitems")
     sync_table(Todos)
     return jsonify({"success": True})
 
