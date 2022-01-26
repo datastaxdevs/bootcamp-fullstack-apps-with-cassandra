@@ -259,6 +259,6 @@ select * from todos.todoitems;
  bootcamp | a5b3b9e0-7d69-11ec-8c88-2913db53e434 |     False |      3 |      Week 3 - App developerment
 ```
 
-Congratulation you can come back to previous
+Congratulations! You can now head back!
 
 [BACK](../README.MD)

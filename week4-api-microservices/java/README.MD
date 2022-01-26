@@ -405,8 +405,11 @@ If running into the gitpod preview limitations, open the link in a new TAB.
 ### ✅ Validate with cqlsh
 
 ```cql
-token@cqlsh:native_java> select * from todoitems;
+token@cqlsh:todos> select * from todoitems;
+```
+**👁️ Expected output**
 
+```
  user_id  | item_id                              | completed | offset | title
 ----------+--------------------------------------+-----------+--------+---------------------------------
      test | 4828ffc0-7d68-11ec-8c88-2913db53e434 |     False |    523 |                            blah
@@ -417,6 +420,6 @@ token@cqlsh:native_java> select * from todoitems;
  bootcamp | a5b3b9e0-7d69-11ec-8c88-2913db53e434 |     False |      3 |      Week 3 - App developerment
 ```
 
-Congratulation you can come back to previous
+Congratulations! You can now head back!
 
 [BACK](../README.MD)
