@@ -26,7 +26,7 @@ In this repository, you'll find everything you need for this workshop:
 
 - [Materials used during presentations](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/blob/main/week4-api-microservices/slides/slides.pdf)
 - [Hands-on exercises](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/tree/main/week4-api-microservices#-Hands-on)
-- [Workshop video (*Recording in progress*)](#)
+- [Workshop video (*Recording in progress*)](https://www.youtube.com/watch?v=sJoFRQUWSzw)
 - [Discord chat](https://dtsx.io/discord)
 - [Questions and Answers](https://community.datastax.com/)
 
