@@ -106,7 +106,7 @@ You will see your new database as `Pending` in the Dashboard; the status will ch
 
 ## 2. Create Astra Token
 
-We need to create a **token** that we will use as our credentials. The token do not expired so 
+We need to create a **token** that we will use as our credentials. The token does not expire so 
 if you already have one you can reuse it.
 
 ✅ **Step 2a: Generate Token**
