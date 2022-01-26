@@ -188,14 +188,6 @@ token@cqlshs> select * from todos.todoitems;
 
 ### ✅ Run Test
 
-## 7e - Start the application
-
-Now that we know the application is working we can go ahead and start it
-
-### ✅ Start the application
-
-## 7f - Run the integrations tests
-
 ```bash
 npm test
 ```
@@ -215,13 +207,34 @@ npm test
   6 passing (2s)
 ```
 
+## 7e - Start the application
+
+Now that we know the application is working we can go ahead and start it
+
+### ✅ Start the application
+
+```bash
+npm start
+```
+
+**👁️ Expected output**
+
+```bash
+> todos@0.0.1 start
+> node api.js
+
+Example app listening on port 8080
+```
+
+## 7f - Run the integrations tests
+
 ### ✅ Open the Api in the preview
 
 ```bash
 gp preview $(gp url 8080)/api/v1/john/todos/
 ```
 
-You should see an empty list of todos 
+You should see an empty list of todos
 
 - You might tempted to run the unit test suite now (as well you should)
 

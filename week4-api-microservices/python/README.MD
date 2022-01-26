@@ -191,28 +191,96 @@ token@cqlshs> select * from todos.todoitems;
 
 ### ✅ Run Test
 
+```bash
+pytest
+```
+
+**👁️ Expected output**
+
+```bash
+collected 13 items                                                                                                                                                                  
+
+test_api.py::test_get_empty_todos                                                                                                                                                                                      
+api
+ ✓ it should get an empty list of todos
+
+test_api.py::test_create_todo  ✓ it should create a todo
+
+test_api.py::test_not_create_todo  ✓ it should not create a todo
+
+test_api.py::test_get_todo  ✓ it should get a single todo
+
+test_api.py::test_not_get_todo  ✓ it should not get a single todo
+
+test_api.py::test_get_todos  ✓ it should get a list of todos
+
+test_api.py::test_delete_todo  ✓ it should delete a single todo
+
+test_api.py::test_update_todo  ✓ it should update a single todo
+
+test_api.py::test_delete_all_todos  ✓ it should delete all todos
+
+test_todos.py::test_create_todo                                                                                                                                                                                      
+todos
+ ✓ it should create a todo
+
+test_todos.py::test_delete_todo  ✓ it should delete a single todo
+
+test_todos.py::test_update_todo  ✓ it should update a single todo
+
+test_todos.py::test_delete_all_todos  ✓ it should delete all todos
+
+
+---------- coverage: platform darwin, python 3.9.4-final-0 -----------
+Name                     Stmts   Miss  Cover   Missing
+------------------------------------------------------
+Test01_Connect.py           12     12     0%   2-16
+Test02_CreateSchema.py      11     11     0%   2-22
+Test03_SaveTask.py          11     11     0%   2-15
+api.py                      54      0   100%
+connection.py               15      2    87%   35-36
+test_api.py                 67      0   100%
+test_todos.py               24      1    96%   18
+todos.py                    20      0   100%
+------------------------------------------------------
+TOTAL                      214     37    83%
+```
+
 ## 7e - Start the application
 
 Now that we know the application is working we can go ahead and start it
 
 ### ✅ Start the application
 
+```bash
+flask run --port 8080
+```
+
+**👁️ Expected output**
+
+```bash
+ * Serving Flask app 'api' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+```
+
 ## 7f - Run the integrations tests
 
 ### ✅ Open the Api in the preview
 
 ```bash
-gp preview $(gp url 9191)/api/v1/john/todos/
+gp preview $(gp url 8080)/api/v1/john/todos/
 ```
 
-You should see some of your tasks
+You should see an empty list of todos
 
-![pic](../images/gitpod-john-task.png)
-
-- You might tempted to run the unit test suite now (well you should)
+- You might tempted to run the unit test suite now (as well you should)
 
 ```bash
-gp preview https://todobackend.com/specs/index.html?$(gp url 9191)/api/v1/test/todos/
+gp preview https://todobackend.com/specs/index.html?$(gp url 8080)/api/v1/test/todos/
 ```
 
 You will get an error this is expected, it is a limitation of the preview in gitpod.
@@ -230,7 +298,7 @@ You will get an error this is expected, it is a limitation of the preview in git
 Change in the url the `specs` path by `client`
 
 ```bash
-gp preview https://todobackend.com/client/index.html?$(gp url 9191)/api/v1/test/todos/
+gp preview https://todobackend.com/client/index.html?$(gp url 8080)/api/v1/test/todos/
 ```
 
 ![pic](../images/gitpod-client-error.png)
@@ -242,13 +310,12 @@ If running into the gitpod preview limitations, open the link in a new TAB.
 ### ✅ Validate with cqlsh
 
 ```cql
-select * from todos.todoitems;
+select * from todoitems;
 ```
 
 **👁️ Expected output**
 
 ```
-
  user_id  | item_id                              | completed | offset | title
 ----------+--------------------------------------+-----------+--------+---------------------------------
      test | 4828ffc0-7d68-11ec-8c88-2913db53e434 |     False |    523 |                            blah

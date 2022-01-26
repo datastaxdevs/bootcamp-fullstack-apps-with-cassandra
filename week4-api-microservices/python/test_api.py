@@ -82,4 +82,4 @@ with app.test_client() as client:
         assert delete_res_json["success"] == True
         get_res = client.get(f"/api/v1/{USER_ID}/todos")
         get_res_json = get_res.get_json()
-        assert get_res_json == None
+        assert get_res_json == []
