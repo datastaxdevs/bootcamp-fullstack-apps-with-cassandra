@@ -1,9 +1,12 @@
 const express = require("express");
 const app = express();
-const port = 8080;
+const cors = require("cors");
 const todos = require("./todos");
 
+const port = 8080;
+
 app.use(express.json());
+app.use(cors());
 
 app.get("/api/v1/:userId/todos", async (req, res) => {
   const todoRes = await todos.getTodos(req.params.userId);
