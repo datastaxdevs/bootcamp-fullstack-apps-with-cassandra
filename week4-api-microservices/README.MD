@@ -415,7 +415,7 @@ Exercises will be different for each language. Pick the language you feel the mo
 To complete the workshop and get a verified badge, follow these simple steps:
 
 1. Watch the workshop live or recorded. Pick a language and run through the exercises.
-2. **Write a new exercise/test**: TODO
+2. **Write a new exercise/test**: Update the api and service layers code to offer a new endpoint to get only completed tasks for a user.
 3. [Submit the Homework through this form](https://dtsx.io/homework-cassandra-api) and attach the screenshots above.
 4. Give us a few days to review your submission and relax: your well-earned badge will soon land in your mailbox!
 
