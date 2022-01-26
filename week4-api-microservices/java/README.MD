@@ -29,12 +29,18 @@ spring.data.cassandra.password=password
 datastax.astra.secure-connect-bundle=securebundle
 ```
 
+Let's do a `clean compile` with the following command
+
+```
+mvn clean compile
+```
+
 ### ✅ Run the test
 
 - Look at the class [`Test01_Connect.java`](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/blob/main/week4-api-microservices/java/src/test/java/com/datastaxdev/Test01_Connect.java)
 
 ```bash
-/workspace/bootcamp-fullstack-apps-with-cassandra/week4-api-microservices/java/src/test/java/com/datastaxdev/Test01_Connect.java
+gp open /workspace/bootcamp-fullstack-apps-with-cassandra/week4-api-microservices/java/src/test/java/com/datastaxdev/Test01_Connect.java
 ````
 
 - Run the test
@@ -43,7 +49,7 @@ datastax.astra.secure-connect-bundle=securebundle
 mvn test -Dtest=com.datastaxdev.Test01_Connect.java
 ```
 
-- 👁️ Expected output
+**👁️ Expected output**
 
 ```bash
 [INFO] -------------------------------------------------------
@@ -68,12 +74,18 @@ gitpod /workspace/bootcamp-fullstack-apps-with-cassandra/week4-api-microservices
 
 ## 7b - Create the schema
 
+Lets drop the table if it exists and create anew in the cqlsh console with the following command
+
+```
+drop table if exists todos.todoitems;
+```
+
 ### ✅ Run Test
 
 - Look at the class [`Test02_CreateSchema.java`](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/blob/main/week4-api-microservices/java/src/test/java/com/datastaxdev/Test02_CreateSchema.java)
 
 ```bash
-/workspace/bootcamp-fullstack-apps-with-cassandra/week4-api-microservices/java/src/test/java/com/datastaxdev/Test02_CreateSchema.java
+gp open /workspace/bootcamp-fullstack-apps-with-cassandra/week4-api-microservices/java/src/test/java/com/datastaxdev/Test02_CreateSchema.java
 ```
 
 - Run the Test
@@ -82,7 +94,7 @@ gitpod /workspace/bootcamp-fullstack-apps-with-cassandra/week4-api-microservices
 mvn test -Dtest=com.datastaxdev.Test02_CreateSchema.java
 ```
 
-- Expected output
+**👁️ Expected output**
 
 ```bash
 [INFO] -------------------------------------------------------
@@ -106,13 +118,14 @@ mvn test -Dtest=com.datastaxdev.Test02_CreateSchema.java
 gitpod /workspace/bootcamp-fullstack-apps-with-cassandra/week4-api-microservices/java $ 
 ```
 
-### ✅ Validate Schema with CqlSH
+### ✅ Validate Schema with cqlsh
 
 - Open a terminal `zsh` to open a cqlsh shell (we overrided .zshrc to give you that feature)
 
 ```sql
 DESCRIBE KEYSPACE todos;
 ```
+**👁️ Expected output**
 
 ```sql
 Connected to cndb at 127.0.0.1:9042.
@@ -122,7 +135,7 @@ token@cqlsh> describe keyspace todos;
 
 CREATE KEYSPACE todos WITH replication = {'class': 'NetworkTopologyStrategy', 'eu-west-1': '3'}  AND durable_writes = true;
 
-CREATE TABLE native_java.todoitems (
+CREATE TABLE todos.todoitems (
     user_id text,
     item_id timeuuid,
     completed boolean,
@@ -155,7 +168,7 @@ token@cqlsh>
 - Look at class [`Test03_SaveTask.java`](https://github.com/datastaxdevs/bootcamp-fullstack-apps-with-cassandra/blob/main/week4-api-microservices/java/src/test/java/com/datastaxdev/Test03_SaveTask.java)
 
 ```bash
-/workspace/bootcamp-fullstack-apps-with-cassandra/week4-api-microservices/java/src/test/java/com/datastaxdev/Test03_SaveTask.java
+gp open /workspace/bootcamp-fullstack-apps-with-cassandra/week4-api-microservices/java/src/test/java/com/datastaxdev/Test03_SaveTask.java
 ```
 
 - Run the Test
@@ -164,7 +177,7 @@ token@cqlsh>
 mvn test -Dtest=com.datastaxdev.Test03_SaveTask.java
 ```
 
-- Expected output
+**👁️ Expected output**
 
 ```bash
 [INFO] -------------------------------------------------------
@@ -207,7 +220,7 @@ gitpod /workspace/bootcamp-fullstack-apps-with-cassandra/week4-api-microservices
 select * from todos.todoitems;
 ```
 
-- Expected output
+**👁️ Expected output**
 
 ```bash
 token@cqlshs> select * from todos.todoitems;
@@ -217,7 +230,7 @@ token@cqlshs> select * from todos.todoitems;
     john | 1793e4e0-7d65-11ec-b3f6-15c8273bc04a |     False |      0 | Sample task1
 ```
 
-## 7d - Test  REST Endpoint
+## 7d - Test REST Endpoint
 
 ### ✅ Run Test
 
@@ -233,7 +246,7 @@ token@cqlshs> select * from todos.todoitems;
 mvn test -Dtest=com.datastaxdev.Test04_Controller.java
 ```
 
-- Expected output
+**👁️ Expected output**
 
 ```bash
 [INFO] -------------------------------------------------------
@@ -277,7 +290,7 @@ Now that we know the application is working we can go ahead and start it
 mvn spring-boot:run
 ```
 
-### 👁️ Expected output
+**👁️ Expected output**
 
 After Downloading half of internet you should get.
 
@@ -302,18 +315,21 @@ Picked up JAVA_TOOL_OPTIONS:  -Xmx2576m
 
 ![pic](../images/gitpod-openport.png)
 
+- Open up another `bash` tab in the Gitpod terminal window and **leave the application running** in the other tab.
+
 - The application is not running on a translated URL if you want to know which one:
 
 ```bash
 gp url 9191
 ```
 
-```bash
-gitpod /workspace/bootcamp-fullstack-apps-with-cassandra $ gp url 9191
-https://9191-datastaxdevs-bootcampful-8p9qehl18vj.ws-eu28.gitpod.io
-````
+**👁️ Expected output**
 
-- You can try open the application, but you will got an error screen as there is no resources listening at root. 
+```
+https://9191-datastaxdevs-bootcampful-8p9qehl18vj.ws-eu28.gitpod.io
+```
+
+- You can try to open the application, but you will got an error screen as there is no resources listening at root, which is fine.
 
 ```bash
 gp preview $(gp url 9191)
@@ -323,7 +339,7 @@ gp preview $(gp url 9191)
 
 ## 7f - Run the integrations tests
 
-### ✅ Open the Api in the preview
+### ✅ Open the API in the preview
 
 ```bash
 gp preview $(gp url 9191)/api/v1/john/todos/
@@ -333,7 +349,7 @@ You should see some of your tasks
 
 ![pic](../images/gitpod-john-task.png)
 
-- You might tempted to run the unit test suite now (well you should)
+- You might be tempted to run the unit test suite now (as well you should)
 
 ```bash
 gp preview https://todobackend.com/specs/index.html?$(gp url 9191)/api/v1/test/todos/
@@ -351,7 +367,7 @@ You will get an error this is expected, it is a limitation of the preview in git
 
 ### ✅ Open the Client in the preview
 
-Change in the url the `specs` path by `client`
+Change in the url the `specs` path with `client`
 
 ```bash
 gp preview https://todobackend.com/client/index.html?$(gp url 9191)/api/v1/test/todos/
@@ -359,7 +375,7 @@ gp preview https://todobackend.com/client/index.html?$(gp url 9191)/api/v1/test/
 
 ![pic](../images/gitpod-client-error.png)
 
-again no success = limitation of the gitpod preview, open the link in a new TAB.
+If running into the gitpod preview limitations, open the link in a new TAB.
 
 ![pic](../images/gitpod-client-success.png)
 

@@ -1,19 +1,10 @@
-## Javascript Todos
-
-An implementation of a Todo's API using ExpressJS and the Cassandra Javascript driver.
-
-### Getting Started
-
-- Create a keyspace named `sag_todos` in your Astra DB instance.
-- Copy the `.env.example` file and rename it to `.env` and fill it in with the appropriate values from Astra DB.
-- Place your secure connect bundle from Astra DB and put it in the javascript folder inside of - the project and rename it to `bundle.zip`
-- Run the project with `npm start`, or run the tests with `npm test`
-
-# 🎓🔥 Api and MicroService with Apache Cassandra 🔥🎓
+# 🎓🔥 API and MicroServices with Apache Cassandra - Javascript 🔥🎓
 
 ![pic](../images/splash.png)
 
 ![JAVA](https://raw.githubusercontent.com/DataStax-Academy/cassandra-workshop-series/master/materials/images/logo-javascript.png)
+
+## Javascript Todos
 
 ## 7a - Connect to Astra
 
@@ -58,7 +49,7 @@ const PASSWORD =
 You are ready and can now test the connection to Astra with the following command
 
 ```bash
-node Ex07a_Connect_to_Astra.js
+node Test01_Connect.js
 ```
 
 **👁️ Expected output**
@@ -74,28 +65,28 @@ SUCCESS
 Now that we're successfully able to establish the connection, take a moment to walk through how the connection has been established by opening the source code using the following command
 
 ```
-gp open Ex07a_Connect_to_Astra.js
+gp open Test01_Connect.js
 ```
 
 ## 7b - Create the schema
 
 ### ✅ Run Test
 
-Let's create the table.
+Let's create the table. We will **drop** a table if it already exists with the same name.
 
 - Take a moment to review the code with the following command
 
 ```bash
-gp open Ex7b_Create_Schema.js
+gp open Test02_CreateSchema.js
 ```
 
 - After reviewing the code, run the following command in the GitPod terminal window which runs the code after making the connection.
 
 ```bash
-node Ex7b_Create_Schema.js
+node Test02_CreateSchema.js
 ```
 
-- Expected output
+**👁️ Expected output**
 
 ```bash
 ========================================
@@ -108,11 +99,12 @@ SUCCESS
 
 - Open a terminal `zsh` to open a cqlsh shell (we overrided .zshrc to give you that feature)
 
-```sql
+```cql
 DESCRIBE KEYSPACE todos;
 ```
+**👁️ Expected output**
 
-```sql
+```cql
 Connected to cndb at 127.0.0.1:9042.
 [cqlsh 6.8.0 | Cassandra 4.0.0.6816 | CQL spec 3.4.5 | Native protocol v4]
 Use HELP for help.
@@ -150,21 +142,21 @@ token@cqlsh>
 
 ### ✅ Run Test
 
-Let's insert some items.
+Let's insert some item(s).
 
 - Take a moment to review the code with the following command
 
 ```bash
-gp open Ex07c_Insert_Todos.js
+gp open Test03_SaveTask.js
 ```
 
 - After reviewing the code, run the following command in the GitPod terminal window which runs the code after making the connection.
 
 ```bash
-node Ex07c_Insert_Todos.js
+node Test03_SaveTask.js
 ```
 
-- Expected output
+**👁️ Expected output**
 
 ```bash
 ========================================
@@ -177,11 +169,11 @@ SUCCESS
 
 - Open a terminal `zsh` to open a cqlsh shell (we overrided .zshrc to give you that feature)
 
-```sql
+```cql
 select * from todos.todoitems;
 ```
 
-- Expected output
+**👁️ Expected output**
 
 ```bash
 token@cqlshs> select * from todos.todoitems;
@@ -213,7 +205,7 @@ You should see some of your tasks
 
 ![pic](../images/gitpod-john-task.png)
 
-- You might tempted to run the unit test suite now (well you should)
+- You might tempted to run the unit test suite now (as well you should)
 
 ```bash
 gp preview https://todobackend.com/specs/index.html?$(gp url 9191)/api/v1/test/todos/
@@ -239,15 +231,19 @@ gp preview https://todobackend.com/client/index.html?$(gp url 9191)/api/v1/test/
 
 ![pic](../images/gitpod-client-error.png)
 
-again no success = limitation of the gitpod preview, open the link in a new TAB.
+If running into the gitpod preview limitations, open the link in a new TAB.
 
 ![pic](../images/gitpod-client-success.png)
 
 ### ✅ Validate with CQLSH.
 
 ```cql
-token@cqlsh:native_java> select * from todoitems;
+select * from todoitems;
+```
 
+**👁️ Expected output**
+
+```
  user_id  | item_id                              | completed | offset | title
 ----------+--------------------------------------+-----------+--------+---------------------------------
      test | 4828ffc0-7d68-11ec-8c88-2913db53e434 |     False |    523 |                            blah
@@ -262,4 +258,3 @@ Congratulation you can come back to previous
 
 [BACK](../README.MD)
 
-> > > > > > > 5c729c026ef9f392aeaa2eed96f0652712da3d09
