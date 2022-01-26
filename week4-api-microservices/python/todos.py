@@ -21,7 +21,7 @@ class Todos(Model):
     url = columns.Text()
     title = columns.Text(required=True)
     completed = columns.Boolean(default=False)
-    offset = columns.Integer()
+    order = columns.Integer(db_field="offset")
 
 
 sync_table(Todos)
