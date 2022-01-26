@@ -53,7 +53,7 @@ module.exports = {
       item_id,
       completed: false,
       ...todo,
-      url: todo.url + item_id,
+      url: todo.url + "/" + item_id,
     };
     await todoMapper.insert(newTodo);
     return newTodo;
