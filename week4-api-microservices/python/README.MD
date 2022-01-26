@@ -282,7 +282,7 @@ You should see an empty list of todos
 - You might tempted to run the unit test suite now (as well you should)
 
 ```bash
-gp preview https://todobackend.com/specs/index.html?$(gp url 8080)/api/v1/test/todos/
+gp preview https://todobackend.com/specs/index.html?$(gp url 8080)/api/v1/test/todos
 ```
 
 You will get an error this is expected, it is a limitation of the preview in gitpod.
@@ -300,7 +300,7 @@ You will get an error this is expected, it is a limitation of the preview in git
 Change in the url the `specs` path by `client`
 
 ```bash
-gp preview https://todobackend.com/client/index.html?$(gp url 8080)/api/v1/test/todos/
+gp preview https://todobackend.com/client/index.html?$(gp url 8080)/api/v1/test/todos
 ```
 
 ![pic](../images/gitpod-client-error.png)
