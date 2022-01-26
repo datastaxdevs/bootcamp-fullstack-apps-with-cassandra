@@ -15,6 +15,7 @@ module.exports = {
           user_id         TEXT,
           item_id         TIMEUUID,
           title           TEXT,
+          url             TEXT,
           completed       BOOLEAN,
           offset          INT,
           PRIMARY KEY ((user_id), item_id)
@@ -25,6 +26,9 @@ module.exports = {
         Todos: {
           tables: ["todoitems"],
           keyspace: process.env.ASTRA_DB_KEYSPACE,
+          columns: {
+            offset: "order",
+          },
         },
       },
     });
@@ -44,9 +48,12 @@ module.exports = {
     return [];
   },
   createTodo: async (todo) => {
+    const item_id = cassandra.types.TimeUuid.now().toString();
     const newTodo = {
-      item_id: cassandra.types.TimeUuid.now().toString(),
+      item_id,
+      completed: false,
       ...todo,
+      url: todo.url + item_id,
     };
     await todoMapper.insert(newTodo);
     return newTodo;

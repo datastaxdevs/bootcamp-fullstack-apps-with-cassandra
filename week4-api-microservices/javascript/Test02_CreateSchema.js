@@ -11,6 +11,7 @@ console.log("Start exercise");
             user_id         TEXT,
             item_id         TIMEUUID,
             title           TEXT,
+            url             TEXT,
             completed       BOOLEAN,
             offset          INT,
             PRIMARY KEY ((user_id), item_id)
