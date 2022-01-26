@@ -95,6 +95,8 @@ SUCCESS
 ========================================
 ```
 
+If you run into a timeout error rerun this command and confirm that the table is dropped (we changed the data model slightly so its imperative the table is dropped).
+
 ### ✅ Validate Schema with CqlSH
 
 - Open a terminal `zsh` to open a cqlsh shell (we overrided .zshrc to give you that feature)

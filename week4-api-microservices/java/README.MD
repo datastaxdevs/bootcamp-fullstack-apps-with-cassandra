@@ -93,7 +93,7 @@ Lets drop the table if it exists and create anew in the `cqlsh` console with the
 drop table if exists todos.todoitems;
 ```
 
-You can ignore `timeout error` if it happens.
+If you run into a `timeout error` rerun this command and **confirm that the table is dropped** (we changed the data model slightly so its imperative the table is dropped).
 
 Back in the Gitpod terminal `bash` tab
 

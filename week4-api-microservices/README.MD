@@ -380,11 +380,11 @@ FXHtFByhHAjqNjdcLgZNYEll@cqlsh>
 ```
 
 
-We will refer to this as the `CQL shell` (`python2`) and the original shell as the `Gitpod terminal` (`bash ..`). You can click on those tabs to switch between the shells.
+We will refer to this as the `CQL shell` (`cqlsh`) and the original shell as the `Gitpod terminal` (`bash ..`). You can click on those tabs to switch between the shells. The image below shows clicking back on the `bash` shell.
 
 ![dotenv](images/dotenv4.png?raw=true)
 
-**OPTIONAL:** You coud also `split terminal` and have both the `bash` and `cqlsh` side-by-side as shown below rather than clicking on the respective tabs.
+**OPTIONAL:** You coud also `split terminal` and have both the `bash` and `cqlsh` side-by-side as shown below rather than clicking back on the respective tabs. 
 
 ![dotenv](images/dotenv5.png?raw=true)
 
