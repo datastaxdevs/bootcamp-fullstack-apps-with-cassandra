@@ -35,7 +35,7 @@ def create_todo(user_id):
         request_json = request.get_json(force=True)
         item_id = uuid.uuid1()
         request_json["item_id"] = item_id
-        request_json["url"] = f"https://{request.headers['X-Forwarded-Host']}/api/v1/{user_id}/todos/{item_id}"
+        request_json["url"] = f"https://{request.headers.get('X-Forwarded-Host', 'localhost')}/api/v1/{user_id}/todos/{item_id}"
         new_todo = Todos.create(user_id=user_id, **request_json)
         return jsonify(dict(new_todo))
     except ValidationError as e:
