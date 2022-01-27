@@ -19,7 +19,7 @@ to get the most of this week.
 
 It doesn't matter if you join our workshop live or you prefer to do at your own pace, we have you covered.
 
-For the hands-on part of this workshop, we will use **[Astra DB](http://astra.dev/1-26)**, a Database-as-a-Service
+For the hands-on part of this workshop, we will use **[Astra DB](http://astra.dev/1-27)**, a Database-as-a-Service
 built on Cassandra and delivered by DataStax.
 
 In this repository, you'll find everything you need for this workshop:
