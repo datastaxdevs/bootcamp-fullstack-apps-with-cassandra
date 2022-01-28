@@ -9,7 +9,7 @@ try:
     lslist = [str(row).split(' , ') for row in output if 'False' in str(row)]
     #print(lslist)
     for item in lslist[0]:
-        print(type(item))
+        print(item)
     """ for row in output:
         #print(str(row).split(' , '))
         if 'False' in str(row):
