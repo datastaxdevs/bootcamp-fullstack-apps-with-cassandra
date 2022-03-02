@@ -255,7 +255,7 @@ Now that we know the application is working we can go ahead and start it
 ### ✅ Start the application
 
 ```bash
-flask run --port 8080
+FLASK_APP=api:app flask run --port 8080
 ```
 
 **👁️ Expected output**
@@ -272,6 +272,8 @@ flask run --port 8080
 ## 7f - Run the integrations tests
 
 ### ✅ Open the Api in the preview
+
+(while the API is running you should use another Gitpod terminal to run other commands)
 
 ```bash
 gp preview $(gp url 8080)/api/v1/john/todos/
